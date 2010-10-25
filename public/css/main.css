@@ -1,7 +1,7 @@
 html { margin: 20px }
 body {
   margin: 0 auto;
-  font-family: 'Baskerville', Georgia, Times, serif;
+  font-family: 'Baskerville', Times, Georgia, serif;
   font-size: 20px;
   line-height: 30px;
   padding: 15px;
@@ -9,22 +9,22 @@ body {
 
 }
 header, footer, section, article {
-	display: block;
+    display: block;
 }
 #content {
 }
 #by {
-	font-style: italic;
+    font-style: italic;
   margin-right: 5px;
-	font-size: 28px;
+    font-size: 28px;
 }
 #caption {
-	position: absolute;
-	font-size: 24px;
-	margin: -135px 0 0 70px;
+    position: absolute;
+    font-size: 24px;
+    margin: -135px 0 0 70px;
 }
 #path {
-	color: #b53131;
+    color: #b53131;
 }
 .date {
   font-style: italic;
@@ -43,23 +43,23 @@ a:hover {
   text-decoration: underline;
 }
 body > header > h1 {
-	border-left: 30px solid black;
-	padding-left: 30px;
+    border-left: 30px solid black;
+    padding-left: 30px;
   font-size: 201px;
   margin: 100px 0 15px 0;
   font-weight: normal;
 }
 .post header {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 .post .body p:first-child {
-	margin-top: 0;
+    margin-top: 0;
 }
 .post .body p:last-child {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 .post {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 .post:last-child {
   margin-bottom: 10px;
@@ -78,10 +78,10 @@ body > header > h1 {
 }
 .more a:hover { text-decoration: underline }
 body > header {
-	display: block;
-	padding-top: 30px;
-	line-height: 180px;
-	margin-bottom: 20px;
+    display: block;
+    padding-top: 30px;
+    line-height: 180px;
+    margin-bottom: 20px;
 }
 h1, h2, h3, h4 {
   display: inline;
@@ -104,7 +104,7 @@ blockquote {
 body > footer {
   text-align: left;
   margin-left: 10px;
-	font-style: italic;
+    font-style: italic;
   font-size: 18px;
   color: #888;
 }
