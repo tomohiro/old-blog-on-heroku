@@ -9,7 +9,6 @@ $ vi _config.yml
 $ vi layouts/default.html
 $ vi layouts/post.html
 $ vi index.html
-$ jekyll
 
 
 $ vi config.ru
