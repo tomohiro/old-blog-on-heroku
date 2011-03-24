@@ -1,0 +1,25 @@
+---
+layout: post
+title: Install Jekyll
+---
+
+{{ page.title }}
+--------------------------------------------------------------------------------
+
+### Install
+
+    $ gem install jekyll
+
+
+### Setup
+
+    $ mkdir blog
+    $ cd blog
+    $ touch index.html
+    $ mkdir _site
+    $ mkdir _layouts
+    $ mkdir _posts
+    $ mkdir _scripts
+    $ mkdir images
+    $ mkdir css
+    

@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+
+=begin
+
+Script to kickstart a new jekyll post.
+tomohiro.t@gmail.com
+
+Usage: $ ./new_post.rb
+
+=end
+
+require 'date'
+require 'rubygems'
+require 'json'
+require 'open-uri'
+
+def get_input(message)
+  print message
+  gets.chomp.strip
+end
+
+def translate(src, to = 'en')
+  base_uri = 'http://ajax.googleapis.com/ajax/services/language'
+  begin
+    detect = JSON.parse(open("#{base_uri}/detect?v=1.0&q=#{URI.encode(src)}").read)
+    from = detect['responseData']['language']
+    langpair = "langpair=#{from}%7C#{to}"
+    result = JSON.parse(open("#{base_uri}/translate?v=1.0&q=#{URI.encode(src)}&#{langpair}").read)
+    result['responseData']['translatedText']
+  rescue Exception => e
+    "Google: Translation Faild."
+  end
+end
+
+title     = translate((get_input 'Post Title: ')).downcase.gsub(' ', '-')
+extension = 'markdown'
+today     = Date.today
+path      = "_posts/#{today}-#{title}.#{extension}"
+header    = <<HEADER
+---
+layout: post
+title: #{title}
+---
+
+{{ page.title }}
+================================================================================
+
+HEADER
+
+File.open(path, 'w') { |f| f.write(header) }
+system("$EDITOR #{path}")
