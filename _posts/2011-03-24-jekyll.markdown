@@ -10,7 +10,6 @@ title: Install Jekyll
 
     $ gem install jekyll
 
-
 ### Setup
 
     $ mkdir blog
@@ -22,4 +21,3 @@ title: Install Jekyll
     $ mkdir _scripts
     $ mkdir images
     $ mkdir css
-    
