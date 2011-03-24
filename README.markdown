@@ -1,19 +1,29 @@
 
+### Install RubyGems
+
     $ gem install jekyll
     $ gem install rack-jekyll
+
+
+### Create blog directory
 
     $ mkdir blog
     $ cd blog
     $ mkdir _layouts _posts _site css
     $ vi _config.yml 
-    $ vi layouts/default.html
-    $ vi layouts/post.html
+    $ vi _layouts/default.html
+    $ vi _layouts/post.html
     $ vi index.html
 
+
+### Create rack application for heroku
 
     $ vi config.ru
     $ echo rack-jekyll > .gems
 
+### Push Heroku
+
+    $ heroku create tomohiro
     $ git push heroku master
     The authenticity of host 'heroku.com (50.16.232.130)' can't be established.
     RSA key fingerprint is 8b:48:5e:67:0e:c9:16:47:32:f2:87:0c:1f:c8:60:ad.
