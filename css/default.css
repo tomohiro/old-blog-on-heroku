@@ -79,6 +79,10 @@ p.date {
     color: #888888;
 }
 
+section#disqus_thread {
+    margin-top: 20px;
+}
+
 footer {
     font-size: 80%;
     color: #666666;
