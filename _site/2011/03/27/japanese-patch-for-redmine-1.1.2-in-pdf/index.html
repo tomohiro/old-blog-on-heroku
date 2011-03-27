@@ -16,10 +16,8 @@
             <h1><a href="/">log.tomohiro.me</a></h1>
         </header>
 
-        <div id="articles">
-    
-    <article>
-        <h2>Redmine 1.1.2 の PDF 日本語化パッチ</h2>
+        <article>
+    <h2>Redmine 1.1.2 の PDF 日本語化パッチ</h2>
 
 <h3>Patch</h3>
 
@@ -40,90 +38,27 @@
 </ul>
 
 
-        <p class="date">27 Mar 2011 &raquo; <a href="/2011/03/27/japanese-patch-for-redmine-1.1.2-in-pdf/">permalink</a></li>
-    <article>
-    <hr>
-    
-    <article>
-        <h2>Install Jekyll &amp; Deploy to Heroku</h2>
+</article>
 
-<h3>Install Jekyll</h3>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'log-tomohiro-me';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-<pre><code>$ gem install jekyll
-</code></pre>
-
-<h3>Setup</h3>
-
-<pre><code>$ mkdir myblog
-$ cd myblog
-$ touch index.html
-$ mkdir _site
-$ mkdir _layouts
-$ mkdir _posts
-$ mkdir images
-$ mkdir css
-</code></pre>
-
-<h3>Install Rack-Jekyll</h3>
-
-<pre><code>$ gem install rack-jekyll
-$ vi config.ru
-
-require 'rubygems'
-run Rack::Jekyll.new
-
-$ echo 'rack-jekyll' &gt; .gems
-</code></pre>
-
-<p>A basic Rack-Jekyll site usually looks something like this:</p>
-
-<pre><code>$ tree
-.
-|-- .gems
-|-- _config.yml
-|-- _layouts
-|   |-- default.html
-|   `-- post.html
-|-- _posts
-|   |-- 2011-03-24-my-first-post.markdown
-|   `-- 2011-03-25-my-second-post.markdown
-|-- _site
-|-- config.ru
-`-- index.html
-</code></pre>
-
-<h3>Running Jekyll</h3>
-
-<pre><code>$ jekyll --server --auto
-</code></pre>
-
-<p>Browse to http://localhost:4000</p>
-
-<h3>Deply to Heroku</h3>
-
-<pre><code>$ heroku create myblog
-$ git add . 
-$ git commit -a -m 'my blog first commit.'
-$ git push heroku master
-</code></pre>
-
-<p>Browse to http://myblog.heroku.com</p>
-
-<p>Congratulations!</p>
-
-<h3>Reference:</h3>
-
-<ul>
-<li><a href="https://github.com/mojombo/jekyll/wiki" title="Home - GitHub">Home - GitHub</a></li>
-<li><a href="https://github.com/mojombo/jekyll/wiki/Install" title="Install - GitHub">Install - GitHub</a></li>
-<li><a href="https://github.com/mojombo/jekyll/wiki/Usage" title="Usage - GitHub">Usage - GitHub</a></li>
-</ul>
-
-
-        <p class="date">24 Mar 2011 &raquo; <a href="/2011/03/24/jekyll-and-heroku/">permalink</a></li>
-    <article>
-    <hr>
-    
+<div id="related">
+    <h3>Related Posts</h3>
+    <ul class="posts">
+        
+        <li><span>24 Mar 2011</span> &raquo; <a href="/2011/03/24/jekyll-and-heroku/">Install Jekyll & Deploy to Heroku</a></li>
+        
+    </ul>
 </div>
 
 

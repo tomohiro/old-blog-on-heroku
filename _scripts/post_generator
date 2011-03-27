@@ -5,7 +5,7 @@
 Script to kickstart a new jekyll post.
 tomohiro.t@gmail.com
 
-Usage: $ ./new_post.rb
+Usage: $ ./post_generator.rb
 
 =end
 
@@ -43,7 +43,7 @@ title: #{title}
 ---
 
 {{ page.title }}
-================================================================================
+--------------------------------------------------------------------------------
 
 HEADER
 

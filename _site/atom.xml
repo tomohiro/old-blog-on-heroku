@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>log.tomohiro.me</title>
+    <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
+    <link href="http://log.tomohiro.me"/>
+    <updated>2011-03-27T14:56:48+09:00</updated>
+    <id>http://log.tomohiro.me</id>
+    <author>
+        <name>Tomohiro, TAIRA</name>
+        <email>tomohiro.t@gmail.com</email>
+    </author>
+    
+    <entry>
+        <title>Redmine 1.1.2 の PDF 日本語化パッチ</title>
+        <link href="http://log.tomohiro.me/2011/03/27/japanese-patch-for-redmine-1.1.2-in-pdf/"/>
+        <updated>2011-03-27T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/2011/03/27/japanese-patch-for-redmine-1.1.2-in-pdf</id>
+        <content type="html">&lt;h2&gt;Redmine 1.1.2 の PDF 日本語化パッチ&lt;/h2&gt;
+
+&lt;h3&gt;Patch&lt;/h3&gt;
+
+&lt;script src=&quot;http://gist.github.com/882743.js?file=pdf.rb.to_japanese.patch&quot;&gt;&lt;/script&gt;
+
+
+&lt;h3&gt;Apply a patch file&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;# cd /var/lib/redmine/lib/redmine/export
+# patch &amp;lt; pdf.rb.to_japanese.patch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Reference&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://redmine.jp/faq/general/pdfcsv/&quot; title=&quot;PDFおよびCSVの文字化けを回避する | Redmine.JP&quot;&gt;PDFおよびCSVの文字化けを回避する | Redmine.JP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://fmkt.blog65.fc2.com/blog-entry-148.html&quot; title=&quot;徒然さめざめ 続・何回目？ Redmine pdf日本語化hack&quot;&gt;徒然さめざめ 続・何回目？ Redmine pdf日本語化hack&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+    </entry>
+    
+    <entry>
+        <title>Install Jekyll & Deploy to Heroku</title>
+        <link href="http://log.tomohiro.me/2011/03/24/jekyll-and-heroku/"/>
+        <updated>2011-03-24T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/2011/03/24/jekyll-and-heroku</id>
+        <content type="html">&lt;h2&gt;Install Jekyll &amp;amp; Deploy to Heroku&lt;/h2&gt;
+
+&lt;h3&gt;Install Jekyll&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install jekyll
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Setup&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir myblog
+$ cd myblog
+$ touch index.html
+$ mkdir _site
+$ mkdir _layouts
+$ mkdir _posts
+$ mkdir images
+$ mkdir css
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Install Rack-Jekyll&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install rack-jekyll
+$ vi config.ru
+
+require 'rubygems'
+run Rack::Jekyll.new
+
+$ echo 'rack-jekyll' &amp;gt; .gems
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A basic Rack-Jekyll site usually looks something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ tree
+.
+|-- .gems
+|-- _config.yml
+|-- _layouts
+|   |-- default.html
+|   `-- post.html
+|-- _posts
+|   |-- 2011-03-24-my-first-post.markdown
+|   `-- 2011-03-25-my-second-post.markdown
+|-- _site
+|-- config.ru
+`-- index.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Running Jekyll&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ jekyll --server --auto
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Browse to http://localhost:4000&lt;/p&gt;
+
+&lt;h3&gt;Deply to Heroku&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku create myblog
+$ git add . 
+$ git commit -a -m 'my blog first commit.'
+$ git push heroku master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Browse to http://myblog.heroku.com&lt;/p&gt;
+
+&lt;p&gt;Congratulations!&lt;/p&gt;
+
+&lt;h3&gt;Reference:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki&quot; title=&quot;Home - GitHub&quot;&gt;Home - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Install&quot; title=&quot;Install - GitHub&quot;&gt;Install - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Usage&quot; title=&quot;Usage - GitHub&quot;&gt;Usage - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+    </entry>
+    
+</feed>

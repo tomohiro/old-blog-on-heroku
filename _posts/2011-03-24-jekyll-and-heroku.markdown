@@ -52,7 +52,7 @@ A basic Rack-Jekyll site usually looks something like this:
 
     $ jekyll --server --auto
 
-Browse to http://localhost:4000.
+Browse to http://localhost:4000
 
 
 ### Deply to Heroku
@@ -61,6 +61,8 @@ Browse to http://localhost:4000.
     $ git add . 
     $ git commit -a -m 'my blog first commit.'
     $ git push heroku master
+
+Browse to http://myblog.heroku.com
 
 Congratulations!
 
