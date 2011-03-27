@@ -4,7 +4,7 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me"/>
-    <updated>2011-03-27T21:07:53+09:00</updated>
+    <updated>2011-03-27T21:15:18+09:00</updated>
     <id>http://log.tomohiro.me</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -20,7 +20,7 @@
 
 &lt;p&gt;Blog などに Gist の embed を貼りつける時に，見た目をカスタマイズする方法．&lt;/p&gt;
 
-&lt;p&gt;Firebug などで，JavaScript が展開した Gist の HTML 要素がわかるので，それに対して普通に CSS を書けば良い&lt;/p&gt;
+&lt;p&gt;JavaScript が展開した Gist の HTML 要素・構造は Firebug 等のツールでわかるので，目的の要素を調べて普通に CSS を書けば良い．&lt;/p&gt;
 
 &lt;p&gt;例えばソースコードのフォントを変えたい場合は，下記のように CSS を書く．&lt;/p&gt;
 
@@ -29,7 +29,7 @@
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3&gt;Reference&lt;/h3&gt;
+&lt;h3&gt;Reference:&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://valvallow.blogspot.com/2010/10/gist-blog-embed-css.html&quot;&gt;gist を blog に embed する時の見た目や色（CSS） を変える&lt;/a&gt;&lt;/li&gt;
@@ -57,7 +57,7 @@
 # patch &amp;lt; pdf.rb.to_japanese.patch
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3&gt;Reference&lt;/h3&gt;
+&lt;h3&gt;Reference:&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://redmine.jp/faq/general/pdfcsv/&quot; title=&quot;PDFおよびCSVの文字化けを回避する | Redmine.JP&quot;&gt;PDFおよびCSVの文字化けを回避する | Redmine.JP&lt;/a&gt;&lt;/li&gt;
