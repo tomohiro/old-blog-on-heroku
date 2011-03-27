@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>log.tomohiro.me | Install Jekyll & Deploy to Heroku</title>
+        <title>log.tomohiro.me | Redmine 1.1.2 の PDF 日本語化パッチ</title>
         <meta name="author" content="Tomohiro, TAIRA">
         <meta http-equiv="Content-Script-Type" content="text/javascript">
         <meta http-equiv="Content-Style-Type" content="text/css">
@@ -33,78 +33,24 @@
 
         <div id="content">
             <article>
-    <h2>Install Jekyll &amp; Deploy to Heroku</h2>
+    <h2>Redmine 1.1.2 の PDF 日本語化パッチ</h2>
 
-<h3>Install Jekyll</h3>
+<h3>Patch</h3>
 
-<pre><code>$ gem install jekyll
+<script src="http://gist.github.com/882743.js?file=pdf.rb.to_japanese.patch"></script>
+
+
+<h3>Apply a patch file</h3>
+
+<pre><code># cd /var/lib/redmine/lib/redmine/export
+# patch &lt; pdf.rb.to_japanese.patch
 </code></pre>
 
-<h3>Setup</h3>
-
-<pre><code>$ mkdir myblog
-$ cd myblog
-$ touch index.html
-$ mkdir _site
-$ mkdir _layouts
-$ mkdir _posts
-$ mkdir images
-$ mkdir css
-</code></pre>
-
-<h3>Install Rack-Jekyll</h3>
-
-<pre><code>$ gem install rack-jekyll
-$ vi config.ru
-
-require 'rubygems'
-run Rack::Jekyll.new
-
-$ echo 'rack-jekyll' &gt; .gems
-</code></pre>
-
-<p>A basic Rack-Jekyll site usually looks something like this:</p>
-
-<pre><code>$ tree
-.
-|-- .gems
-|-- _config.yml
-|-- _layouts
-|   |-- default.html
-|   `-- post.html
-|-- _posts
-|   |-- 2011-03-24-my-first-post.markdown
-|   `-- 2011-03-25-my-second-post.markdown
-|-- _site
-|-- config.ru
-`-- index.html
-</code></pre>
-
-<h3>Running Jekyll</h3>
-
-<pre><code>$ jekyll --server --auto
-</code></pre>
-
-<p>Browse to http://localhost:4000</p>
-
-<h3>Deply to Heroku</h3>
-
-<pre><code>$ heroku create myblog
-$ git add . 
-$ git commit -a -m 'my blog first commit.'
-$ git push heroku master
-</code></pre>
-
-<p>Browse to http://myblog.heroku.com</p>
-
-<p>Congratulations!</p>
-
-<h3>Reference:</h3>
+<h3>Reference</h3>
 
 <ul>
-<li><a href="https://github.com/mojombo/jekyll/wiki" title="Home - GitHub">Home - GitHub</a></li>
-<li><a href="https://github.com/mojombo/jekyll/wiki/Install" title="Install - GitHub">Install - GitHub</a></li>
-<li><a href="https://github.com/mojombo/jekyll/wiki/Usage" title="Usage - GitHub">Usage - GitHub</a></li>
+<li><a href="http://redmine.jp/faq/general/pdfcsv/" title="PDFおよびCSVの文字化けを回避する | Redmine.JP">PDFおよびCSVの文字化けを回避する | Redmine.JP</a></li>
+<li><a href="http://fmkt.blog65.fc2.com/blog-entry-148.html" title="徒然さめざめ 続・何回目？ Redmine pdf日本語化hack">徒然さめざめ 続・何回目？ Redmine pdf日本語化hack</a></li>
 </ul>
 
 

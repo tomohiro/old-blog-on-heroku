@@ -4,7 +4,7 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me"/>
-    <updated>2011-03-27T15:10:22+09:00</updated>
+    <updated>2011-03-27T21:07:53+09:00</updated>
     <id>http://log.tomohiro.me</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -12,10 +12,38 @@
     </author>
     
     <entry>
-        <title>Redmine 1.1.2 の PDF 日本語化パッチ</title>
-        <link href="http://log.tomohiro.me/2011/03/27/japanese-patch-for-redmine-1.1.2-in-pdf/"/>
+        <title>Gist に CSS を適用する方法</title>
+        <link href="http://log.tomohiro.me/2011/03/27/how-to-apply-css-to-gist/"/>
         <updated>2011-03-27T00:00:00+09:00</updated>
-        <id>http://log.tomohiro.me/2011/03/27/japanese-patch-for-redmine-1.1.2-in-pdf</id>
+        <id>http://log.tomohiro.me/2011/03/27/how-to-apply-css-to-gist</id>
+        <content type="html">&lt;h2&gt;Gist に CSS を適用する方法&lt;/h2&gt;
+
+&lt;p&gt;Blog などに Gist の embed を貼りつける時に，見た目をカスタマイズする方法．&lt;/p&gt;
+
+&lt;p&gt;Firebug などで，JavaScript が展開した Gist の HTML 要素がわかるので，それに対して普通に CSS を書けば良い&lt;/p&gt;
+
+&lt;p&gt;例えばソースコードのフォントを変えたい場合は，下記のように CSS を書く．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;div.gist-highlight pre .line {
+    font-family: Inconsolata, Consolas, 'Courier New', monospace;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Reference&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://valvallow.blogspot.com/2010/10/gist-blog-embed-css.html&quot;&gt;gist を blog に embed する時の見た目や色（CSS） を変える&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/snaka72/20081218/1229622900&quot;&gt;ダイアリーに貼り付けるgistのコードの見た目をカスタマイズする&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+    </entry>
+    
+    <entry>
+        <title>Redmine 1.1.2 の PDF 日本語化パッチ</title>
+        <link href="http://log.tomohiro.me/2011/03/26/japanese-patch-for-redmine-1.1.2-in-pdf/"/>
+        <updated>2011-03-26T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/2011/03/26/japanese-patch-for-redmine-1.1.2-in-pdf</id>
         <content type="html">&lt;h2&gt;Redmine 1.1.2 の PDF 日本語化パッチ&lt;/h2&gt;
 
 &lt;h3&gt;Patch&lt;/h3&gt;

@@ -3,3 +3,4 @@ title: log.tomohiro.me
 markdown: rdiscount
 permalink: pretty
 pygments: true
+paginator: true
