@@ -12,10 +12,11 @@ JavaScript が展開した Gist の HTML 要素・構造は Firebug 等のツー
 
 例えばソースコードのフォントを変えたい場合は，下記のように CSS を書く．
 
-
-    div.gist-highlight pre .line {
-        font-family: Inconsolata, Consolas, 'Courier New', monospace;
-    }
+{% highlight css %}
+div.gist-highlight pre .line {
+    font-family: Inconsolata, Consolas, 'Courier New', monospace;
+}
+{% endhighlight %}
 
 
 ### Reference:
