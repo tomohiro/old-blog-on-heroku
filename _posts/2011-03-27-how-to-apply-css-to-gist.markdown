@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Gist に CSS を適用する方法
+category: css
 ---
 
 {{ page.title }}

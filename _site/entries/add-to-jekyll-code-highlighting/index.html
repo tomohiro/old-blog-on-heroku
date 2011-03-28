@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>log.tomohiro.me | Jekyll にコードハイライティングを追加</title>
+        <meta name="author" content="Tomohiro, TAIRA">
+        <meta name="google-site-verification" content="fVZ5SSA5Kv566sngCmPhquRWuNGa5E8YJiyMla39Ggg" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <meta http-equiv="Content-Style-Type" content="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <script src="/js/google-analytics.js"></script>
+        <link rel="me" type="text/html" href="http://www.google.com/profiles/tomohiro.t">
+        <link rel="alternate" type="application/atom+xml" title="log.tomohiro.me Atom" href="http://log.tomohiro.me/atom.xml">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Cuprum'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Inconsolata'>
+        <link rel="stylesheet" href="/css/default.css" media="screen, projection">
+        <link rel="stylesheet" href="/css/syntax.css" media="screen, projection">
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">log.tomohiro.me</a></h1>
+            <div id="banners">
+                <a href="http://github.com/Tomohiro">
+                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+                </a>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/">Top</a></li>
+                <li><a href="/archive">Archive</a></li>
+                <li><a href="http://tomohiro.me">About</a></li>
+                <li><a href="/atom.xml">Feed</a></li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <article>
+    <h2>Jekyll にコードハイライティングを追加</h2>
+
+<h3>設定を変更する</h3>
+
+<p>_config.yml に pygments オプションを追加する．</p>
+
+<div class="highlight"><pre><code class="yaml"><span class="l-Scalar-Plain">pygments</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+</code></pre>
+</div>
+
+
+<h3>CSS を読み込む</h3>
+
+<p>pygments が生成する HTML に適用できる CSS を用意する必要がある．
+例えば <a href="http://github.com/mojombo/tpw/tree/master/css/syntax.css">syntax.css</a> を使う．</p>
+
+<p>後は HTML 側で読み込む．</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;/css/syntax.css&quot;</span> <span class="n">media</span><span class="o">=</span><span class="s2">&quot;screen&quot;</span><span class="o">&gt;</span>
+</code></pre>
+</div>
+
+
+<h3>記事の中にコードハイライティングの指定をする</h3>
+
+<p>記法:</p>
+
+<pre><code>{&#037; highlight ruby &#037;}
+def foo
+  puts 'foo'
+end
+{&#037; endhighlight &#037;}
+</code></pre>
+
+
+<p>結果:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">def</span> <span class="nf">foo</span>
+  <span class="nb">puts</span> <span class="s1">&#39;foo&#39;</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+
+<h3>Reference:</h3>
+
+<ul>
+<li><a href="https://github.com/mojombo/jekyll/wiki/Liquid-Extensions" title="Liquid Extensions - GitHub">Liquid Extensions - GitHub</a></li>
+</ul>
+
+
+
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        var disqus_shortname = 'log-tomohiro-me';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+
+        </div>
+
+        <footer>
+            <p>
+                <span id="copyright">&copy; 2011 <a href="http://twitter.com/Tomohiro">@Tomohiro</a>, TAIRA</span>
+                <span id="powered">Powered by
+                    <a href="http://jekyllrb.com" title="Jekyll is a simple, blog aware, static site generator.">Jekyll</a>,
+                    <a href="http://heroku.com" title="Heroku | Ruby Cloud Platform as a Service">Heroku</a>
+                </span>
+            </p>
+        </footer>
+    </body>
+</html>

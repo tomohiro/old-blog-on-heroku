@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Redmine 1.1.2 の PDF 日本語化パッチ
+categories: [ruby, redmine]
 ---
 
 {{ page.title }}

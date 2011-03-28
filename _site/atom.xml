@@ -4,12 +4,70 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-03-28T21:23:51+09:00</updated>
+    <updated>2011-03-29T00:52:50+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
         <email>tomohiro.t@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Jekyll にコードハイライティングを追加</title>
+        <link href="http://log.tomohiro.me/entries/add-to-jekyll-code-highlighting"/>
+        <updated>2011-03-28T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/entries/add-to-jekyll-code-highlighting</id>
+        <content type="html">&lt;h2&gt;Jekyll にコードハイライティングを追加&lt;/h2&gt;
+
+&lt;h3&gt;設定を変更する&lt;/h3&gt;
+
+&lt;p&gt;_config.yml に pygments オプションを追加する．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;yaml&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;pygments&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;CSS を読み込む&lt;/h3&gt;
+
+&lt;p&gt;pygments が生成する HTML に適用できる CSS を用意する必要がある．
+例えば &lt;a href=&quot;http://github.com/mojombo/tpw/tree/master/css/syntax.css&quot;&gt;syntax.css&lt;/a&gt; を使う．&lt;/p&gt;
+
+&lt;p&gt;後は HTML 側で読み込む．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;/css/syntax.css&amp;quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;media&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;screen&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;記事の中にコードハイライティングの指定をする&lt;/h3&gt;
+
+&lt;p&gt;記法:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{&amp;#037; highlight ruby &amp;#037;}
+def foo
+  puts 'foo'
+end
+{&amp;#037; endhighlight &amp;#037;}
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;結果:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;Reference:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Liquid-Extensions&quot; title=&quot;Liquid Extensions - GitHub&quot;&gt;Liquid Extensions - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+    </entry>
     
     <entry>
         <title>Gist に CSS を適用する方法</title>

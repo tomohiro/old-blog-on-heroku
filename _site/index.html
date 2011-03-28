@@ -40,6 +40,62 @@
             <section id="articles">
     
     <article>
+        <h2>Jekyll にコードハイライティングを追加</h2>
+
+<h3>設定を変更する</h3>
+
+<p>_config.yml に pygments オプションを追加する．</p>
+
+<div class="highlight"><pre><code class="yaml"><span class="l-Scalar-Plain">pygments</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+</code></pre>
+</div>
+
+
+<h3>CSS を読み込む</h3>
+
+<p>pygments が生成する HTML に適用できる CSS を用意する必要がある．
+例えば <a href="http://github.com/mojombo/tpw/tree/master/css/syntax.css">syntax.css</a> を使う．</p>
+
+<p>後は HTML 側で読み込む．</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;/css/syntax.css&quot;</span> <span class="n">media</span><span class="o">=</span><span class="s2">&quot;screen&quot;</span><span class="o">&gt;</span>
+</code></pre>
+</div>
+
+
+<h3>記事の中にコードハイライティングの指定をする</h3>
+
+<p>記法:</p>
+
+<pre><code>{&#037; highlight ruby &#037;}
+def foo
+  puts 'foo'
+end
+{&#037; endhighlight &#037;}
+</code></pre>
+
+
+<p>結果:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">def</span> <span class="nf">foo</span>
+  <span class="nb">puts</span> <span class="s1">&#39;foo&#39;</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+
+<h3>Reference:</h3>
+
+<ul>
+<li><a href="https://github.com/mojombo/jekyll/wiki/Liquid-Extensions" title="Liquid Extensions - GitHub">Liquid Extensions - GitHub</a></li>
+</ul>
+
+
+        <p><span class="date">28 Mar 2011</span> &raquo; <a href="/entries/add-to-jekyll-code-highlighting">permalink</a></p>
+    </article>
+    <hr>
+    
+    <article>
         <h2>Gist に CSS を適用する方法</h2>
 
 <p>Blog などに Gist の embed を貼りつける時に，見た目をカスタマイズする方法．</p>
