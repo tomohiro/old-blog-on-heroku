@@ -3,4 +3,6 @@ title: log.tomohiro.me
 markdown: rdiscount
 permalink: pretty
 pygments: true
-paginator: true
+paginate: 5
+
+exclude: ['README.markdown', 'config.ru']
