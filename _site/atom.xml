@@ -4,7 +4,7 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-03-28T20:20:51+09:00</updated>
+    <updated>2011-03-28T21:23:51+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -13,9 +13,9 @@
     
     <entry>
         <title>Gist に CSS を適用する方法</title>
-        <link href="http://log.tomohiro.me/2011/03/27/how-to-apply-css-to-gist/"/>
+        <link href="http://log.tomohiro.me/entries/how-to-apply-css-to-gist"/>
         <updated>2011-03-27T00:00:00+09:00</updated>
-        <id>http://log.tomohiro.me/2011/03/27/how-to-apply-css-to-gist</id>
+        <id>http://log.tomohiro.me/entries/how-to-apply-css-to-gist</id>
         <content type="html">&lt;h2&gt;Gist に CSS を適用する方法&lt;/h2&gt;
 
 &lt;p&gt;Blog などに Gist の embed を貼りつける時に，見た目をカスタマイズする方法．&lt;/p&gt;
@@ -43,9 +43,9 @@
     
     <entry>
         <title>Redmine 1.1.2 の PDF 日本語化パッチ</title>
-        <link href="http://log.tomohiro.me/2011/03/26/japanese-patch-for-redmine-1.1.2-in-pdf/"/>
+        <link href="http://log.tomohiro.me/entries/japanese-patch-for-redmine-1.1.2-in-pdf"/>
         <updated>2011-03-26T00:00:00+09:00</updated>
-        <id>http://log.tomohiro.me/2011/03/26/japanese-patch-for-redmine-1.1.2-in-pdf</id>
+        <id>http://log.tomohiro.me/entries/japanese-patch-for-redmine-1.1.2-in-pdf</id>
         <content type="html">&lt;h2&gt;Redmine 1.1.2 の PDF 日本語化パッチ&lt;/h2&gt;
 
 &lt;h3&gt;Patch&lt;/h3&gt;
@@ -55,8 +55,8 @@
 
 &lt;h3&gt;Apply a patch file&lt;/h3&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# cd /var/lib/redmine/lib/redmine/export&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# patch &amp;lt; pdf.rb.to_japanese.patch&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/lib/redmine/lib/redmine/export
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;patch &amp;lt; pdf.rb.to_japanese.patch
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -73,70 +73,91 @@
     
     <entry>
         <title>Install Jekyll &amp; Deploy to Heroku</title>
-        <link href="http://log.tomohiro.me/2011/03/24/jekyll-and-heroku/"/>
+        <link href="http://log.tomohiro.me/entries/jekyll-and-heroku"/>
         <updated>2011-03-24T00:00:00+09:00</updated>
-        <id>http://log.tomohiro.me/2011/03/24/jekyll-and-heroku</id>
+        <id>http://log.tomohiro.me/entries/jekyll-and-heroku</id>
         <content type="html">&lt;h2&gt;Install Jekyll &amp;amp; Deploy to Heroku&lt;/h2&gt;
 
 &lt;h3&gt;Install Jekyll&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;$ gem install jekyll
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem install jekyll
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 
 &lt;h3&gt;Setup&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;$ mkdir myblog
-$ cd myblog
-$ touch index.html
-$ mkdir _site
-$ mkdir _layouts
-$ mkdir _posts
-$ mkdir images
-$ mkdir css
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir myblog
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;myblog
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;touch index.html
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir _site _layouts _posts
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mkdir css
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 
 &lt;h3&gt;Install Rack-Jekyll&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;$ gem install rack-jekyll
-$ vi config.ru
-
-require 'rubygems'
-run Rack::Jekyll.new
-
-$ echo 'rack-jekyll' &amp;gt; .gems
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem install rack-jekyll
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vi config.ru
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config.ru&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rubygems&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rack-jekyll&amp;#39;&lt;/span&gt; &amp;gt; .gems
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 
 &lt;p&gt;A basic Rack-Jekyll site usually looks something like this:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ tree
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;tree
 .
 |-- .gems
 |-- _config.yml
 |-- _layouts
 |   |-- default.html
-|   `-- post.html
+|   &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;-- post.html
 |-- _posts
 |   |-- 2011-03-24-my-first-post.markdown
-|   `-- 2011-03-25-my-second-post.markdown
+|   &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;-- 2011-03-25-my-second-post.markdown
 |-- _site
 |-- config.ru
-`-- index.html
+&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;-- index.html
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 
 &lt;h3&gt;Running Jekyll&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;$ jekyll --server --auto
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll --server --auto
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 
 &lt;p&gt;Browse to http://localhost:4000&lt;/p&gt;
 
 &lt;h3&gt;Deply to Heroku&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;$ heroku create myblog
-$ git add . 
-$ git commit -a -m 'my blog first commit.'
-$ git push heroku master
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll --server --auto
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;heroku create myblog
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add . 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit -a -m &lt;span class=&quot;s1&quot;&gt;&amp;#39;my blog first commit.&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push heroku master
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 
 &lt;p&gt;Browse to http://myblog.heroku.com&lt;/p&gt;
 

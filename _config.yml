@@ -1,8 +1,8 @@
 title: log.tomohiro.me
 
 markdown: rdiscount
-permalink: pretty
 pygments: true
+permalink: /entries/:title
 paginate: 5
 
 exclude: ['README.markdown', 'config.ru']

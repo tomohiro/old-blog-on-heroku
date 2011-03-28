@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Install Jekyll & Deploy to Heroku
+categories: [ruby, jekyll]
 ---
 
 {{ page.title }}
@@ -8,59 +9,74 @@ title: Install Jekyll & Deploy to Heroku
 
 ### Install Jekyll
 
-    $ gem install jekyll
+{% highlight bash %}
+$ gem install jekyll
+{% endhighlight %}
 
 ### Setup
 
-    $ mkdir myblog
-    $ cd myblog
-    $ touch index.html
-    $ mkdir _site
-    $ mkdir _layouts
-    $ mkdir _posts
-    $ mkdir images
-    $ mkdir css
+{% highlight bash %}
+$ mkdir myblog
+$ cd myblog
+$ touch index.html
+$ mkdir _site _layouts _posts
+$ mkdir css
+{% endhighlight %}
 
 
 ### Install Rack-Jekyll
 
-    $ gem install rack-jekyll
-    $ vi config.ru
+{% highlight bash %}
+$ gem install rack-jekyll
+$ vi config.ru
+{% endhighlight %}
 
-    require 'rubygems'
-    run Rack::Jekyll.new
+{% highlight ruby %}
+# config.ru
+require 'rubygems'
+run Rack::Jekyll.new
+{% endhighlight %}
 
-    $ echo 'rack-jekyll' > .gems
+{% highlight bash %}
+$ echo 'rack-jekyll' > .gems
+{% endhighlight %}
 
 A basic Rack-Jekyll site usually looks something like this:
 
-    $ tree
-    .
-    |-- .gems
-    |-- _config.yml
-    |-- _layouts
-    |   |-- default.html
-    |   `-- post.html
-    |-- _posts
-    |   |-- 2011-03-24-my-first-post.markdown
-    |   `-- 2011-03-25-my-second-post.markdown
-    |-- _site
-    |-- config.ru
-    `-- index.html
+{% highlight bash %}
+$ tree
+.
+|-- .gems
+|-- _config.yml
+|-- _layouts
+|   |-- default.html
+|   `-- post.html
+|-- _posts
+|   |-- 2011-03-24-my-first-post.markdown
+|   `-- 2011-03-25-my-second-post.markdown
+|-- _site
+|-- config.ru
+`-- index.html
+{% endhighlight %}
 
 ### Running Jekyll
 
-    $ jekyll --server --auto
+{% highlight bash %}
+$ jekyll --server --auto
+{% endhighlight %}
 
 Browse to http://localhost:4000
 
 
 ### Deply to Heroku
 
-    $ heroku create myblog
-    $ git add . 
-    $ git commit -a -m 'my blog first commit.'
-    $ git push heroku master
+{% highlight bash %}
+$ jekyll --server --auto
+$ heroku create myblog
+$ git add . 
+$ git commit -a -m 'my blog first commit.'
+$ git push heroku master
+{% endhighlight %}
 
 Browse to http://myblog.heroku.com
 

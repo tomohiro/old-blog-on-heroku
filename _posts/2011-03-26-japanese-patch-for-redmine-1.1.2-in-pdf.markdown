@@ -14,8 +14,8 @@ title: Redmine 1.1.2 の PDF 日本語化パッチ
 ### Apply a patch file
 
 {% highlight bash %}
-# cd /var/lib/redmine/lib/redmine/export
-# patch < pdf.rb.to_japanese.patch
+$ cd /var/lib/redmine/lib/redmine/export
+$ patch < pdf.rb.to_japanese.patch
 {% endhighlight %}
 
 
