@@ -4,7 +4,7 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me"/>
-    <updated>2011-03-27T21:22:51+09:00</updated>
+    <updated>2011-03-28T09:59:42+09:00</updated>
     <id>http://log.tomohiro.me</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -24,10 +24,12 @@
 
 &lt;p&gt;例えばソースコードのフォントを変えたい場合は，下記のように CSS を書く．&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;div.gist-highlight pre .line {
-    font-family: Inconsolata, Consolas, 'Courier New', monospace;
-}
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.gist-highlight&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.line&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Inconsolata&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Consolas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Courier New&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;monospace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 
 &lt;h3&gt;Reference:&lt;/h3&gt;
 
@@ -53,9 +55,11 @@
 
 &lt;h3&gt;Apply a patch file&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;# cd /var/lib/redmine/lib/redmine/export
-# patch &amp;lt; pdf.rb.to_japanese.patch
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# cd /var/lib/redmine/lib/redmine/export&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# patch &amp;lt; pdf.rb.to_japanese.patch&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 
 &lt;h3&gt;Reference:&lt;/h3&gt;
 
