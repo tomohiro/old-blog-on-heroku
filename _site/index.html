@@ -40,6 +40,47 @@
             <section id="articles">
     
     <article>
+        <h2>PostgreSQL から CSV ファイルをエクスポートする</h2>
+
+<p>カンマ区切りの一般的な CSV を吐き出す場合はこのようなコマンドを実行すれば良い．</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>psql -U <span class="o">{</span>user<span class="o">}</span> <span class="o">{</span>dbname<span class="o">}</span> -c <span class="s1">&#39;SELECT * FROM example&#39;</span> -A -F, &gt; example.csv
+</code></pre>
+</div>
+
+
+<p>カラムのデータに改行コードが含まれる場合，出力する CSV を Excel などで開くと
+途中で改行されてしまい，大変残念な感じになる．
+その場合は，改行が含まれるカラムのデータを下記のように変更する必要がある．</p>
+
+<ul>
+<li>CRLF を LF に変更</li>
+<li>ダブルクォーテーションでくくる</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="sql"><span class="k">SELECT</span>
+   <span class="s1">&#39;&quot;&#39;</span> <span class="o">||</span> <span class="k">REPLACE</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">description</span> <span class="s1">&#39;\r\n&#39;</span><span class="p">,</span> <span class="s1">&#39;\n&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;&quot;&#39;</span> <span class="k">AS</span> <span class="n">description</span>
+<span class="k">FROM</span>
+   <span class="n">example</span> <span class="k">AS</span> <span class="n">e</span>
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>psql -U <span class="o">{</span>user<span class="o">}</span> <span class="o">{</span>dbname<span class="o">}</span> -f export_example_to_csv.sql -A -F, &gt; example.csv
+</code></pre>
+</div>
+
+
+
+
+        <p><span class="date">30 Mar 2011</span> &raquo; <a href="/entries/csv-export-from-postgresql">permalink</a></p>
+    </article>
+    <hr>
+    
+    <article>
         <h2>Jekyll にコードハイライティングを追加</h2>
 
 <h3>設定を変更する</h3>

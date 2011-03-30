@@ -4,12 +4,55 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-03-29T00:59:24+09:00</updated>
+    <updated>2011-03-30T20:29:33+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
         <email>tomohiro.t@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>PostgreSQL から CSV ファイルをエクスポートする</title>
+        <link href="http://log.tomohiro.me/entries/csv-export-from-postgresql"/>
+        <updated>2011-03-30T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/entries/csv-export-from-postgresql</id>
+        <content type="html">&lt;h2&gt;PostgreSQL から CSV ファイルをエクスポートする&lt;/h2&gt;
+
+&lt;p&gt;カンマ区切りの一般的な CSV を吐き出す場合はこのようなコマンドを実行すれば良い．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;psql -U &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;user&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;dbname&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; -c &lt;span class=&quot;s1&quot;&gt;&amp;#39;SELECT * FROM example&amp;#39;&lt;/span&gt; -A -F, &amp;gt; example.csv
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;カラムのデータに改行コードが含まれる場合，出力する CSV を Excel などで開くと
+途中で改行されてしまい，大変残念な感じになる．
+その場合は，改行が含まれるカラムのデータを下記のように変更する必要がある．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CRLF を LF に変更&lt;/li&gt;
+&lt;li&gt;ダブルクォーテーションでくくる&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt;
+   &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;quot;&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;REPLACE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;\r\n&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;quot;&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;example&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;psql -U &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;user&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;dbname&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; -f export_example_to_csv.sql -A -F, &amp;gt; example.csv
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+</content>
+    </entry>
     
     <entry>
         <title>Jekyll にコードハイライティングを追加</title>
