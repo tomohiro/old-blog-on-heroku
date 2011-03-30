@@ -21,7 +21,7 @@ h3 {
     font-size: 100%;
 }
 
-li {
+nav li {
     list-style: none;
 }
 
@@ -95,6 +95,10 @@ footer #copyright {
 }
 footer #powered{
     float: right;
+}
+
+article#archive li {
+    list-style: none;
 }
 
 .date {
