@@ -3,8 +3,20 @@ layout: default
 ---
 
 <article>
+    <h2><a href="{{ post.url }}" id="permalink">✓ </a> {{ page.title }}</h2>
+   
     {{ content }}
 
+    <section id="categories">
+        <h3>Categories:</h3> 
+        <ul>
+            {% for category in page.categories %}
+                <li>{{ category }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+   
+    <p>Posted by {{ site.author }}, at <span class="date">{{ page.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ page.url }}">permalink</a></p>
     <section id="disqus_thread"></section>
     <script type="text/javascript">
         var disqus_shortname = 'log-tomohiro-me';

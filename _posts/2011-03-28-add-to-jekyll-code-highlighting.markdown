@@ -1,12 +1,8 @@
 ---
 layout: post
 title: Jekyll にコードハイライティングを追加
-categories: [ruby, jekyll]
+categories: [Ruby, Jekyll]
 ---
-
-{{ page.title }}
---------------------------------------------------------------------------------
-
 
 ### 設定を変更する
 

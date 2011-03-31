@@ -1,11 +1,8 @@
 ---
 layout: post
 title: Install Jekyll & Deploy to Heroku
-categories: [ruby, jekyll]
+categories: [Ruby, Jekyll]
 ---
-
-{{ page.title }}
---------------------------------------------------------------------------------
 
 ### Install Jekyll
 

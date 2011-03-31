@@ -5,9 +5,11 @@ layout: default
 <section id="articles">
     {% for post in site.posts %}
     <article>
+        <h2><a href="{{ post.url }}" id="permalink">✓ </a> {{ post.title }}</h2>
+
         {{ post.content }}
-        <p><span class="date">{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">permalink</a></p>
+
+        <p id="posted">Posted by {{ site.author }}, at <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">permalink</a></p>
     </article>
-    <hr>
     {% endfor %}
 </section>

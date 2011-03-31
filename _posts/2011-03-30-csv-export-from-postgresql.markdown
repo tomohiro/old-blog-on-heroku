@@ -1,12 +1,8 @@
 ---
 layout: post
 title: PostgreSQL から CSV ファイルをエクスポートする
-categories: [sql, postgresql]
+categories: [SQL, PostgreSQL]
 ---
-
-{{ page.title }}
---------------------------------------------------------------------------------
-
 
 カンマ区切りの一般的な CSV を吐き出す場合はこのようなコマンドを実行すれば良い．
 

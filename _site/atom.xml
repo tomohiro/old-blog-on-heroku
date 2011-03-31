@@ -4,7 +4,7 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-03-30T20:29:33+09:00</updated>
+    <updated>2011-03-31T16:01:52+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -16,9 +16,7 @@
         <link href="http://log.tomohiro.me/entries/csv-export-from-postgresql"/>
         <updated>2011-03-30T00:00:00+09:00</updated>
         <id>http://log.tomohiro.me/entries/csv-export-from-postgresql</id>
-        <content type="html">&lt;h2&gt;PostgreSQL から CSV ファイルをエクスポートする&lt;/h2&gt;
-
-&lt;p&gt;カンマ区切りの一般的な CSV を吐き出す場合はこのようなコマンドを実行すれば良い．&lt;/p&gt;
+        <content type="html">&lt;p&gt;カンマ区切りの一般的な CSV を吐き出す場合はこのようなコマンドを実行すれば良い．&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;psql -U &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;user&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;dbname&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; -c &lt;span class=&quot;s1&quot;&gt;&amp;#39;SELECT * FROM example&amp;#39;&lt;/span&gt; -A -F, &amp;gt; example.csv
 &lt;/code&gt;&lt;/pre&gt;
@@ -59,9 +57,7 @@
         <link href="http://log.tomohiro.me/entries/add-to-jekyll-code-highlighting"/>
         <updated>2011-03-28T00:00:00+09:00</updated>
         <id>http://log.tomohiro.me/entries/add-to-jekyll-code-highlighting</id>
-        <content type="html">&lt;h2&gt;Jekyll にコードハイライティングを追加&lt;/h2&gt;
-
-&lt;h3&gt;設定を変更する&lt;/h3&gt;
+        <content type="html">&lt;h3&gt;設定を変更する&lt;/h3&gt;
 
 &lt;p&gt;_config.yml に pygments オプションを追加する．&lt;/p&gt;
 
@@ -117,9 +113,7 @@ end
         <link href="http://log.tomohiro.me/entries/how-to-apply-css-to-gist"/>
         <updated>2011-03-27T00:00:00+09:00</updated>
         <id>http://log.tomohiro.me/entries/how-to-apply-css-to-gist</id>
-        <content type="html">&lt;h2&gt;Gist に CSS を適用する方法&lt;/h2&gt;
-
-&lt;p&gt;Blog などに Gist の embed を貼りつける時に，見た目をカスタマイズする方法．&lt;/p&gt;
+        <content type="html">&lt;p&gt;Blog などに Gist の embed を貼りつける時に，見た目をカスタマイズする方法．&lt;/p&gt;
 
 &lt;p&gt;JavaScript が展開した Gist の HTML 要素・構造は Firebug 等のツールでわかるので，目的の要素を調べて普通に CSS を書けば良い．&lt;/p&gt;
 
@@ -147,9 +141,7 @@ end
         <link href="http://log.tomohiro.me/entries/japanese-patch-for-redmine-1.1.2-in-pdf"/>
         <updated>2011-03-26T00:00:00+09:00</updated>
         <id>http://log.tomohiro.me/entries/japanese-patch-for-redmine-1.1.2-in-pdf</id>
-        <content type="html">&lt;h2&gt;Redmine 1.1.2 の PDF 日本語化パッチ&lt;/h2&gt;
-
-&lt;h3&gt;Patch&lt;/h3&gt;
+        <content type="html">&lt;h3&gt;Patch&lt;/h3&gt;
 
 &lt;script src=&quot;http://gist.github.com/882743.js?file=pdf.rb.to_japanese.patch&quot;&gt;&lt;/script&gt;
 
@@ -177,9 +169,7 @@ end
         <link href="http://log.tomohiro.me/entries/jekyll-and-heroku"/>
         <updated>2011-03-24T00:00:00+09:00</updated>
         <id>http://log.tomohiro.me/entries/jekyll-and-heroku</id>
-        <content type="html">&lt;h2&gt;Install Jekyll &amp;amp; Deploy to Heroku&lt;/h2&gt;
-
-&lt;h3&gt;Install Jekyll&lt;/h3&gt;
+        <content type="html">&lt;h3&gt;Install Jekyll&lt;/h3&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem install jekyll
 &lt;/code&gt;&lt;/pre&gt;

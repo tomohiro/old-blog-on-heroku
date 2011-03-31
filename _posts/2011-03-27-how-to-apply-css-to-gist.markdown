@@ -1,11 +1,8 @@
 ---
 layout: post
 title: Gist に CSS を適用する方法
-category: css
+category: CSS
 ---
-
-{{ page.title }}
---------------------------------------------------------------------------------
 
 Blog などに Gist の embed を貼りつける時に，見た目をカスタマイズする方法．
 
