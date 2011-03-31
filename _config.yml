@@ -1,9 +1,11 @@
 title: log.tomohiro.me
 author: Tomohiro
 
+server: true
+auto: true
 markdown: rdiscount
 pygments: true
 permalink: /entries/:title
-paginate: 5
+paginate: 3
 
 exclude: ['README.markdown', 'config.ru']
