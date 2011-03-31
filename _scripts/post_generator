@@ -43,9 +43,6 @@ title: #{title}
 categories: []
 ---
 
-{{ page.title }}
---------------------------------------------------------------------------------
-
 HEADER
 
 File.open(path, 'w') { |f| f.write(header) }
