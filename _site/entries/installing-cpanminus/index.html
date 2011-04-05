@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>log.tomohiro.me | perlbrew 環境に cpanminus をインストールする</title>
+        <meta name="author" content="Tomohiro, TAIRA">
+        <meta name="google-site-verification" content="fVZ5SSA5Kv566sngCmPhquRWuNGa5E8YJiyMla39Ggg" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <meta http-equiv="Content-Style-Type" content="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <script src="/js/google-analytics.js"></script>
+        <link rel="me" type="text/html" href="http://www.google.com/profiles/tomohiro.t">
+        <link rel="alternate" type="application/atom+xml" title="log.tomohiro.me Atom" href="http://log.tomohiro.me/atom.xml">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Cuprum'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Inconsolata'>
+        <link rel="stylesheet" href="/css/default.css" media="screen, projection">
+        <link rel="stylesheet" href="/css/syntax.css" media="screen, projection">
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">log.tomohiro.me</a></h1>
+            <div id="banners">
+                <a href="http://github.com/Tomohiro">
+                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+                </a>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/">Top</a></li>
+                <li><a href="/archive.html">Archive</a></li>
+                <li><a href="http://tomohiro.me">About</a></li>
+                <li><a href="/atom.xml">Feed</a></li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <article>
+    <h2><a href="" id="permalink">✓ </a> perlbrew 環境に cpanminus をインストールする</h2>
+   
+    <p><a href="https://github.com/miyagawa/cpanminus/">cpanminus</a> は Perl の CPAN を簡単に使えるようにするツール．</p>
+
+<p>perlbrew と組み合わせるとローカルユーザ領域に CPAN モジュールをインストールすることも簡単にできる．</p>
+
+<p>perlbrew のインストールは前回の<a href="http://log.tomohiro.me/entries/installing-perlbrew-on-ubuntu10.10">エントリ</a>の通りである．</p>
+
+<h3>インストール</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>curl -LO http://xrl.us/cpanm
+<span class="nv">$ </span>chmod +x cpanm
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">PERL_CPANM_OPT</span><span class="o">=</span><span class="s2">&quot;--local-lib=$PERLBREW_ROOT&quot;</span>
+<span class="nv">$ </span>perl ./cpanm App::cpanminus
+<span class="nv">$ </span>cpanm -V
+cpanm -Vcpanm <span class="o">(</span>App::cpanminus<span class="o">)</span> version 1.4004
+</code></pre>
+</div>
+
+
+<h3>cpanminus のデフォルトオプション環境変数をシェルに設定</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>vi .zshrc
+<span class="c">##### for cpanminus #####</span>
+<span class="k">if </span>which perlbrew &gt;/dev/null 2&gt;&amp;1 ; <span class="k">then</span>
+<span class="k">    </span><span class="nb">export </span><span class="nv">PERL_CPANM_OPT</span><span class="o">=</span>--local-lib<span class="o">=</span><span class="nv">$PERLBREW_ROOT</span>
+    <span class="nb">export </span><span class="nv">PERL5LIB</span><span class="o">=</span><span class="nv">$PERLBREW_ROOT</span>/lib/perl5:<span class="nv">$PERL5LIB</span>
+<span class="k">fi</span>
+
+<span class="nv">$ </span><span class="nb">source</span> .zshrc
+</code></pre>
+</div>
+
+
+<h3>cpanminus をアップグレードする</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>cpanm --self-upgrade
+</code></pre>
+</div>
+
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="http://log.tomohiro.me/entries/installing-perlbrew-on-ubuntu10.10">Ubuntu 10.10 に perlbrew をインストールする</a></li>
+<li><a href="https://github.com/miyagawa/cpanminus/">miyagawa/cpanminus - GitHub</a></li>
+<li><a href="http://d.hatena.ne.jp/tokuhirom/20100716/perlenv">モダンな Perl の開発環境の構築方法 - TokuLog 改メ tokuhirom’s blog</a></li>
+</ul>
+
+
+
+    <section id="categories">
+        <h3>Categories:</h3> 
+        <ul>
+            
+                <li>Perl</li>
+            
+        </ul>
+    </section>
+   
+    <p>Posted by Tomohiro, at <span class="date">2011-04-06</span> &raquo; <a href="/entries/installing-cpanminus">permalink</a></p>
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        var disqus_shortname = 'log-tomohiro-me';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+
+        </div>
+
+        <footer>
+            <p>
+                <span id="copyright">&copy; 2011 <a href="http://twitter.com/Tomohiro">@Tomohiro</a>, TAIRA</span>
+                <span id="powered">Powered by
+                    <a href="http://jekyllrb.com" title="Jekyll is a simple, blog aware, static site generator.">Jekyll</a>,
+                    <a href="http://heroku.com" title="Heroku | Ruby Cloud Platform as a Service">Heroku</a>
+                </span>
+            </p>
+        </footer>
+    </body>
+</html>

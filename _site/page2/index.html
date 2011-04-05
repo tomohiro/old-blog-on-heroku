@@ -40,6 +40,85 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/y-combinator-in-php" id="permalink">✓ </a> PHP で Y コンビネータ</h2>
+
+        <h3>Y コンビネータ関数を作る</h3>
+
+<p>PHP で Y コンビネータ [<code>Y(F) = F(Y(F))</code>] を行う関数 Y を定義してみる．</p>
+
+<p>以下のコードは PHP 5.3+ な環境で動作する．</p>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">Y</span><span class="p">(</span><span class="nv">$F</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$F</span><span class="p">(</span>
+        <span class="k">function</span><span class="p">()</span> <span class="k">use</span><span class="p">(</span><span class="nv">$F</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">call_user_func_array</span><span class="p">(</span><span class="nx">Y</span><span class="p">(</span><span class="nv">$F</span><span class="p">),</span> <span class="nb">func_get_args</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+<h3>Y コンビネータを使用して無名な再帰関数を作る</h3>
+
+<h4>階乗</h4>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">echo</span> <span class="nx">Y</span><span class="p">(</span>
+    <span class="k">function</span><span class="p">(</span><span class="nv">$fact</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">function</span><span class="p">(</span><span class="nv">$x</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$fact</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$x</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="nv">$x</span> <span class="o">*</span> <span class="nv">$fact</span><span class="p">(</span><span class="nv">$x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">};</span>
+    <span class="p">})</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 3628800</span>
+</code></pre>
+</div>
+
+
+<h4>フィボナッチ数</h4>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="k">echo</span> <span class="nx">Y</span><span class="p">(</span>
+    <span class="k">function</span><span class="p">(</span><span class="nv">$fib</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">function</span><span class="p">(</span><span class="nv">$n</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$fib</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$n</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="nv">$fib</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nv">$fib</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+        <span class="p">};</span>
+    <span class="p">})</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 55</span>
+</code></pre>
+</div>
+
+
+<h4>ハノイの塔</h4>
+
+<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
+<span class="nx">Y</span><span class="p">(</span>
+    <span class="k">function</span><span class="p">(</span><span class="nv">$hanoi</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">function</span><span class="p">(</span><span class="nv">$n</span><span class="p">,</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">,</span> <span class="nv">$c</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$hanoi</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$hanoi</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$c</span><span class="p">,</span> <span class="nv">$b</span><span class="p">);</span>
+                <span class="k">echo</span> <span class="s2">&quot;No. </span><span class="si">$n</span><span class="s2"> disk is moved from </span><span class="si">$a</span><span class="s2"> to </span><span class="si">$b</span><span class="s2">&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+                <span class="nv">$hanoi</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$c</span><span class="p">,</span> <span class="nv">$b</span><span class="p">,</span> <span class="nv">$a</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">)</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">);</span>
+</code></pre>
+</div>
+
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="http://ja.wikipedia.org/wiki/%E4%B8%8D%E5%8B%95%E7%82%B9%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8D%E3%83%BC%E3%82%BF">不動点コンビネータ - Wikipedia</a></li>
+<li><a href="http://d.hatena.ne.jp/amachang/20080124/1201199469">Y コンビネータって何？ - IT戦記</a></li>
+</ul>
+
+
+
+        <p id="posted">Posted by Tomohiro, at <span class="date">2011-03-31</span> &raquo; <a href="/entries/y-combinator-in-php">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/csv-export-from-postgresql" id="permalink">✓ </a> PostgreSQL から CSV ファイルをエクスポートする</h2>
 
         <p>カンマ区切りの一般的な CSV を吐き出す場合はこのようなコマンドを実行すれば良い．</p>
@@ -134,34 +213,6 @@ end
 
 
         <p id="posted">Posted by Tomohiro, at <span class="date">2011-03-28</span> &raquo; <a href="/entries/add-to-jekyll-code-highlighting">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/how-to-apply-css-to-gist" id="permalink">✓ </a> Gist に CSS を適用する方法</h2>
-
-        <p>Blog などに Gist の embed を貼りつける時に，見た目をカスタマイズする方法．</p>
-
-<p>JavaScript が展開した Gist の HTML 要素・構造は Firebug 等のツールでわかるので，目的の要素を調べて普通に CSS を書けば良い．</p>
-
-<p>例えばソースコードのフォントを変えたい場合は，下記のように CSS を書く．</p>
-
-<div class="highlight"><pre><code class="css"><span class="nt">div</span><span class="nc">.gist-highlight</span> <span class="nt">pre</span> <span class="nc">.line</span> <span class="p">{</span>
-    <span class="k">font-family</span><span class="o">:</span> <span class="n">Inconsolata</span><span class="o">,</span> <span class="n">Consolas</span><span class="o">,</span> <span class="s1">&#39;Courier New&#39;</span><span class="o">,</span> <span class="k">monospace</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-
-<h3>Reference:</h3>
-
-<ul>
-<li><a href="http://valvallow.blogspot.com/2010/10/gist-blog-embed-css.html">gist を blog に embed する時の見た目や色（CSS） を変える</a></li>
-<li><a href="http://d.hatena.ne.jp/snaka72/20081218/1229622900">ダイアリーに貼り付けるgistのコードの見た目をカスタマイズする</a></li>
-</ul>
-
-
-
-        <p id="posted">Posted by Tomohiro, at <span class="date">2011-03-27</span> &raquo; <a href="/entries/how-to-apply-css-to-gist">permalink</a></p>
     </article>
     
 </section>

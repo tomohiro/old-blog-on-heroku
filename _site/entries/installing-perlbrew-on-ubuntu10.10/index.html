@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>log.tomohiro.me | Ubuntu 10.10 に Perlbrew をインストールする</title>
+        <title>log.tomohiro.me | Ubuntu 10.10 に perlbrew をインストールする</title>
         <meta name="author" content="Tomohiro, TAIRA">
         <meta name="google-site-verification" content="fVZ5SSA5Kv566sngCmPhquRWuNGa5E8YJiyMla39Ggg" />
         <meta http-equiv="Content-Script-Type" content="text/javascript">
@@ -38,11 +38,11 @@
 
         <div id="content">
             <article>
-    <h2><a href="" id="permalink">✓ </a> Ubuntu 10.10 に Perlbrew をインストールする</h2>
+    <h2><a href="" id="permalink">✓ </a> Ubuntu 10.10 に perlbrew をインストールする</h2>
    
-    <h3>Perlbrew のインストール</h3>
+    <h3>perlbrew のインストール</h3>
 
-<p>公式の手順通りに進めても良いが，その手順ではデフォルトで <code>$HOME/perl5</code> に Perlbrew がインストールされてしまう．</p>
+<p>公式の手順通りに進めても良いが，その手順ではデフォルトで <code>$HOME/perl5</code> に perlbrew がインストールされてしまう．</p>
 
 <p>個人的には <code>$HOME</code> 直下に見えるディレクトリが増えるのは嬉しくない．</p>
 
@@ -78,7 +78,7 @@ And follow the instruction on screen.
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>rm -f perlbrew
 <span class="nv">$ </span><span class="nb">cd</span> ~/.perlbrew/perl5/bin/
 <span class="nv">$ </span>./perlbrew init
-Perlbrew environment initiated, required directories are created under
+perlbrew environment initiated, required directories are created under
 
     ~/.perlbrew/perl5
 
@@ -104,7 +104,7 @@ Enjoy perlbrew at <span class="nv">$HOME</span>!!
 </div>
 
 
-<h3>シェルの側で Perlbrew を有効にする</h3>
+<h3>シェルの側で perlbrew を有効にする</h3>
 
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>vi ~/.zshrc
 
@@ -122,7 +122,7 @@ Enjoy perlbrew at <span class="nv">$HOME</span>!!
 
 <h5>Perl を設定する</h5>
 
-<p>Perlbrew でインストール済みの Perl を設定する．</p>
+<p>perlbrew でインストール済みの Perl を設定する．</p>
 
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>perlbrew switch /usr/bin/perl
 </code></pre>
