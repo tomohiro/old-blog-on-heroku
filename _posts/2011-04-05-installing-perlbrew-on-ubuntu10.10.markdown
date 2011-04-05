@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ubuntu 10.10 に Perlbrew と cpanious をインストールする
+title: Ubuntu 10.10 に Perlbrew をインストールする
 categories: [Perl, Ubuntu]
 ---
 

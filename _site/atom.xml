@@ -4,7 +4,7 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-04-05T19:38:59+09:00</updated>
+    <updated>2011-04-05T19:44:48+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -12,7 +12,7 @@
     </author>
     
     <entry>
-        <title>Ubuntu 10.10 に Perlbrew と cpanious をインストールする</title>
+        <title>Ubuntu 10.10 に Perlbrew をインストールする</title>
         <link href="http://log.tomohiro.me/entries/installing-perlbrew-on-ubuntu10.10"/>
         <updated>2011-04-05T00:00:00+09:00</updated>
         <id>http://log.tomohiro.me/entries/installing-perlbrew-on-ubuntu10.10</id>
