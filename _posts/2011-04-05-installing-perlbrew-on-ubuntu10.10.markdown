@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Ubuntu 10.10 に Perlbrew をインストールする
+title: Ubuntu 10.10 に perlbrew をインストールする
 categories: [Perl, Ubuntu]
 ---
 
 
-### Perlbrew のインストール
+### perlbrew のインストール
 
-公式の手順通りに進めても良いが，その手順ではデフォルトで `$HOME/perl5` に Perlbrew がインストールされてしまう．
+公式の手順通りに進めても良いが，その手順ではデフォルトで `$HOME/perl5` に perlbrew がインストールされてしまう．
 
 個人的には `$HOME` 直下に見えるディレクトリが増えるのは嬉しくない．
 
@@ -44,7 +44,7 @@ And follow the instruction on screen.
 $ rm -f perlbrew
 $ cd ~/.perlbrew/perl5/bin/
 $ ./perlbrew init
-Perlbrew environment initiated, required directories are created under
+perlbrew environment initiated, required directories are created under
 
     ~/.perlbrew/perl5
 
@@ -69,7 +69,7 @@ Enjoy perlbrew at $HOME!!
 {% endhighlight %}
 
 
-### シェルの側で Perlbrew を有効にする
+### シェルの側で perlbrew を有効にする
 
 {% highlight bash %}
 $ vi ~/.zshrc
@@ -87,7 +87,7 @@ $ which perlbrew
 
 ##### Perl を設定する
 
-Perlbrew でインストール済みの Perl を設定する．
+perlbrew でインストール済みの Perl を設定する．
 
 {% highlight bash %}
 $ perlbrew switch /usr/bin/perl
