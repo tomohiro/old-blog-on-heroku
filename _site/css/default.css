@@ -133,6 +133,7 @@ footer #powered{
 
 article#archive li {
     list-style: none;
+    margin: 1em;
 }
 
 .date {
