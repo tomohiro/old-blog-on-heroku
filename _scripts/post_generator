@@ -1,18 +1,11 @@
 #!/usr/bin/env ruby
 
-=begin
-
-Script to kickstart a new jekyll post.
-tomohiro.t@gmail.com
-
-Usage: $ ./post_generator.rb
-
-=end
-
 require 'date'
 require 'rubygems'
 require 'json'
 require 'open-uri'
+
+JEKYLL_ROOT = File::expand_path('..', File.dirname(__FILE__))
 
 def get_input(message)
   print message
@@ -35,7 +28,7 @@ end
 title     = translate((get_input 'Post Title: ')).downcase.gsub(' ', '-')
 extension = 'markdown'
 today     = Date.today
-path      = "_posts/#{today}-#{title}.#{extension}"
+path      = JEKYLL_ROOT + "/_draft/#{today}-#{title}.#{extension}"
 header    = <<HEADER
 ---
 layout: post
@@ -43,7 +36,12 @@ title: #{title}
 categories: []
 ---
 
+{% highlight bash %}
+{% endhighlight %}
+
+### References:
+
 HEADER
 
 File.open(path, 'w') { |f| f.write(header) }
-system("$EDITOR #{path}")
+system "$EDITOR #{path}"
