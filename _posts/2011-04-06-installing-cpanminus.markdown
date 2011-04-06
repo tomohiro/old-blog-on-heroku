@@ -24,15 +24,17 @@ cpanm -Vcpanm (App::cpanminus) version 1.4004
 
 ### cpanminus のデフォルトオプション環境変数をシェルに設定
 
+perlbrew を `$HOME/.perlbrew/perl5` 以下にインストールしているため，そこに cpanminus のモジュールをインストールするような設定を加える．
+
 {% highlight bash %}
-$ vi .zshrc
+$ vi ~/.zshrc
 ##### for cpanminus #####
-if which cpanm >/dev/null 2>&1 ; then
+if which cpanm > /dev/null 2>&1 && [ -n $PERLBREW_ROOT ]; then 
     export PERL_CPANM_OPT=--local-lib=$PERLBREW_ROOT
     export PERL5LIB=$PERLBREW_ROOT/lib/perl5:$PERL5LIB
 fi
 
-$ source .zshrc
+$ source ~/.zshrc
 {% endhighlight %}
 
 

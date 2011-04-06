@@ -60,14 +60,16 @@ cpanm -Vcpanm <span class="o">(</span>App::cpanminus<span class="o">)</span> ver
 
 <h3>cpanminus のデフォルトオプション環境変数をシェルに設定</h3>
 
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>vi .zshrc
+<p>perlbrew を <code>$HOME/.perlbrew/perl5</code> 以下にインストールしているため，そこに cpanminus のモジュールをインストールするような設定を加える．</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>vi ~/.zshrc
 <span class="c">##### for cpanminus #####</span>
-<span class="k">if </span>which cpanm &gt;/dev/null 2&gt;&amp;1 ; <span class="k">then</span>
+<span class="k">if </span>which cpanm &gt; /dev/null 2&gt;&amp;1 <span class="o">&amp;&amp;</span> <span class="o">[</span> -n <span class="nv">$PERLBREW_ROOT</span> <span class="o">]</span>; <span class="k">then </span>
 <span class="k">    </span><span class="nb">export </span><span class="nv">PERL_CPANM_OPT</span><span class="o">=</span>--local-lib<span class="o">=</span><span class="nv">$PERLBREW_ROOT</span>
     <span class="nb">export </span><span class="nv">PERL5LIB</span><span class="o">=</span><span class="nv">$PERLBREW_ROOT</span>/lib/perl5:<span class="nv">$PERL5LIB</span>
 <span class="k">fi</span>
 
-<span class="nv">$ </span><span class="nb">source</span> .zshrc
+<span class="nv">$ </span><span class="nb">source</span> ~/.zshrc
 </code></pre>
 </div>
 

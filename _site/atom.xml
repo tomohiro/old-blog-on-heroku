@@ -4,7 +4,7 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-04-06T13:10:07+09:00</updated>
+    <updated>2011-04-06T20:11:42+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -36,14 +36,16 @@ cpanm -Vcpanm &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;App::cpanminus&lt;sp
 
 &lt;h3&gt;cpanminus のデフォルトオプション環境変数をシェルに設定&lt;/h3&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vi .zshrc
+&lt;p&gt;perlbrew を &lt;code&gt;$HOME/.perlbrew/perl5&lt;/code&gt; 以下にインストールしているため，そこに cpanminus のモジュールをインストールするような設定を加える．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vi ~/.zshrc
 &lt;span class=&quot;c&quot;&gt;##### for cpanminus #####&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;which cpanm &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 ; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;which cpanm &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -n &lt;span class=&quot;nv&quot;&gt;$PERLBREW_ROOT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then &lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PERL_CPANM_OPT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;--local-lib&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PERLBREW_ROOT&lt;/span&gt;
     &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PERL5LIB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PERLBREW_ROOT&lt;/span&gt;/lib/perl5:&lt;span class=&quot;nv&quot;&gt;$PERL5LIB&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
 
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; .zshrc
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/.zshrc
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
