@@ -27,7 +27,7 @@ cpanm -Vcpanm (App::cpanminus) version 1.4004
 {% highlight bash %}
 $ vi .zshrc
 ##### for cpanminus #####
-if which perlbrew >/dev/null 2>&1 ; then
+if which cpanm >/dev/null 2>&1 ; then
     export PERL_CPANM_OPT=--local-lib=$PERLBREW_ROOT
     export PERL5LIB=$PERLBREW_ROOT/lib/perl5:$PERL5LIB
 fi
