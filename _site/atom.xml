@@ -4,12 +4,57 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-04-07T01:07:34+09:00</updated>
+    <updated>2011-04-08T00:16:00+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
         <email>tomohiro.t@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Bash の if で AND 条件や OR 条件を使用する</title>
+        <link href="http://log.tomohiro.me/entries/bash-if-condition"/>
+        <updated>2011-04-08T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/entries/bash-if-condition</id>
+        <content type="html">&lt;h3&gt;複数コマンドの組み合わせ&lt;/h3&gt;
+
+&lt;p&gt;例. Zsh がインストールされていて，環境変数 $ZSH_SPECIAL_VAR が存在する場合&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;which zsh &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; -z &lt;span class=&quot;nv&quot;&gt;$ZSH_SPECIAL_VAR&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# do something&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;test コマンドを使う場合&lt;/h3&gt;
+
+&lt;p&gt;例. AND 条件: FILE が存在し，かつ実行できる場合&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -f FILE -a -x FILE &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# do something&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;例. OR 条件: FILE1 か FILE2 のどちらかが存在する場合&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -f FILE1 -o -x FILE1 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# do something&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;その他の例は &lt;code&gt;man test&lt;/code&gt; するとだいたいわかる．&lt;a href=&quot;http://ya.maya.st/web/RTFM.html&quot;&gt;RTFM&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;References:&lt;/h3&gt;
+
+&lt;div class=&quot;amazlet-box&quot; style=&quot;margin-bottom:0px;&quot;&gt;&lt;div class=&quot;amazlet-image&quot; style=&quot;float:left;margin:0px 12px 1px 0px;&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4873112540/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/519CHDKSHWL._SL160_.jpg&quot; alt=&quot;入門bash 第3版&quot; style=&quot;border: none;&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-info&quot; style=&quot;line-height:120%; margin-bottom: 10px&quot;&gt;&lt;div class=&quot;amazlet-name&quot; style=&quot;margin-bottom:10px;line-height:120%&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4873112540/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;入門bash 第3版&lt;/a&gt;&lt;div class=&quot;amazlet-powered-date&quot; style=&quot;font-size:80%;margin-top:5px;line-height:120%&quot;&gt;posted with &lt;a href=&quot;http://www.amazlet.com/browse/ASIN/4873112540/tomohiro-t-22/ref=nosim/&quot; title=&quot;入門bash 第3版&quot; target=&quot;_blank&quot;&gt;amazlet&lt;/a&gt; at 11.04.08&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-detail&quot;&gt;Cameron Newham Bill Rosenblatt &lt;br /&gt;オライリージャパン &lt;br /&gt;売り上げランキング: 43317&lt;br /&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-sub-info&quot; style=&quot;float: left;&quot;&gt;&lt;div class=&quot;amazlet-link&quot; style=&quot;margin-top: 5px&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4873112540/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-footer&quot; style=&quot;clear: left&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+
+</content>
+    </entry>
     
     <entry>
         <title>LL でリスト/配列をループ処理する時のイディオム</title>
