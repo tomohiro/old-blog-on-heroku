@@ -4,12 +4,43 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-04-09T20:29:59+09:00</updated>
+    <updated>2011-04-10T22:55:15+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
         <email>tomohiro.t@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Ruby で組み込みクラスのメソッドを上書きする</title>
+        <link href="http://log.tomohiro.me/entries/ruby_core_class_method_monkey_patching"/>
+        <updated>2011-11-10T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/entries/ruby_core_class_method_monkey_patching</id>
+        <content type="html">&lt;blockquote&gt;&lt;p&gt;「Rubyは君を信頼する。Rubyは君を分別のあるプログラマとして扱う。Rubyはメタプログラミングのような強力な力を与える。ただし、大いなる力には、大いなる責任が伴うことを忘れてはいけない」 - まつもとゆきひろ&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Ruby では下記のように，例え組み込みクラスでもメソッドを別名にしたり，オーバライドしたりと，モンキーパッチングが自由に出来る．
+ただし悪用は厳禁．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;alias_method&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:now_original&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:now&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;now&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;override&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now_original&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;References:&lt;/h3&gt;
+
+&lt;div class=&quot;amazlet-box&quot; style=&quot;margin-bottom:0px;&quot;&gt;&lt;div class=&quot;amazlet-image&quot; style=&quot;float:left;margin:0px 12px 1px 0px;&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4048687158/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/51TODrMIEnL._SL160_.jpg&quot; alt=&quot;メタプログラミングRuby&quot; style=&quot;border: none;&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-info&quot; style=&quot;line-height:120%; margin-bottom: 10px&quot;&gt;&lt;div class=&quot;amazlet-name&quot; style=&quot;margin-bottom:10px;line-height:120%&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4048687158/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;メタプログラミングRuby&lt;/a&gt;&lt;div class=&quot;amazlet-powered-date&quot; style=&quot;font-size:80%;margin-top:5px;line-height:120%&quot;&gt;posted with &lt;a href=&quot;http://www.amazlet.com/browse/ASIN/4048687158/tomohiro-t-22/ref=nosim/&quot; title=&quot;メタプログラミングRuby&quot; target=&quot;_blank&quot;&gt;amazlet&lt;/a&gt; at 11.04.10&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-detail&quot;&gt;Paolo Perrotta &lt;br /&gt;アスキー・メディアワークス &lt;br /&gt;売り上げランキング: 29046&lt;br /&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-sub-info&quot; style=&quot;float: left;&quot;&gt;&lt;div class=&quot;amazlet-link&quot; style=&quot;margin-top: 5px&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4048687158/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-footer&quot; style=&quot;clear: left&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+
+</content>
+    </entry>
     
     <entry>
         <title>Google 翻訳する Ruby スクリプト</title>

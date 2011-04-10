@@ -39,6 +39,12 @@ a:link, a:hover, a:visited {
     text-decoration: none;
 }
 
+blockquote {
+    margin-bottom: 15px;
+    padding: 0px 15px;
+    border-left: 3px solid #ccc;
+}
+
 pre {
     padding: 5px;
     border: 1px solid #CCC;
