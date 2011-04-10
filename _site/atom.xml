@@ -4,7 +4,7 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-04-10T22:55:15+09:00</updated>
+    <updated>2011-04-10T22:57:35+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -14,7 +14,7 @@
     <entry>
         <title>Ruby で組み込みクラスのメソッドを上書きする</title>
         <link href="http://log.tomohiro.me/entries/ruby_core_class_method_monkey_patching"/>
-        <updated>2011-11-10T00:00:00+09:00</updated>
+        <updated>2011-04-10T00:00:00+09:00</updated>
         <id>http://log.tomohiro.me/entries/ruby_core_class_method_monkey_patching</id>
         <content type="html">&lt;blockquote&gt;&lt;p&gt;「Rubyは君を信頼する。Rubyは君を分別のあるプログラマとして扱う。Rubyはメタプログラミングのような強力な力を与える。ただし、大いなる力には、大いなる責任が伴うことを忘れてはいけない」 - まつもとゆきひろ&lt;/p&gt;&lt;/blockquote&gt;
 
