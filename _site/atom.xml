@@ -4,12 +4,49 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-04-10T22:57:35+09:00</updated>
+    <updated>2011-04-11T23:31:33+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
         <email>tomohiro.t@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Redmine でプロジェクト毎にテキストの書式を選択できるようにするパッチ</title>
+        <link href="http://log.tomohiro.me/entries/text-formatter-setting-patch-for-redmne-1.1.2"/>
+        <updated>2011-04-11T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/entries/text-formatter-setting-patch-for-redmne-1.1.2</id>
+        <content type="html">&lt;p&gt;&lt;a href=&quot;http://d.hatena.ne.jp/tmtms/20100923/redmine_formatter&quot;&gt;プロジェクト毎のフォーマッタ - @tmtms のメモ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;上記のブログエントリを参考にパッチを書いた．&lt;/p&gt;
+
+&lt;h3&gt;手順&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;patch を適用&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# curl -LO https://gist.github.com/raw/912936/0f7e2dfb9a67a942875dfaef6d7cb4805c920e69/application_helper.rb.choice_text_formatter.patch
+# cd /var/lib/redmine/app/helpers/
+# patch &amp;lt; application_helper.rb.choice_text_formatter.patch
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;カスタムフィールドでプロジェクトに「テキストの書式」を作成&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;プロジェクトの設定画面で「テキストの書式」を選択&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3&gt;Patch&lt;/h3&gt;
+
+&lt;script src=&quot;https://gist.github.com/912936.js?file=application_helper.rb.choice_text_formatter.patch&quot;&gt;&lt;/script&gt;
+
+
+&lt;h3&gt;References:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/tmtms/20100923/redmine_formatter&quot;&gt;プロジェクト毎のフォーマッタ - @tmtms のメモ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+    </entry>
     
     <entry>
         <title>Ruby で組み込みクラスのメソッドを上書きする</title>

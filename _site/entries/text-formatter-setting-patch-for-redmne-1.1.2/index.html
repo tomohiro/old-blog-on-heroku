@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>log.tomohiro.me</title>
+        <title>log.tomohiro.me | Redmine でプロジェクト毎にテキストの書式を選択できるようにするパッチ</title>
         <meta name="author" content="Tomohiro, TAIRA">
         <meta name="google-site-verification" content="fVZ5SSA5Kv566sngCmPhquRWuNGa5E8YJiyMla39Ggg" />
         <meta http-equiv="Content-Script-Type" content="text/javascript">
@@ -37,39 +37,63 @@
         </nav>
 
         <div id="content">
-            <article id="archive">
-    <h2>Archive</h2>
-    <ul>
-    
-        <li><span class="date">2011-04-11 &raquo; <a href="/entries/text-formatter-setting-patch-for-redmne-1.1.2">Redmine でプロジェクト毎にテキストの書式を選択できるようにするパッチ</a></span></li>
-    
-        <li><span class="date">2011-04-10 &raquo; <a href="/entries/ruby_core_class_method_monkey_patching">Ruby で組み込みクラスのメソッドを上書きする</a></span></li>
-    
-        <li><span class="date">2011-04-09 &raquo; <a href="/entries/google-translation-ruby-script">Google 翻訳する Ruby スクリプト</a></span></li>
-    
-        <li><span class="date">2011-04-08 &raquo; <a href="/entries/bash-if-condition">Bash の if で AND 条件や OR 条件を使用する</a></span></li>
-    
-        <li><span class="date">2011-04-07 &raquo; <a href="/entries/ll-list-loop-idiom">LL でリスト/配列をループ処理する時のイディオム</a></span></li>
-    
-        <li><span class="date">2011-04-06 &raquo; <a href="/entries/installing-cpanminus">perlbrew 環境に cpanminus をインストールする</a></span></li>
-    
-        <li><span class="date">2011-04-05 &raquo; <a href="/entries/installing-perlbrew-on-ubuntu10.10">Ubuntu 10.10 に perlbrew をインストールする</a></span></li>
-    
-        <li><span class="date">2011-04-01 &raquo; <a href="/entries/girl-linux-command">美女 Linux コマンド</a></span></li>
-    
-        <li><span class="date">2011-03-31 &raquo; <a href="/entries/y-combinator-in-php">PHP で Y コンビネータ</a></span></li>
-    
-        <li><span class="date">2011-03-30 &raquo; <a href="/entries/csv-export-from-postgresql">PostgreSQL から CSV ファイルをエクスポートする</a></span></li>
-    
-        <li><span class="date">2011-03-28 &raquo; <a href="/entries/add-to-jekyll-code-highlighting">Jekyll にコードハイライティングを追加</a></span></li>
-    
-        <li><span class="date">2011-03-27 &raquo; <a href="/entries/how-to-apply-css-to-gist">Gist に CSS を適用する方法</a></span></li>
-    
-        <li><span class="date">2011-03-26 &raquo; <a href="/entries/japanese-patch-for-redmine-1.1.2-in-pdf">Redmine 1.1.2 の PDF 日本語化パッチ</a></span></li>
-    
-        <li><span class="date">2011-03-24 &raquo; <a href="/entries/jekyll-and-heroku">Install Jekyll & Deploy to Heroku</a></span></li>
-    
-    <ul>
+            <article>
+    <h2><a href="" id="permalink">✓ </a> Redmine でプロジェクト毎にテキストの書式を選択できるようにするパッチ</h2>
+   
+    <p><a href="http://d.hatena.ne.jp/tmtms/20100923/redmine_formatter">プロジェクト毎のフォーマッタ - @tmtms のメモ</a></p>
+
+<p>上記のブログエントリを参考にパッチを書いた．</p>
+
+<h3>手順</h3>
+
+<ol>
+<li><p>patch を適用</p>
+
+<pre><code># curl -LO https://gist.github.com/raw/912936/0f7e2dfb9a67a942875dfaef6d7cb4805c920e69/application_helper.rb.choice_text_formatter.patch
+# cd /var/lib/redmine/app/helpers/
+# patch &lt; application_helper.rb.choice_text_formatter.patch
+</code></pre></li>
+<li><p>カスタムフィールドでプロジェクトに「テキストの書式」を作成</p></li>
+<li><p>プロジェクトの設定画面で「テキストの書式」を選択</p></li>
+</ol>
+
+
+<h3>Patch</h3>
+
+<script src="https://gist.github.com/912936.js?file=application_helper.rb.choice_text_formatter.patch"></script>
+
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="http://d.hatena.ne.jp/tmtms/20100923/redmine_formatter">プロジェクト毎のフォーマッタ - @tmtms のメモ</a></li>
+</ul>
+
+
+
+    <section id="categories">
+        <h3>Categories:</h3> 
+        <ul>
+            
+                <li>Ruby</li>
+            
+                <li>Redmine</li>
+            
+        </ul>
+    </section>
+   
+    <p>Posted by Tomohiro, at <span class="date">2011-04-11</span> &raquo; <a href="/entries/text-formatter-setting-patch-for-redmne-1.1.2">permalink</a></p>
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        var disqus_shortname = 'log-tomohiro-me';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 </article>
 
         </div>
