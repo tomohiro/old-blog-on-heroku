@@ -12,8 +12,7 @@
         <script src="/js/google-analytics.js"></script>
         <link rel="me" type="text/html" href="http://www.google.com/profiles/tomohiro.t">
         <link rel="alternate" type="application/atom+xml" title="log.tomohiro.me Atom" href="http://log.tomohiro.me/atom.xml">
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Cuprum'>
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Inconsolata'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Inconsolata|Cuprum'>
         <link rel="stylesheet" href="/css/default.css" media="screen, projection">
         <link rel="stylesheet" href="/css/syntax.css" media="screen, projection">
     </head>
@@ -47,7 +46,7 @@
 <div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
 <span class="nv">$l</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">);</span>
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$l</span> <span class="k">as</span> <span class="nv">$v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c">/* do something */</span>
+    <span class="cm">/* do something */</span>
 <span class="p">}</span>
 </code></pre>
 </div>
@@ -55,7 +54,7 @@
 
 <p>Perl (Array)</p>
 
-<div class="highlight"><pre><code class="perl"><span class="k">my</span> <span class="nv">@l</span> <span class="o">=</span> <span class="n">qw</span><span class="sr">/foo bar baz/</span><span class="p">;</span>
+<div class="highlight"><pre><code class="perl"><span class="k">my</span> <span class="nv">@l</span> <span class="o">=</span> <span class="sx">qw/foo bar baz/</span><span class="p">;</span>
 <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$v</span> <span class="p">(</span><span class="nv">@l</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1"># do something</span>
 <span class="p">}</span>
@@ -84,9 +83,9 @@
 
 <p>JavaScript (Array)</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="o">,</span> <span class="s1">&#39;bar&#39;</span><span class="o">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">];</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">l</span><span class="p">.</span><span class="nx">length</span><span class="o">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c">/* do something */</span>
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">l</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* do something */</span>
 <span class="p">}</span>
 </code></pre>
 </div>
@@ -99,7 +98,7 @@
 <div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
 <span class="nv">$l</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">);</span>
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$l</span> <span class="k">as</span> <span class="nv">$i</span> <span class="o">=&gt;</span> <span class="nv">$v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c">/* do something */</span>
+    <span class="cm">/* do something */</span>
 <span class="p">}</span>
 </code></pre>
 </div>
@@ -107,7 +106,7 @@
 
 <p>Perl (Array)</p>
 
-<div class="highlight"><pre><code class="perl"><span class="k">my</span> <span class="nv">@l</span> <span class="o">=</span> <span class="n">qw</span><span class="sr">/foo bar baz/</span><span class="p">;</span>
+<div class="highlight"><pre><code class="perl"><span class="k">my</span> <span class="nv">@l</span> <span class="o">=</span> <span class="sx">qw/foo bar baz/</span><span class="p">;</span>
 <span class="k">foreach</span> <span class="k">my</span> <span class="nv">$i</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="nv">$#l</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1"># do something</span>
 <span class="p">}</span>
@@ -136,9 +135,9 @@
 
 <p>JavaScript (Array)</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="o">,</span> <span class="s1">&#39;bar&#39;</span><span class="o">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">];</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">l</span><span class="p">.</span><span class="nx">length</span><span class="o">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c">/* do something l[i] */</span>
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">l</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* do something l[i] */</span>
 <span class="p">}</span>
 </code></pre>
 </div>

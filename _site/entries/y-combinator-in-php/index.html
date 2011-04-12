@@ -12,8 +12,7 @@
         <script src="/js/google-analytics.js"></script>
         <link rel="me" type="text/html" href="http://www.google.com/profiles/tomohiro.t">
         <link rel="alternate" type="application/atom+xml" title="log.tomohiro.me Atom" href="http://log.tomohiro.me/atom.xml">
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Cuprum'>
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Inconsolata'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Inconsolata|Cuprum'>
         <link rel="stylesheet" href="/css/default.css" media="screen, projection">
         <link rel="stylesheet" href="/css/syntax.css" media="screen, projection">
     </head>
@@ -49,7 +48,7 @@
 <div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
 <span class="k">function</span> <span class="nf">Y</span><span class="p">(</span><span class="nv">$F</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nv">$F</span><span class="p">(</span>
-        <span class="nx">function</span><span class="p">()</span> <span class="nx">use</span><span class="p">(</span><span class="nv">$F</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">function</span><span class="p">()</span> <span class="k">use</span><span class="p">(</span><span class="nv">$F</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="nb">call_user_func_array</span><span class="p">(</span><span class="nx">Y</span><span class="p">(</span><span class="nv">$F</span><span class="p">),</span> <span class="nb">func_get_args</span><span class="p">());</span>
         <span class="p">}</span>
     <span class="p">);</span>
@@ -64,11 +63,11 @@
 
 <div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
 <span class="k">echo</span> <span class="nx">Y</span><span class="p">(</span>
-    <span class="nx">function</span><span class="p">(</span><span class="nv">$fact</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">function</span><span class="p">(</span><span class="nv">$x</span><span class="p">)</span> <span class="nx">use</span> <span class="p">(</span><span class="nv">$fact</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nv">$x</span> <span class="o">==</span> <span class="m">1</span> <span class="o">?</span> <span class="m">1</span> <span class="o">:</span> <span class="nv">$x</span> <span class="o">*</span> <span class="nv">$fact</span><span class="p">(</span><span class="nv">$x</span> <span class="o">-</span> <span class="m">1</span><span class="p">);</span>
+    <span class="k">function</span><span class="p">(</span><span class="nv">$fact</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">function</span><span class="p">(</span><span class="nv">$x</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$fact</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$x</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="nv">$x</span> <span class="o">*</span> <span class="nv">$fact</span><span class="p">(</span><span class="nv">$x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
         <span class="p">};</span>
-    <span class="p">})</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="m">10</span><span class="p">);</span> <span class="c">// 3628800</span>
+    <span class="p">})</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 3628800</span>
 </code></pre>
 </div>
 
@@ -77,11 +76,11 @@
 
 <div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
 <span class="k">echo</span> <span class="nx">Y</span><span class="p">(</span>
-    <span class="nx">function</span><span class="p">(</span><span class="nv">$fib</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">function</span><span class="p">(</span><span class="nv">$n</span><span class="p">)</span> <span class="nx">use</span> <span class="p">(</span><span class="nv">$fib</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nv">$n</span> <span class="o">&lt;=</span> <span class="m">2</span> <span class="o">?</span> <span class="m">1</span> <span class="o">:</span> <span class="nv">$fib</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="m">1</span><span class="p">)</span> <span class="o">+</span> <span class="nv">$fib</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="m">2</span><span class="p">);</span>
+    <span class="k">function</span><span class="p">(</span><span class="nv">$fib</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">function</span><span class="p">(</span><span class="nv">$n</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$fib</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$n</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="nv">$fib</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nv">$fib</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
         <span class="p">};</span>
-    <span class="p">})</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="m">10</span><span class="p">);</span> <span class="c">// 55</span>
+    <span class="p">})</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 55</span>
 </code></pre>
 </div>
 
@@ -90,16 +89,16 @@
 
 <div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
 <span class="nx">Y</span><span class="p">(</span>
-    <span class="nx">function</span><span class="p">(</span><span class="nv">$hanoi</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">function</span><span class="p">(</span><span class="nv">$n</span><span class="p">,</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">,</span> <span class="nv">$c</span><span class="p">)</span> <span class="nx">use</span> <span class="p">(</span><span class="nv">$hanoi</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nv">$hanoi</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="m">1</span><span class="p">,</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$c</span><span class="p">,</span> <span class="nv">$b</span><span class="p">);</span>
+    <span class="k">function</span><span class="p">(</span><span class="nv">$hanoi</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">function</span><span class="p">(</span><span class="nv">$n</span><span class="p">,</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">,</span> <span class="nv">$c</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$hanoi</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$hanoi</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$c</span><span class="p">,</span> <span class="nv">$b</span><span class="p">);</span>
                 <span class="k">echo</span> <span class="s2">&quot;No. </span><span class="si">$n</span><span class="s2"> disk is moved from </span><span class="si">$a</span><span class="s2"> to </span><span class="si">$b</span><span class="s2">&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-                <span class="nv">$hanoi</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="m">1</span><span class="p">,</span> <span class="nv">$c</span><span class="p">,</span> <span class="nv">$b</span><span class="p">,</span> <span class="nv">$a</span><span class="p">);</span>
+                <span class="nv">$hanoi</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$c</span><span class="p">,</span> <span class="nv">$b</span><span class="p">,</span> <span class="nv">$a</span><span class="p">);</span>
             <span class="p">}</span>
         <span class="p">};</span>
     <span class="p">}</span>
-<span class="p">)</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="m">64</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">);</span>
+<span class="p">)</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">);</span>
 </code></pre>
 </div>
 
