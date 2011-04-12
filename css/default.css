@@ -8,13 +8,13 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 680px;
-    font-family: 'Neuton', 'メイリオ', 'Meiryo', sans-serif;
+    font-family: 'メイリオ', Meiryo, sans-serif;
     font-size: 90%;
     color: #333333;
 }
 
 h1 {
-    font-family: 'Cuprum', Times, 'Times New Roman', serif;
+    font-family: Cuprum, Helvetica, serif;
 }
 
 h2 {
@@ -25,13 +25,18 @@ h3 {
     font-size: 100%;
 }
 
+h4 {
+    font-size: 90%;
+}
+
+
 h1, h2, h3, h4, h5 {
     clear: both;
 }
 
 p {
     clear: both;
-    font-size: 90%;
+    font-size: 85%;
     line-height: 1.7em;
 }
 
@@ -53,6 +58,19 @@ pre {
 
 code {
     font-family: Inconsolata, Consolas, monospace;
+}
+
+table {
+    border-collapse: collapse;
+}
+table th {
+    padding: 5px;
+    background-color: #F8F8FF;
+    border: 1px solid #CCC;
+}
+table td {
+    padding: 3px;
+    border: 1px solid #CCC;
 }
 
 header {
@@ -92,6 +110,13 @@ nav#pagination {
 nav#pagination span {
     margin-left: 15px;
     margin-right: 15px;
+}
+
+#articles article {
+    display: block;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px dashed #CCC;
 }
 
 article a {
@@ -140,6 +165,9 @@ footer #powered{
 article#archive li {
     list-style: none;
     margin: 1em;
+}
+article#archive li a {
+    font-family: 'メイリオ', Meiryo, sans-serif;
 }
 
 .date {
