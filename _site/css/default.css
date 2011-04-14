@@ -1,6 +1,6 @@
 /* 未来を予測する最善の方法は、自らそれを創りだすことである。--アラン・ケイ */
 
-header, footer, nav, section {
+header, footer, nav, article, section {
     display: block;
 }
 
@@ -135,21 +135,28 @@ article h2 a {
 }
 
 p#posted {
+    padding-top: 20px;
+    width: 100%;
+    text-align: right;
     color: #888888;
 }
 span.date {
     color: #666666;
 }
 
-section#categories {
-    margin-top: 30px;
-    margin-bottom: 30px;
+section#tags {
+}
+section#tags li {
+    float: left;
+    list-style: none;
+    padding-left: 0.5em;
 }
 section#disqus_thread {
     margin-top: 20px;
 }
 
 footer {
+    padding-top: 30px;
     color: #666666;
 }
 footer a {

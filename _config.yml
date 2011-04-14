@@ -7,5 +7,7 @@ markdown: rdiscount
 pygments: true
 permalink: /entries/:title
 paginate: 3
+category_dir: tags
+category_title_prefix: Tag
 
 exclude: ['README.markdown', 'config.ru']

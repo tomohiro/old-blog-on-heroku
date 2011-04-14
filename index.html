@@ -9,6 +9,11 @@ layout: default
 
         {{ post.content }}
 
+        <section id="tags">
+            <h3>Tags:</h3> 
+            <ul>{{ post.categories | category_links }}</ul>
+        </section>
+ 
         <p id="posted">Posted by {{ site.author }}, at <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">permalink</a></p>
     </article>
     {% endfor %}

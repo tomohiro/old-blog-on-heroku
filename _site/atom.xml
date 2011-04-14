@@ -4,7 +4,7 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-04-14T19:12:31+09:00</updated>
+    <updated>2011-04-14T21:13:28+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -38,6 +38,13 @@
 
 
 &lt;p&gt;特定の Ruby 処理系を指定することはできないが，必要であれば環境変数に追加して対応すれば良い．&lt;/p&gt;
+
+&lt;h3&gt;References:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://rvm.beginrescueend.com/&quot;&gt;RVM: Ruby Version Manager - RVM Ruby Version Manager - Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 </content>
     </entry>
     

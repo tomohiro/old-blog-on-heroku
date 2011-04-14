@@ -7,16 +7,13 @@ layout: default
    
     {{ content }}
 
-    <section id="categories">
-        <h3>Categories:</h3> 
-        <ul>
-            {% for category in page.categories %}
-                <li>{{ category }}</li>
-            {% endfor %}
-        </ul>
+    <section id="tags">
+        <h3>Tags:</h3> 
+        <ul>{{ page.categories | category_links }}</ul>
     </section>
    
-    <p>Posted by {{ site.author }}, at <span class="date">{{ page.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ page.url }}">permalink</a></p>
+    <p id="posted">Posted by <a href="http://twitter.com/Tomohiro">{{ site.author }}</a>, at <span class="date">{{ page.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ page.url }}">permalink</a></p>
+
     <section id="disqus_thread"></section>
     <script type="text/javascript">
         var disqus_shortname = 'log-tomohiro-me';

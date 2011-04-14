@@ -1,7 +1,7 @@
 ---
 layout: post
 title: LL でリスト/配列をループ処理する時のイディオム
-categories: [Ruby, Perl, Python, Perl, JavaScript]
+categories: [Ruby, Perl, Python, PHP, JavaScript]
 ---
 
 ### リスト/配列の値を順番に評価する
