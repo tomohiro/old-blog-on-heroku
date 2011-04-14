@@ -39,9 +39,39 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/rvm-ruby-on-cron" id="permalink">✓ </a> RVM でインストールした Ruby を cron で使う</h2>
+
+        <p>ユーザ環境で動く cron で RVM が管理している Ruby を動かす時のテクニック．</p>
+
+<p>まずこういうテクニックを見つけたので，やってみた．</p>
+
+<div class="highlight"><pre><code class="sh">* * * * * bash -c <span class="s1">&#39;. ~/.rvm/scripts/rvm &amp;&amp; command&#39;</span>
+</code></pre>
+</div>
+
+
+<p>これでも問題なく動が，記述量が多いので，crontab 設定の可読性が落ちるという難点があった．</p>
+
+<p>そこで環境変数の PATH に RVM の bin を追加したところ，いい感じになった．</p>
+
+<p>仮に RVM がインストールされない環境でこの cron 設定を動かしてもシステムの Ruby 処理系が走るだけになる．</p>
+
+<div class="highlight"><pre><code class="sh"><span class="nv">PATH</span><span class="o">=</span>/home/tomohiro/.rvm/bin:/usr/bin:/bin
+* * * * * ruby <span class="nb">command</span>
+</code></pre>
+</div>
+
+
+<p>特定の Ruby 処理系を指定することはできないが，必要であれば環境変数に追加して対応すれば良い．</p>
+
+
+        <p id="posted">Posted by Tomohiro, at <span class="date">2011-04-14</span> &raquo; <a href="/entries/rvm-ruby-on-cron">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/redmine_development_environment_on_ubuntu" id="permalink">✓ </a> Ubuntu 10.10 で開発版 Redmine のプラグイン開発環境を作成する</h2>
 
-        <p>簡単にローカルで簡単に動かせる環境というのを目指すと下記のような手順になった．</p>
+        <p>Redmine の開発環境を簡単に作るというのを目指すと下記のような手順になった．</p>
 
 <h3>使用ライブラリとバージョン</h3>
 
@@ -257,37 +287,6 @@ Default configuration data loaded.
 
 
         <p id="posted">Posted by Tomohiro, at <span class="date">2011-04-11</span> &raquo; <a href="/entries/text-formatter-setting-patch-for-redmne-1.1.2">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/ruby_core_class_method_monkey_patching" id="permalink">✓ </a> Ruby で組み込みクラスのメソッドを上書きする</h2>
-
-        <blockquote><p>「Rubyは君を信頼する。Rubyは君を分別のあるプログラマとして扱う。Rubyはメタプログラミングのような強力な力を与える。ただし、大いなる力には、大いなる責任が伴うことを忘れてはいけない」 - まつもとゆきひろ</p></blockquote>
-
-<p>Ruby では下記のように，例え組み込みクラスでもメソッドを別名にしたり，オーバライドしたりと，モンキーパッチングが自由に出来る．
-ただし悪用は厳禁．</p>
-
-<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="no">Time</span>
-  <span class="n">alias_method</span> <span class="ss">:now_original</span><span class="p">,</span> <span class="ss">:now</span>
-
-  <span class="k">def</span> <span class="nf">now</span>
-    <span class="nb">puts</span> <span class="s1">&#39;override&#39;</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="nb">puts</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
-<span class="nb">puts</span> <span class="no">Time</span><span class="o">.</span><span class="n">now_original</span>
-</code></pre>
-</div>
-
-
-<h3>References:</h3>
-
-<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;margin:0px 12px 1px 0px;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4048687158/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51TODrMIEnL._SL160_.jpg" alt="メタプログラミングRuby" style="border: none;" /></a></div><div class="amazlet-info" style="line-height:120%; margin-bottom: 10px"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4048687158/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank">メタプログラミングRuby</a><div class="amazlet-powered-date" style="font-size:80%;margin-top:5px;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/4048687158/tomohiro-t-22/ref=nosim/" title="メタプログラミングRuby" target="_blank">amazlet</a> at 11.04.10</div></div><div class="amazlet-detail">Paolo Perrotta <br />アスキー・メディアワークス <br />売り上げランキング: 29046<br /></div><div class="amazlet-sub-info" style="float: left;"><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4048687158/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div></div><div class="amazlet-footer" style="clear: left"></div></div>
-
-
-
-        <p id="posted">Posted by Tomohiro, at <span class="date">2011-04-10</span> &raquo; <a href="/entries/ruby_core_class_method_monkey_patching">permalink</a></p>
     </article>
     
 </section>

@@ -4,7 +4,7 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-04-12T19:15:10+09:00</updated>
+    <updated>2011-04-14T19:12:31+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -12,11 +12,41 @@
     </author>
     
     <entry>
+        <title>RVM でインストールした Ruby を cron で使う</title>
+        <link href="http://log.tomohiro.me/entries/rvm-ruby-on-cron"/>
+        <updated>2011-04-14T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/entries/rvm-ruby-on-cron</id>
+        <content type="html">&lt;p&gt;ユーザ環境で動く cron で RVM が管理している Ruby を動かす時のテクニック．&lt;/p&gt;
+
+&lt;p&gt;まずこういうテクニックを見つけたので，やってみた．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;* * * * * bash -c &lt;span class=&quot;s1&quot;&gt;&amp;#39;. ~/.rvm/scripts/rvm &amp;amp;&amp;amp; command&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;これでも問題なく動が，記述量が多いので，crontab 設定の可読性が落ちるという難点があった．&lt;/p&gt;
+
+&lt;p&gt;そこで環境変数の PATH に RVM の bin を追加したところ，いい感じになった．&lt;/p&gt;
+
+&lt;p&gt;仮に RVM がインストールされない環境でこの cron 設定を動かしてもシステムの Ruby 処理系が走るだけになる．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/tomohiro/.rvm/bin:/usr/bin:/bin
+* * * * * ruby &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;特定の Ruby 処理系を指定することはできないが，必要であれば環境変数に追加して対応すれば良い．&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
         <title>Ubuntu 10.10 で開発版 Redmine のプラグイン開発環境を作成する</title>
         <link href="http://log.tomohiro.me/entries/redmine_development_environment_on_ubuntu"/>
         <updated>2011-04-12T00:00:00+09:00</updated>
         <id>http://log.tomohiro.me/entries/redmine_development_environment_on_ubuntu</id>
-        <content type="html">&lt;p&gt;簡単にローカルで簡単に動かせる環境というのを目指すと下記のような手順になった．&lt;/p&gt;
+        <content type="html">&lt;p&gt;Redmine の開発環境を簡単に作るというのを目指すと下記のような手順になった．&lt;/p&gt;
 
 &lt;h3&gt;使用ライブラリとバージョン&lt;/h3&gt;
 
