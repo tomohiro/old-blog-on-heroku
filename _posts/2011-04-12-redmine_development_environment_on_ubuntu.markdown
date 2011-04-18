@@ -35,9 +35,18 @@ $ rvm use 1.8.7
 {% endhighlight %}
 
 
+### Redmine 用の Gemset を作成
+
+{% highlight bash %}
+$ rvm gemset create redmine
+$ rvm gemset use redmine
+{% endhighlight %}
+
+
 ### Rails のインストール
 
 {% highlight bash %}
+$ gem install rake
 $ gem install -v=0.4.2 i18n
 $ gem install -v=2.3.11 rails
 $ gem install sqlite3

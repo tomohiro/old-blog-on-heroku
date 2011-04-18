@@ -136,9 +136,18 @@
 </div>
 
 
+<h3>Redmine 用の Gemset を作成</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>rvm gemset create redmine
+<span class="nv">$ </span>rvm gemset use redmine
+</code></pre>
+</div>
+
+
 <h3>Rails のインストール</h3>
 
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>gem install -v<span class="o">=</span>0.4.2 i18n
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>gem install rake
+<span class="nv">$ </span>gem install -v<span class="o">=</span>0.4.2 i18n
 <span class="nv">$ </span>gem install -v<span class="o">=</span>2.3.11 rails
 <span class="nv">$ </span>gem install sqlite3
 <span class="nv">$ </span>gem install ruby-debug
