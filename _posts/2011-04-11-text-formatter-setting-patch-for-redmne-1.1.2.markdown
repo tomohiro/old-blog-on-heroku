@@ -12,7 +12,7 @@ categories: [Ruby, Redmine]
 
 1. patch を適用
 
-       # curl -LO https://gist.github.com/raw/912936/0f7e2dfb9a67a942875dfaef6d7cb4805c920e69/application_helper.rb.choice_text_formatter.patch
+       # curl -LO https://gist.github.com/raw/912936/application_helper.rb.choice_text_formatter.patch
        # cd /var/lib/redmine/app/helpers/
        # patch < application_helper.rb.choice_text_formatter.patch
 

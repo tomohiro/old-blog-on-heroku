@@ -8,10 +8,12 @@ categories: [Ruby]
 
 英和なのか，和英なのかは自動的に判別するようになっています．
 
+Ruby 1.9 で動きます．
+
 ### 使い方
 
 {% highlight bash %}
-$ curl -LO https://gist.github.com/raw/551073/5a8b7c5ae265fe61633c8ac9200ef09b8a3ccec6/gt 
+$ curl -LO https://gist.github.com/raw/551073/gt 
 $ mv gt ~/bin/
 $ chmod +x ~/bin/gt
 $ gt 長文の翻訳にも対応しています。

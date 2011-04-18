@@ -4,7 +4,7 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-04-14T21:13:28+09:00</updated>
+    <updated>2011-04-18T13:57:10+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -246,7 +246,7 @@ Default configuration data loaded.
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;patch を適用&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;# curl -LO https://gist.github.com/raw/912936/0f7e2dfb9a67a942875dfaef6d7cb4805c920e69/application_helper.rb.choice_text_formatter.patch
+&lt;pre&gt;&lt;code&gt;# curl -LO https://gist.github.com/raw/912936/application_helper.rb.choice_text_formatter.patch
 # cd /var/lib/redmine/app/helpers/
 # patch &amp;lt; application_helper.rb.choice_text_formatter.patch
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
@@ -309,9 +309,11 @@ Default configuration data loaded.
 
 &lt;p&gt;英和なのか，和英なのかは自動的に判別するようになっています．&lt;/p&gt;
 
+&lt;p&gt;Ruby 1.9 で動きます．&lt;/p&gt;
+
 &lt;h3&gt;使い方&lt;/h3&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl -LO https://gist.github.com/raw/551073/5a8b7c5ae265fe61633c8ac9200ef09b8a3ccec6/gt 
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl -LO https://gist.github.com/raw/551073/gt 
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mv gt ~/bin/
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;chmod +x ~/bin/gt
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gt 長文の翻訳にも対応しています。
