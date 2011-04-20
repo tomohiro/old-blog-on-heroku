@@ -1,0 +1,82 @@
+<h3 id='install_jekyll'>Install Jekyll</h3>
+<div>
+  <pre>
+    <code class='bash'>$ gem install jekyll</code>
+  </pre>
+</div>
+<h3 id='setup'>Setup</h3>
+<div>
+  <pre>
+    <code class='bash'>$ mkdir myblog
+$ cd myblog
+$ touch index.html
+$ mkdir _site _layouts _posts
+$ mkdir css</code>
+  </pre>
+</div>
+<h3 id='install_rackjekyll'>Install Rack-Jekyll</h3>
+<div>
+  <pre>
+    <code class='bash'>$ gem install rack-jekyll
+$ vi config.ru</code>
+  </pre>
+</div><div>
+  <pre>
+    <code class='ruby'># config.ru
+require 'rubygems'
+run Rack::Jekyll.new</code>
+  </pre>
+</div><div>
+  <pre>
+    <code class='bash'>$ echo 'rack-jekyll' &gt; .gems</code>
+  </pre>
+</div>
+<p>A basic Rack-Jekyll site usually looks something like this:</p>
+<div>
+  <pre>
+    <code class='bash'>$ tree
+.
+|-- .gems
+|-- _config.yml
+|-- _layouts
+|   |-- default.html
+|   `-- post.html
+|-- _posts
+|   |-- 2011-03-24-my-first-post.markdown
+|   `-- 2011-03-25-my-second-post.markdown
+|-- _site
+|-- config.ru
+`-- index.html</code>
+  </pre>
+</div>
+<h3 id='running_jekyll'>Running Jekyll</h3>
+<div>
+  <pre>
+    <code class='bash'>$ jekyll --server --auto</code>
+  </pre>
+</div>
+<p>Browse to http://localhost:4000</p>
+
+<h3 id='deply_to_heroku'>Deply to Heroku</h3>
+<div>
+  <pre>
+    <code class='bash'>$ jekyll --server --auto
+$ heroku create myblog
+$ git add . 
+$ git commit -a -m 'my blog first commit.'
+$ git push heroku master</code>
+  </pre>
+</div>
+<p>Browse to http://myblog.heroku.com</p>
+
+<p>Congratulations!</p>
+
+<h3 id='reference'>Reference:</h3>
+
+<ul>
+<li><a href='https://github.com/mojombo/jekyll/wiki' title='Home - GitHub'>Home - GitHub</a></li>
+
+<li><a href='https://github.com/mojombo/jekyll/wiki/Install' title='Install - GitHub'>Install - GitHub</a></li>
+
+<li><a href='https://github.com/mojombo/jekyll/wiki/Usage' title='Usage - GitHub'>Usage - GitHub</a></li>
+</ul>

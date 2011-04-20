@@ -1,0 +1,141 @@
+<p>Redmine の開発環境を簡単に作るというのを目指すと下記のような手順になった．</p>
+
+<h3 id='id10'>使用ライブラリとバージョン</h3>
+<table><thead><tr><th>名前</th><th>バージョン</th></tr></thead><tbody><tr><td style='text-align: left;'>RVM</td><td style='text-align: left;'>1.6.1</td>
+</tr><tr><td style='text-align: left;'>Ruby</td><td style='text-align: left;'>1.8.7</td>
+</tr><tr><td style='text-align: left;'>Rails</td><td style='text-align: left;'>2.3.11</td>
+</tr><tr><td style='text-align: left;'>SQLite3</td><td style='text-align: left;'>3.7.2</td>
+</tr><tr><td style='text-align: left;'>RubyGems</td><td style='text-align: left;'>1.6.2</td>
+</tr></tbody></table>
+<h3 id='sqlite3_'>SQLite3 のインストール</h3>
+<div>
+  <pre>
+    <code class='bash'>$ apt-get install sqlite3 libsqlite3-dev libsqlite-0</code>
+  </pre>
+</div>
+<h3 id='ruby_'>Ruby のインストール</h3>
+
+<p>RVM を使ってインストールする</p>
+<div>
+  <pre>
+    <code class='bash'>$ rvm install 1.8.7
+$ rvm use 1.8.7</code>
+  </pre>
+</div>
+<h3 id='redmine__gemset_'>Redmine 用の Gemset を作成</h3>
+<div>
+  <pre>
+    <code class='bash'>$ rvm gemset create redmine
+$ rvm gemset use redmine</code>
+  </pre>
+</div>
+<h3 id='rails_'>Rails のインストール</h3>
+<div>
+  <pre>
+    <code class='bash'>$ gem install rake
+$ gem install -v=0.4.2 i18n
+$ gem install -v=2.3.11 rails
+$ gem install sqlite3
+$ gem install ruby-debug
+$ gem install thin</code>
+  </pre>
+</div><div>
+  <pre>
+    <code class='bash'>$ gem list
+
+*** LOCAL GEMS ***
+
+actionmailer (2.3.11)
+actionpack (2.3.11)
+activerecord (2.3.11)
+activeresource (2.3.11)
+activesupport (2.3.11)
+columnize (0.3.2)
+daemons (1.1.2)
+eventmachine (0.12.10)
+i18n (0.4.2)
+linecache (0.43)
+rack (1.1.2)
+rails (2.3.11)
+rake (0.8.7)
+ruby-debug (0.10.4)
+ruby-debug-base (0.10.4)
+sqlite3 (1.3.3)
+thin (1.2.11)</code>
+  </pre>
+</div>
+<h3 id='redmine_'>Redmine リポジトリを用意する</h3>
+
+<h4 id='git_clone'>Git clone</h4>
+<div>
+  <pre>
+    <code class='bash'>$ git clone git://github.com/edavis10/redmine.git redmine@edavis</code>
+  </pre>
+</div>
+<h4 id='id11'>初期設定</h4>
+<div>
+  <pre>
+    <code class='bash'>$ cd redmine@edavis
+$ vi config/database.yml</code>
+  </pre>
+</div><div>
+  <pre>
+    <code class='yaml'>development:
+  adapter: sqlite3
+  database: db/development.sqlite3</code>
+  </pre>
+</div><div>
+  <pre>
+    <code class='bash'>$ RAILS_ENV=development rake config/initializers/session_store.rb
+$ RAILS_ENV=development rake db:migrate
+$ RAILS_ENV=development rake redmine:load_default_data
+(in /home/tomohiro/Dropbox/Development/forks/redmine@edavis)
+
+Select language: bg, bs, ca, cs, da, de, el, en, en-GB, es, eu, fa, fi, fr, gl, he, hr, hu, id, 
+it, ja, ko, lt, lv, mk, mn, nl, no, pl, pt, pt-BR, ro, ru, sk, sl, sr, sr-YU, sv, th, tr, uk, 
+vi, zh, zh-TW [en] ja
+====================================
+Default configuration data loaded.</code>
+  </pre>
+</div>
+<h4 id='id12'>サーバを起動する</h4>
+
+<p>デフォルトの WEBrick の場合</p>
+<div>
+  <pre>
+    <code class='bash'>$ ./script/server -u
+=&gt; Booting WEBrick
+=&gt; Rails 2.3.11 application starting on http://0.0.0.0:3000
+=&gt; Debugger enabled
+=&gt; Call with -d to detach
+=&gt; Ctrl-C to shutdown server
+[2011-04-12 18:08:29] INFO  WEBrick 1.3.1
+[2011-04-12 18:08:29] INFO  ruby 1.8.7 (2011-02-18) [i686-linux]
+[2011-04-12 18:08:34] INFO  WEBrick::HTTPServer#start: pid=18697 port=3000</code>
+  </pre>
+</div>
+<p>Thin の場合</p>
+<div>
+  <pre>
+    <code class='bash'>$ ./script/server thin -u
+=&gt; Booting Thin
+=&gt; Rails 2.3.11 application starting on http://0.0.0.0:3000
+=&gt; Debugger enabled
+=&gt; Call with -d to detach
+=&gt; Ctrl-C to shutdown server
+&gt;&gt; Thin web server (v1.2.11 codename Bat-Shit Crazy)
+&gt;&gt; Maximum connections set to 1024
+&gt;&gt; Listening on 0.0.0.0:3000, CTRL+C to stop</code>
+  </pre>
+</div>
+<h3 id='id13'>ブラウザからアクセス</h3>
+
+<p><code>http://0.0.0.0:3000</code> にアクセスして <code>admin/admin</code> でログオンを試す</p>
+
+<h3 id='references'>References:</h3>
+
+<ul>
+<li><a href='https://rvm.beginrescueend.com/'>RVM: Ruby Version Manager - RVM Ruby Version Manager - Documentation</a></li>
+
+<li><a href='http://www.redmine.org/projects/redmine/wiki/Download#Development-unstable'>Redmine - Download - Latest source code Development(unstable)</a></li>
+</ul>

@@ -1,0 +1,40 @@
+<h3 id='id1'>設定を変更する</h3>
+
+<p><em>config.yml に pygments オプションを追加する．</em></p>
+<div>
+  <pre>
+    <code class='yaml'>pygments: true</code>
+  </pre>
+</div>
+<h3 id='css_'>CSS を読み込む</h3>
+
+<p>pygments が生成する HTML に適用できる CSS を用意する必要がある． 例えば <a href='http://github.com/mojombo/tpw/tree/master/css/syntax.css'>syntax.css</a> を使う．</p>
+
+<p>後は HTML 側で読み込む．</p>
+<div>
+  <pre>
+    <code class='ruby'>&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/syntax.css&quot; media=&quot;screen&quot;&gt;</code>
+  </pre>
+</div>
+<h3 id='id2'>記事の中にコードハイライティングの指定をする</h3>
+
+<p>記法:</p>
+<pre><code>{&#037; highlight ruby &#037;}
+def foo
+  puts 'foo'
+end
+{&#037; endhighlight &#037;}
+</code></pre>
+<p>結果:</p>
+<div>
+  <pre>
+    <code class='ruby'>def foo
+  puts 'foo'
+end</code>
+  </pre>
+</div>
+<h3 id='reference'>Reference:</h3>
+
+<ul>
+<li><a href='https://github.com/mojombo/jekyll/wiki/Liquid-Extensions' title='Liquid Extensions - GitHub'>Liquid Extensions - GitHub</a></li>
+</ul>

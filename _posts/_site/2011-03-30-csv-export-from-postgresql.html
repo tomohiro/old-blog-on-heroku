@@ -1,0 +1,23 @@
+<p>カンマ区切りの一般的な CSV を吐き出す場合はこのようなコマンドを実行すれば良い．</p>
+<div>
+  <pre>
+    <code class='bash'>$ psql -U {user} {dbname} -c 'SELECT * FROM example' -A -F, &gt; example.csv</code>
+  </pre>
+</div>
+<p>カラムのデータに改行コードが含まれる場合，出力する CSV を Excel などで開くと 途中で改行されてしまい，大変残念な感じになる． その場合は，改行が含まれるカラムのデータを下記のように変更する必要がある．</p>
+
+<ul>
+<li>CRLF を LF に変更 - ダブルクォーテーションでくくる</li>
+</ul>
+<div>
+  <pre>
+    <code class='sql'>SELECT
+   '&quot;' || REPLACE(e.description '\r\n', '\n') || '&quot;' AS description
+FROM
+   example AS e</code>
+  </pre>
+</div><div>
+  <pre>
+    <code class='bash'>$ psql -U {user} {dbname} -f export_example_to_csv.sql -A -F, &gt; example.csv</code>
+  </pre>
+</div>

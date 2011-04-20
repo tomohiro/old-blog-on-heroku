@@ -1,0 +1,45 @@
+<p>Ruby で<a href='http://bijo-linux.com/'>美女 Linux</a> の検索結果を見るコマンドを作ってみた．</p>
+
+<p>かといって美女が CLI で見れるわけではないので，man で OK って話なんだが&#8230;</p>
+<div>
+  <pre>
+    <code class='ruby'>#!/usr/bin/env ruby
+
+require 'open-uri'
+
+require 'rubygems'
+require 'nokogiri'
+
+class GirlLinux
+  def self.search(cmd)
+    uri = &quot;http://bijo-linux.com/girls/#{cmd}&quot;
+    begin
+      html = Nokogiri::HTML(open(uri).read)
+      (html/'p/span').each do |content|
+        puts content.text
+      end
+      puts &quot;\nURL: #{uri}&quot;
+    rescue
+      puts &quot;No girl entry for #{cmd}&quot;
+    end
+  end
+end
+
+GirlLinux.search ARGV.first if __FILE__ == $0</code>
+  </pre>
+</div>
+<p>上記のコードを <code>girl</code> として <code>$HOME/bin</code> などに置くとシェルから呼び出せる．</p>
+<div>
+  <pre>
+    <code class='bash'>$ girl kill
+【説明】
+指定したプロセスを終了する
+【書式】
+kill  [オプション]  プロセスID
+【オプション】
+-s           プロセスに送るシグナルを指定
+-l            シグナル名の一覧を表示する
+
+URL: http://bijo-linux.com/girls/kill</code>
+  </pre>
+</div>

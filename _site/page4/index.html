@@ -39,6 +39,123 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/installing-perlbrew-on-ubuntu10.10" id="permalink">✓ </a> Ubuntu 10.10 に perlbrew をインストールする</h2>
+
+        <h3>perlbrew のインストール</h3>
+
+<p>公式の手順通りに進めても良いが，その手順ではデフォルトで <code>$HOME/perl5</code> に perlbrew がインストールされてしまう．</p>
+
+<p>個人的には <code>$HOME</code> 直下に見えるディレクトリが増えるのは嬉しくない．</p>
+
+<p>そこで，他の LL の仮想環境と同じように <code>$HOME/.perlbrew/perl5</code> をインストール先にするため環境変数 <code>PERLBREW_ROOT</code> を設定することにしている．</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span><span class="nb">cd</span> /tmp
+<span class="nv">$ </span>curl -LO http://xrl.us/perlbrew
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 26914  100 26914    0     0   9671      0  0:00:02  0:00:02 --:--:-- 53084
+<span class="nv">$ </span>chmod +x perlbrew
+
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">PERLBREW_ROOT</span><span class="o">=</span><span class="nv">$HOME</span>/.perlbrew/perl5
+
+<span class="nv">$ </span>./perlbrew install
+The perlbrew is installed as:
+
+    ~/.perlbrew/perl5/bin/perlbrew
+
+You may trash the downloaded /tmp/perlbrew from now on.
+
+Next, <span class="k">if </span>this is the first <span class="nb">time </span>you install perlbrew, run:
+
+    ~/.perlbrew/perl5/bin/perlbrew init
+
+And follow the instruction on screen.
+</code></pre>
+</div>
+
+
+<h3>初期化</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>rm -f perlbrew
+<span class="nv">$ </span><span class="nb">cd</span> ~/.perlbrew/perl5/bin/
+<span class="nv">$ </span>./perlbrew init
+perlbrew environment initiated, required directories are created under
+
+    ~/.perlbrew/perl5
+
+Well-done! Congratulations! Please add the following line to the end
+of your ~/.bashrc
+
+    <span class="nb">source</span> ~/.perlbrew/perl5/etc/bashrc
+
+After that, <span class="nb">exit </span>this shell, start a new one, and install some fresh
+perls:
+
+    perlbrew install perl-5.12.1
+    perlbrew install perl-5.10.1
+
+For further instructions, simply run:
+
+    perlbrew
+
+The default <span class="nb">help </span>messages will popup and tell you what to <span class="k">do</span>!
+
+Enjoy perlbrew at <span class="nv">$HOME</span>!!
+</code></pre>
+</div>
+
+
+<h3>シェルの側で perlbrew を有効にする</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>vi ~/.zshrc
+
+<span class="c">##### for Perl `perlbrew` #####</span>
+<span class="k">if</span> <span class="o">[[</span> -s <span class="nv">$HOME</span>/.perlbrew/perl5/etc/bashrc <span class="o">]]</span>; <span class="k">then</span>
+<span class="k">    </span><span class="nb">source</span> <span class="nv">$HOME</span>/.perlbrew/perl5/etc/bashrc
+<span class="k">fi</span>
+
+<span class="nv">$ </span><span class="nb">source</span> ~/.zshrc
+<span class="nv">$ </span>which perlbrew
+/home/tomohiro/.perlbrew/perl5/bin/perlbrew
+</code></pre>
+</div>
+
+
+<h5>Perl を設定する</h5>
+
+<p>perlbrew でインストール済みの Perl を設定する．</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>perlbrew switch /usr/bin/perl
+</code></pre>
+</div>
+
+
+<p>別のバージョンをインストールする場合は下記のようにする．</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>perlbrew install perl-5.12.2
+<span class="nv">$ </span>perlbrew switch perl-5.12.2
+</code></pre>
+</div>
+
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="http://search.cpan.org/dist/App-perlbrew/lib/App/perlbrew.pm">App::perlbrew - search.cpan.org</a></li>
+<li><a href="http://d.hatena.ne.jp/tokuhirom/20100716/perlenv">モダンな Perl の開発環境の構築方法 - TokuLog 改メ tokuhirom’s blog</a></li>
+</ul>
+
+
+
+        <section id="tags">
+            <h3>Tags:</h3> 
+            <ul><li><a href="/tags/Perl/">Perl</a> and</li> <li><a href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+        </section>
+ 
+        <p id="posted">Posted by Tomohiro, at <span class="date">2011-04-05</span> &raquo; <a href="/entries/installing-perlbrew-on-ubuntu10.10">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/girl-linux-command" id="permalink">✓ </a> 美女 Linux コマンド</h2>
 
         <p>Ruby で<a href="http://bijo-linux.com/">美女 Linux</a> の検索結果を見るコマンドを作ってみた．</p>
@@ -181,52 +298,6 @@ URL: http://bijo-linux.com/girls/kill
         </section>
  
         <p id="posted">Posted by Tomohiro, at <span class="date">2011-03-31</span> &raquo; <a href="/entries/y-combinator-in-php">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/csv-export-from-postgresql" id="permalink">✓ </a> PostgreSQL から CSV ファイルをエクスポートする</h2>
-
-        <p>カンマ区切りの一般的な CSV を吐き出す場合はこのようなコマンドを実行すれば良い．</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>psql -U <span class="o">{</span>user<span class="o">}</span> <span class="o">{</span>dbname<span class="o">}</span> -c <span class="s1">&#39;SELECT * FROM example&#39;</span> -A -F, &gt; example.csv
-</code></pre>
-</div>
-
-
-<p>カラムのデータに改行コードが含まれる場合，出力する CSV を Excel などで開くと
-途中で改行されてしまい，大変残念な感じになる．
-その場合は，改行が含まれるカラムのデータを下記のように変更する必要がある．</p>
-
-<ul>
-<li>CRLF を LF に変更</li>
-<li>ダブルクォーテーションでくくる</li>
-</ul>
-
-
-<div class="highlight"><pre><code class="sql"><span class="k">SELECT</span>
-   <span class="s1">&#39;&quot;&#39;</span> <span class="o">||</span> <span class="k">REPLACE</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">description</span> <span class="s1">&#39;\r\n&#39;</span><span class="p">,</span> <span class="s1">&#39;\n&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;&quot;&#39;</span> <span class="k">AS</span> <span class="n">description</span>
-<span class="k">FROM</span>
-   <span class="n">example</span> <span class="k">AS</span> <span class="n">e</span>
-</code></pre>
-</div>
-
-
-
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>psql -U <span class="o">{</span>user<span class="o">}</span> <span class="o">{</span>dbname<span class="o">}</span> -f export_example_to_csv.sql -A -F, &gt; example.csv
-</code></pre>
-</div>
-
-
-
-
-
-        <section id="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/PostgreSQL/">PostgreSQL</a> and</li> <li><a href="/tags/SQL/">SQL</a></li></ul>
-        </section>
- 
-        <p id="posted">Posted by Tomohiro, at <span class="date">2011-03-30</span> &raquo; <a href="/entries/csv-export-from-postgresql">permalink</a></p>
     </article>
     
 </section>

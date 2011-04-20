@@ -39,6 +39,127 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/ll-die-idiom" id="permalink">✓ </a> LL で異常終了処理する時のイディオム</h2>
+
+        <p>エラーの際に，メッセージを表示して，プログラムを終了させるという流れを LL で実装する方法を調査してみた．</p>
+
+<p>Ruby/Python/Perl はほぼ想定された動作をしたが，PHP のみ <code>die</code> の引数に文字列を渡すと，ステータスコード "0" を返す，という謎の挙動を示した．</p>
+
+<p>調べてみたところバグではなく PHP の仕様ではあったのだが，個人的にはイケてないなぁと思う．</p>
+
+<h3>Ruby</h3>
+
+<p>サンプル</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="c1">#!/usr/bin/env ruby</span>
+
+<span class="nb">abort</span> <span class="s1">&#39;Error&#39;</span>
+</code></pre>
+</div>
+
+
+<p>ステータスコード</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>ruby -e <span class="s2">&quot;abort &#39;Error&#39;&quot;</span>
+Error
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$?</span>
+1
+</code></pre>
+</div>
+
+
+<h3>Perl</h3>
+
+<p>サンプル</p>
+
+<div class="highlight"><pre><code class="perl"><span class="c1">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="n">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="n">warnings</span><span class="p">;</span>
+
+<span class="nb">die</span> <span class="s">&#39;Error&#39;</span><span class="p">;</span>
+</code></pre>
+</div>
+
+
+<p>ステータスコード</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>perl -e <span class="s2">&quot;die &#39;Error&#39;&quot;</span>
+Error at -e line 1.
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$?</span>
+255
+</code></pre>
+</div>
+
+
+<h3>Python</h3>
+
+<p>サンプル</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s">&#39;Error&#39;</span><span class="p">)</span>
+</code></pre>
+</div>
+
+
+<p>ステータスコード</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>python -c <span class="s2">&quot;import sys; sys.exit(&#39;Error&#39;)&quot;</span>
+Error
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$?</span>
+1
+</code></pre>
+</div>
+
+
+<h3>PHP</h3>
+
+<p>サンプル</p>
+
+<div class="highlight"><pre><code class="php"><span class="x">#!/usr/bin/env php</span>
+<span class="cp">&lt;?php</span>
+
+<span class="k">echo</span> <span class="s1">&#39;Error&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="k">die</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</code></pre>
+</div>
+
+
+<p>ステータスコード</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>php -r <span class="s2">&quot;die(&#39;Error&#39; . PHP_EOL);&quot;</span>
+Error
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$?</span>
+0
+<span class="nv">$ </span>php -r <span class="s2">&quot;echo &#39;Error&#39; . PHP_EOL; die(1);&quot;</span>
+Error
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$?</span>
+1
+</code></pre>
+</div>
+
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="http://www.python.jp/doc/2.6/library/sys.html">28.1. sys — システムパラメータと関数 — Python v2.6.2 documentation</a></li>
+<li><a href="http://www.php.net/manual/ja/function.die.php">PHP: die - Manual</a></li>
+<li><a href="http://www.ruby-lang.org/ja/man/html/_C1C8A4DFB9FEA4DFB4D8BFF4.html#abort">組み込み関数 - Rubyリファレンスマニュアル</a></li>
+<li><a href="http://blog.livedoor.jp/dankogai/archives/51073468.html">404 Blog Not Found:perl - use Carp; # warn() と die() だけじゃなくて</a></li>
+</ul>
+
+
+
+        <section id="tags">
+            <h3>Tags:</h3> 
+            <ul><li><a href="/tags/PHP/">PHP</a>,</li><li><a href="/tags/Perl/">Perl</a>,</li><li><a href="/tags/Python/">Python</a>, and</li><li><a href="/tags/Ruby/">Ruby</a></li></ul>
+        </section>
+ 
+        <p id="posted">Posted by Tomohiro, at <span class="date">2011-04-20</span> &raquo; <a href="/entries/ll-die-idiom">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/rvm-ruby-on-cron" id="permalink">✓ </a> RVM でインストールした Ruby を cron で使う</h2>
 
         <p>ユーザ環境で動く cron で RVM が管理している Ruby を動かす時のテクニック．</p>
@@ -276,48 +397,6 @@ Default configuration data loaded.
         </section>
  
         <p id="posted">Posted by Tomohiro, at <span class="date">2011-04-12</span> &raquo; <a href="/entries/redmine_development_environment_on_ubuntu">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/text-formatter-setting-patch-for-redmne-1.1.2" id="permalink">✓ </a> Redmine でプロジェクト毎にテキストの書式を選択できるようにするパッチ</h2>
-
-        <p><a href="http://d.hatena.ne.jp/tmtms/20100923/redmine_formatter">プロジェクト毎のフォーマッタ - @tmtms のメモ</a></p>
-
-<p>上記のブログエントリを参考にパッチを書いた．</p>
-
-<h3>手順</h3>
-
-<ol>
-<li><p>patch を適用</p>
-
-<pre><code># curl -LO https://gist.github.com/raw/912936/application_helper.rb.choice_text_formatter.patch
-# cd /var/lib/redmine/app/helpers/
-# patch &lt; application_helper.rb.choice_text_formatter.patch
-</code></pre></li>
-<li><p>カスタムフィールドでプロジェクトに「テキストの書式」を作成</p></li>
-<li><p>プロジェクトの設定画面で「テキストの書式」を選択</p></li>
-</ol>
-
-
-<h3>Patch</h3>
-
-<script src="https://gist.github.com/912936.js?file=application_helper.rb.choice_text_formatter.patch"></script>
-
-
-<h3>References:</h3>
-
-<ul>
-<li><a href="http://d.hatena.ne.jp/tmtms/20100923/redmine_formatter">プロジェクト毎のフォーマッタ - @tmtms のメモ</a></li>
-</ul>
-
-
-
-        <section id="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/Redmine/">Redmine</a> and</li> <li><a href="/tags/Ruby/">Ruby</a></li></ul>
-        </section>
- 
-        <p id="posted">Posted by Tomohiro, at <span class="date">2011-04-11</span> &raquo; <a href="/entries/text-formatter-setting-patch-for-redmne-1.1.2">permalink</a></p>
     </article>
     
 </section>

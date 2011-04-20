@@ -1,0 +1,67 @@
+<h3 id='y_'>Y コンビネータ関数を作る</h3>
+
+<p>PHP で Y コンビネータ <span><code>Y(F) = F(Y(F))</code></span> を行う関数 Y を定義してみる．</p>
+
+<p>以下のコードは PHP 5.3+ な環境で動作する．</p>
+<div>
+  <pre>
+    <code class='php'>&lt;?php
+function Y($F) {
+    return $F(
+        function() use($F) {
+            return call_user_func_array(Y($F), func_get_args());
+        }
+    );
+}</code>
+  </pre>
+</div>
+<h3 id='y_'>Y コンビネータを使用して無名な再帰関数を作る</h3>
+
+<h4 id='id3'>階乗</h4>
+<div>
+  <pre>
+    <code class='php'>&lt;?php
+echo Y(
+    function($fact) {
+        return function($x) use ($fact) {
+            return $x == 1 ? 1 : $x * $fact($x - 1);
+        };
+    })-&gt;__invoke(10); // 3628800</code>
+  </pre>
+</div>
+<h4 id='id4'>フィボナッチ数</h4>
+<div>
+  <pre>
+    <code class='php'>&lt;?php
+echo Y(
+    function($fib) {
+        return function($n) use ($fib) {
+            return $n &lt;= 2 ? 1 : $fib($n - 1) + $fib($n - 2);
+        };
+    })-&gt;__invoke(10); // 55</code>
+  </pre>
+</div>
+<h4 id='id5'>ハノイの塔</h4>
+<div>
+  <pre>
+    <code class='php'>&lt;?php
+Y(
+    function($hanoi) {
+        return function($n, $a, $b, $c) use ($hanoi) {
+            if ($n &gt; 0) {
+                $hanoi($n - 1, $a, $c, $b);
+                echo &quot;No. $n disk is moved from $a to $b&quot; . PHP_EOL;
+                $hanoi($n - 1, $c, $b, $a);
+            }
+        };
+    }
+)-&gt;__invoke(64, 'A', 'B', 'C');</code>
+  </pre>
+</div>
+<h3 id='references'>References:</h3>
+
+<ul>
+<li><a href='http://ja.wikipedia.org/wiki/%E4%B8%8D%E5%8B%95%E7%82%B9%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8D%E3%83%BC%E3%82%BF'>不動点コンビネータ - Wikipedia</a></li>
+
+<li><a href='http://d.hatena.ne.jp/amachang/20080124/1201199469'>Y コンビネータって何？ - IT戦記</a></li>
+</ul>
