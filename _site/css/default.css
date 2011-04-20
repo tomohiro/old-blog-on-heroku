@@ -134,6 +134,7 @@ article h2 a {
     border: none;
 }
 
+p.posted,
 p#posted {
     padding-top: 20px;
     width: 100%;
@@ -144,9 +145,8 @@ span.date {
     color: #666666;
 }
 
-section#tags {
-}
-section#tags li {
+section#tags li,
+section.tags li {
     float: left;
     list-style: none;
     padding-left: 0.5em;
