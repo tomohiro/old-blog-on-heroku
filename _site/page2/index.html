@@ -37,6 +37,204 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/redmine_development_environment_on_ubuntu" class="permalink">✓ </a> Ubuntu 10.10 で開発版 Redmine のプラグイン開発環境を作成する</h2>
+
+        <p>Redmine の開発環境を簡単に作るというのを目指すと下記のような手順になった．</p>
+
+<h3>使用ライブラリとバージョン</h3>
+
+<table>
+<thead>
+<tr>
+<th>名前     </th>
+<th> バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RVM      </td>
+<td> 1.6.1 </td>
+</tr>
+<tr>
+<td>Ruby     </td>
+<td> 1.8.7</td>
+</tr>
+<tr>
+<td>Rails    </td>
+<td> 2.3.11 </td>
+</tr>
+<tr>
+<td>SQLite3  </td>
+<td> 3.7.2</td>
+</tr>
+<tr>
+<td>RubyGems </td>
+<td> 1.6.2</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>SQLite3 のインストール</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>apt-get install sqlite3 libsqlite3-dev libsqlite-0
+</code></pre>
+</div>
+
+
+<h3>Ruby のインストール</h3>
+
+<p>RVM を使ってインストールする</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>rvm install 1.8.7
+<span class="nv">$ </span>rvm use 1.8.7
+</code></pre>
+</div>
+
+
+<h3>Redmine 用の Gemset を作成</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>rvm gemset create redmine
+<span class="nv">$ </span>rvm gemset use redmine
+</code></pre>
+</div>
+
+
+<h3>Rails のインストール</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>gem install rake
+<span class="nv">$ </span>gem install -v<span class="o">=</span>0.4.2 i18n
+<span class="nv">$ </span>gem install -v<span class="o">=</span>2.3.11 rails
+<span class="nv">$ </span>gem install sqlite3
+<span class="nv">$ </span>gem install ruby-debug
+<span class="nv">$ </span>gem install thin
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>gem list
+
+*** LOCAL GEMS ***
+
+actionmailer <span class="o">(</span>2.3.11<span class="o">)</span>
+actionpack <span class="o">(</span>2.3.11<span class="o">)</span>
+activerecord <span class="o">(</span>2.3.11<span class="o">)</span>
+activeresource <span class="o">(</span>2.3.11<span class="o">)</span>
+activesupport <span class="o">(</span>2.3.11<span class="o">)</span>
+columnize <span class="o">(</span>0.3.2<span class="o">)</span>
+daemons <span class="o">(</span>1.1.2<span class="o">)</span>
+eventmachine <span class="o">(</span>0.12.10<span class="o">)</span>
+i18n <span class="o">(</span>0.4.2<span class="o">)</span>
+linecache <span class="o">(</span>0.43<span class="o">)</span>
+rack <span class="o">(</span>1.1.2<span class="o">)</span>
+rails <span class="o">(</span>2.3.11<span class="o">)</span>
+rake <span class="o">(</span>0.8.7<span class="o">)</span>
+ruby-debug <span class="o">(</span>0.10.4<span class="o">)</span>
+ruby-debug-base <span class="o">(</span>0.10.4<span class="o">)</span>
+sqlite3 <span class="o">(</span>1.3.3<span class="o">)</span>
+thin <span class="o">(</span>1.2.11<span class="o">)</span>
+</code></pre>
+</div>
+
+
+<h3>Redmine リポジトリを用意する</h3>
+
+<h4>Git clone</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git clone git://github.com/edavis10/redmine.git redmine@edavis
+</code></pre>
+</div>
+
+
+<h4>初期設定</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span><span class="nb">cd </span>redmine@edavis
+<span class="nv">$ </span>vi config/database.yml
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="yaml"><span class="l-Scalar-Plain">development</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">adapter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sqlite3</span>
+  <span class="l-Scalar-Plain">database</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">db/development.sqlite3</span>
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ RAILS_ENV</span><span class="o">=</span>development rake config/initializers/session_store.rb
+<span class="nv">$ RAILS_ENV</span><span class="o">=</span>development rake db:migrate
+<span class="nv">$ RAILS_ENV</span><span class="o">=</span>development rake redmine:load_default_data
+<span class="o">(</span>in /home/tomohiro/Dropbox/Development/forks/redmine@edavis<span class="o">)</span>
+
+Select language: <span class="nb">bg</span>, bs, ca, cs, da, de, el, en, en-GB, es, eu, fa, <span class="k">fi</span>, fr, gl, he, hr, hu, id, 
+it, ja, ko, lt, lv, mk, mn, nl, no, pl, pt, pt-BR, ro, ru, sk, sl, sr, sr-YU, sv, th, tr, uk, 
+vi, zh, zh-TW <span class="o">[</span>en<span class="o">]</span> <span class="nv">ja</span>
+<span class="o">====================================</span>
+Default configuration data loaded.
+</code></pre>
+</div>
+
+
+<h4>サーバを起動する</h4>
+
+<p>デフォルトの WEBrick の場合</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>./script/server -u
+<span class="o">=</span>&gt; Booting <span class="nv">WEBrick</span>
+<span class="o">=</span>&gt; Rails 2.3.11 application starting on http://0.0.0.0:3000
+<span class="o">=</span>&gt; Debugger <span class="nv">enabled</span>
+<span class="o">=</span>&gt; Call with -d to <span class="nv">detach</span>
+<span class="o">=</span>&gt; Ctrl-C to shutdown server
+<span class="o">[</span>2011-04-12 18:08:29<span class="o">]</span> INFO  WEBrick 1.3.1
+<span class="o">[</span>2011-04-12 18:08:29<span class="o">]</span> INFO  ruby 1.8.7 <span class="o">(</span>2011-02-18<span class="o">)</span> <span class="o">[</span>i686-linux<span class="o">]</span>
+<span class="o">[</span>2011-04-12 18:08:34<span class="o">]</span> INFO  WEBrick::HTTPServer#start: <span class="nv">pid</span><span class="o">=</span>18697 <span class="nv">port</span><span class="o">=</span>3000
+</code></pre>
+</div>
+
+
+<p>Thin の場合</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>./script/server thin -u
+<span class="o">=</span>&gt; Booting <span class="nv">Thin</span>
+<span class="o">=</span>&gt; Rails 2.3.11 application starting on http://0.0.0.0:3000
+<span class="o">=</span>&gt; Debugger <span class="nv">enabled</span>
+<span class="o">=</span>&gt; Call with -d to <span class="nv">detach</span>
+<span class="o">=</span>&gt; Ctrl-C to shutdown server
+&gt;&gt; Thin web server <span class="o">(</span>v1.2.11 codename Bat-Shit Crazy<span class="o">)</span>
+&gt;&gt; Maximum connections <span class="nb">set </span>to 1024
+&gt;&gt; Listening on 0.0.0.0:3000, CTRL+C to stop
+</code></pre>
+</div>
+
+
+<h3>ブラウザからアクセス</h3>
+
+<p><code>http://0.0.0.0:3000</code> にアクセスして <code>admin/admin</code> でログオンを試す</p>
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="https://rvm.beginrescueend.com/">RVM: Ruby Version Manager - RVM Ruby Version Manager - Documentation</a></li>
+<li><a href="http://www.redmine.org/projects/redmine/wiki/Download#Development-unstable">Redmine - Download - Latest source code Development(unstable)</a></li>
+</ul>
+
+
+
+        <section class="tags">
+            <h3>Tags:</h3> 
+            <ul><li><a href="/tags/Redmine/">Redmine</a> and</li> <li><a href="/tags/Ruby/">Ruby</a></li></ul>
+        </section>
+ 
+        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-12</span> &raquo; <a href="/entries/redmine_development_environment_on_ubuntu">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/text-formatter-setting-patch-for-redmne-1.1.2" class="permalink">✓ </a> Redmine でプロジェクト毎にテキストの書式を選択できるようにするパッチ</h2>
 
         <p><a href="http://d.hatena.ne.jp/tmtms/20100923/redmine_formatter">プロジェクト毎のフォーマッタ - @tmtms のメモ</a></p>
@@ -112,47 +310,6 @@
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-10</span> &raquo; <a href="/entries/ruby_core_class_method_monkey_patching">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/google-translation-ruby-script" class="permalink">✓ </a> Google 翻訳する Ruby スクリプト</h2>
-
-        <p>英和と和英限定です．</p>
-
-<p>英和なのか，和英なのかは自動的に判別するようになっています．</p>
-
-<p>Ruby 1.9 で動きます．</p>
-
-<h3>使い方</h3>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>curl -LO https://gist.github.com/raw/551073/gt 
-<span class="nv">$ </span>mv gt ~/bin/
-<span class="nv">$ </span>chmod +x ~/bin/gt
-<span class="nv">$ </span>gt 長文の翻訳にも対応しています。
-Also supports a lengthy translation.
-<span class="nv">$ </span>gt Also supports a lengthy translation.
-また、長い翻訳をサポートしています。
-</code></pre>
-</div>
-
-
-<h3>ソース</h3>
-
-<script src="https://gist.github.com/551073.js?file=gt"></script>
-
-
-<h3>References:</h3>
-
-<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;margin:0px 12px 1px 0px;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873113679/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41gCZhFayuL._SL160_.jpg" alt="初めてのRuby" style="border: none;" /></a></div><div class="amazlet-info" style="line-height:120%; margin-bottom: 10px"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873113679/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank">初めてのRuby</a><div class="amazlet-powered-date" style="font-size:80%;margin-top:5px;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/4873113679/tomohiro-t-22/ref=nosim/" title="初めてのRuby" target="_blank">amazlet</a> at 11.04.09</div></div><div class="amazlet-detail">Yugui <br />オライリージャパン <br />売り上げランキング: 20994<br /></div><div class="amazlet-sub-info" style="float: left;"><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873113679/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div></div><div class="amazlet-footer" style="clear: left"></div></div>
-
-
-
-        <section class="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/Ruby/">Ruby</a></li></ul>
-        </section>
- 
-        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-09</span> &raquo; <a href="/entries/google-translation-ruby-script">permalink</a></p>
     </article>
     
 </section>
