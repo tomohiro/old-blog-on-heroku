@@ -37,7 +37,7 @@
             <article>
     <h2><a href="/entries/symlinks-for-sshfs" id="permalink">✓ </a> sshfs でシンボリックリンクを扱う</h2>
    
-    <p><code>sshfs</code> で ssh サーバのディレクトリをローカルにマウントしている場合，シンボリックリンクがたどれないくて困っていたが，<code>-o follow_symlinks</code> というオプションを追加すると，問題なく見れるようになった．</p>
+    <p><code>sshfs</code> で ssh サーバのディレクトリをローカルにマウントしている場合，シンボリックリンクがたどれなくて困っていたが，<code>-o follow_symlinks</code> というオプションを追加してマウントすると問題なくたどれるようになった．</p>
 
 <div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sshfs username@REMOTE_HOST:REMOTE_PATH LOCAL_PATH -o follow_symlinks
 </code></pre>
