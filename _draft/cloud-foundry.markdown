@@ -21,6 +21,16 @@ Password: ********
 Successfully logged into [http://api.cloudfoundry.com]
 
 
+### パスワードを変更
+
+$ vmc passwd
+Changing password for 'username@example.com'
+New Password: *********
+Verify Password: *********
+
+Successfully changed password
+
+
 ### デプロイ
 
 
@@ -39,4 +49,3 @@ $HOME/.vmc_token
 - [Welocome to Cloud Foundry](http://www.cloudfoundry.com/)
 
 <iframe title="YouTube video player" width="640" height="390" src="http://www.youtube.com/embed/dqr8xWQlRcM" frameborder="0" allowfullscreen></iframe>
-
