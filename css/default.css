@@ -30,7 +30,6 @@ h4 {
     font-size: 90%;
 }
 
-
 h1, h2, h3, h4, h5 {
     clear: both;
 }
@@ -80,6 +79,13 @@ table th {
     border: 1px solid #CCC;
 }
 table td {
+    padding: 3px;
+    border: 1px solid #CCC;
+}
+
+img {
+    margin-right: auto;
+    margin-left: auto;
     padding: 3px;
     border: 1px solid #CCC;
 }

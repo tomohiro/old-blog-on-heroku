@@ -4,12 +4,132 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-04-29T17:26:35+09:00</updated>
+    <updated>2011-04-30T02:31:40+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
         <email>tomohiro.t@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Snow Leopard で Node.js と express を動かす</title>
+        <link href="http://log.tomohiro.me/entries/nodejs-and-express"/>
+        <updated>2011-04-30T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/entries/nodejs-and-express</id>
+        <content type="html">&lt;p&gt;Node.js で Web アプリ作ってみようかと思い立ったので，下記の環境を用意する．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Node.js&lt;/li&gt;
+&lt;li&gt;npm - パッケージマネージャ&lt;/li&gt;
+&lt;li&gt;express - Web アプリケーションフレームワーク&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3&gt;Node.js のインストール&lt;/h3&gt;
+
+&lt;p&gt;brew を使って入れる．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew install &lt;span class=&quot;nv&quot;&gt;node&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&amp;gt; Downloading http://nodejs.org/dist/node-v0.4.7.tar.gz
+&lt;span class=&quot;c&quot;&gt;######################################################################## 100.0%&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&amp;gt; ./configure --prefix&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/Cellar/node/0.4.7
+&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&amp;gt; make &lt;span class=&quot;nv&quot;&gt;install&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&amp;gt; Caveats
+Please add /usr/local/lib/node to your NODE_PATH environment variable to have node libraries picked up.
+&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&amp;gt; Summary
+/usr/local/Cellar/node/0.4.7: 72 files, 7.5M, built in 6.2 minutes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;node のパスを環境変数に指定する．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vi .zshrc
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;NODE_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/lib/node
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;npm のインストール&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;brew install npm&lt;/code&gt; とすると，別のコマンドを叩くように指示されるので，その通りに実行する．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew install npm
+Error: No available formula &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;npm
+npm can be installed thusly by following the instructions at
+  http://npmjs.org/
+
+  To &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;it in one line, use this &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;:
+    curl http://npmjs.org/install.sh | sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl http://npmjs.org/install.sh | sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;express のインストール&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install express
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;プロジェクトを作る&lt;/h3&gt;
+
+&lt;p&gt;express コマンドでプロジェクトを自動生成することができる．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;express mynodeapp
+   create : mynodeapp
+   create : mynodeapp/app.js
+   create : mynodeapp/public/stylesheets
+   create : mynodeapp/public/stylesheets/style.css
+   create : mynodeapp/public/javascripts
+   create : mynodeapp/logs
+   create : mynodeapp/pids
+   create : mynodeapp/public/images
+   create : mynodeapp/views
+   create : mynodeapp/views/layout.jade
+   create : mynodeapp/views/index.jade
+   create : mynodeapp/test
+   create : mynodeapp/test/app.test.js
+   - make sure you have installed jade: &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install jade
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install jade
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;起動してみる&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /mynodeapp
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node app.js
+Express server listening on port 3000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src=&quot;http://farm6.static.flickr.com/5108/5670130178_30d9c518fb.jpg&quot; alt=&quot;[express - Tomohiro, TAIRA, on Flickr](http://www.flickr.com/photos/tomohiro/5670130178/)&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;References:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://nodejs.org/&quot;&gt;node.js&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://npmjs.org/&quot;&gt;npm - Node Package Manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://expressjs.com/guide.html#migration-guide&quot;&gt;Express - node web framework&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+    </entry>
     
     <entry>
         <title>Vundle で Vim プラグインを管理する</title>

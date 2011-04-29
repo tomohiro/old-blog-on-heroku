@@ -37,6 +37,68 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/installing-cpanminus" class="permalink">✓ </a> perlbrew 環境に cpanminus をインストールする</h2>
+
+        <p><a href="https://github.com/miyagawa/cpanminus/">cpanminus</a> は Perl の CPAN を簡単に使えるようにするツール．</p>
+
+<p>perlbrew と組み合わせるとローカルユーザ領域に CPAN モジュールをインストールすることも簡単にできる．</p>
+
+<p>perlbrew のインストールは前回の<a href="http://log.tomohiro.me/entries/installing-perlbrew-on-ubuntu10.10">エントリ</a>の通りである．</p>
+
+<h3>インストール</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>curl -LO http://xrl.us/cpanm
+<span class="nv">$ </span>chmod +x cpanm
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">PERL_CPANM_OPT</span><span class="o">=</span><span class="s2">&quot;--local-lib=$PERLBREW_ROOT&quot;</span>
+<span class="nv">$ </span>perl ./cpanm App::cpanminus
+<span class="nv">$ </span>cpanm -V
+cpanm -Vcpanm <span class="o">(</span>App::cpanminus<span class="o">)</span> version 1.4004
+</code></pre>
+</div>
+
+
+<h3>cpanminus のデフォルトオプション環境変数をシェルに設定</h3>
+
+<p>perlbrew を <code>$HOME/.perlbrew/perl5</code> 以下にインストールしているため，そこに cpanminus のモジュールをインストールするような設定を加える．</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>vi ~/.zshrc
+<span class="c">##### for cpanminus #####</span>
+<span class="k">if </span>which cpanm &gt; /dev/null 2&gt;&amp;1 <span class="o">&amp;&amp;</span> <span class="o">[</span> -n <span class="nv">$PERLBREW_ROOT</span> <span class="o">]</span>; <span class="k">then </span>
+<span class="k">    </span><span class="nb">export </span><span class="nv">PERL_CPANM_OPT</span><span class="o">=</span>--local-lib<span class="o">=</span><span class="nv">$PERLBREW_ROOT</span>
+    <span class="nb">export </span><span class="nv">PERL5LIB</span><span class="o">=</span><span class="nv">$PERLBREW_ROOT</span>/lib/perl5:<span class="nv">$PERL5LIB</span>
+<span class="k">fi</span>
+
+<span class="nv">$ </span><span class="nb">source</span> ~/.zshrc
+</code></pre>
+</div>
+
+
+<h3>cpanminus をアップグレードする</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>cpanm --self-upgrade
+</code></pre>
+</div>
+
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="http://log.tomohiro.me/entries/installing-perlbrew-on-ubuntu10.10">Ubuntu 10.10 に perlbrew をインストールする</a></li>
+<li><a href="https://github.com/miyagawa/cpanminus/">miyagawa/cpanminus - GitHub</a></li>
+<li><a href="http://d.hatena.ne.jp/tokuhirom/20100716/perlenv">モダンな Perl の開発環境の構築方法 - TokuLog 改メ tokuhirom’s blog</a></li>
+</ul>
+
+
+
+        <section class="tags">
+            <h3>Tags:</h3> 
+            <ul><li><a href="/tags/Perl/">Perl</a></li></ul>
+        </section>
+ 
+        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-06</span> &raquo; <a href="/entries/installing-cpanminus">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/installing-perlbrew-on-ubuntu10.10" class="permalink">✓ </a> Ubuntu 10.10 に perlbrew をインストールする</h2>
 
         <h3>perlbrew のインストール</h3>
@@ -212,90 +274,6 @@ URL: http://bijo-linux.com/girls/kill
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-01</span> &raquo; <a href="/entries/girl-linux-command">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/y-combinator-in-php" class="permalink">✓ </a> PHP で Y コンビネータ</h2>
-
-        <h3>Y コンビネータ関数を作る</h3>
-
-<p>PHP で Y コンビネータ [<code>Y(F) = F(Y(F))</code>] を行う関数 Y を定義してみる．</p>
-
-<p>以下のコードは PHP 5.3+ な環境で動作する．</p>
-
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
-<span class="k">function</span> <span class="nf">Y</span><span class="p">(</span><span class="nv">$F</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nv">$F</span><span class="p">(</span>
-        <span class="k">function</span><span class="p">()</span> <span class="k">use</span><span class="p">(</span><span class="nv">$F</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nb">call_user_func_array</span><span class="p">(</span><span class="nx">Y</span><span class="p">(</span><span class="nv">$F</span><span class="p">),</span> <span class="nb">func_get_args</span><span class="p">());</span>
-        <span class="p">}</span>
-    <span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-
-<h3>Y コンビネータを使用して無名な再帰関数を作る</h3>
-
-<h4>階乗</h4>
-
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
-<span class="k">echo</span> <span class="nx">Y</span><span class="p">(</span>
-    <span class="k">function</span><span class="p">(</span><span class="nv">$fact</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">function</span><span class="p">(</span><span class="nv">$x</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$fact</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nv">$x</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="nv">$x</span> <span class="o">*</span> <span class="nv">$fact</span><span class="p">(</span><span class="nv">$x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-        <span class="p">};</span>
-    <span class="p">})</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 3628800</span>
-</code></pre>
-</div>
-
-
-<h4>フィボナッチ数</h4>
-
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
-<span class="k">echo</span> <span class="nx">Y</span><span class="p">(</span>
-    <span class="k">function</span><span class="p">(</span><span class="nv">$fib</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">function</span><span class="p">(</span><span class="nv">$n</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$fib</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nv">$n</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="nv">$fib</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nv">$fib</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
-        <span class="p">};</span>
-    <span class="p">})</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 55</span>
-</code></pre>
-</div>
-
-
-<h4>ハノイの塔</h4>
-
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
-<span class="nx">Y</span><span class="p">(</span>
-    <span class="k">function</span><span class="p">(</span><span class="nv">$hanoi</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">function</span><span class="p">(</span><span class="nv">$n</span><span class="p">,</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">,</span> <span class="nv">$c</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$hanoi</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nv">$n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nv">$hanoi</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$c</span><span class="p">,</span> <span class="nv">$b</span><span class="p">);</span>
-                <span class="k">echo</span> <span class="s2">&quot;No. </span><span class="si">$n</span><span class="s2"> disk is moved from </span><span class="si">$a</span><span class="s2"> to </span><span class="si">$b</span><span class="s2">&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-                <span class="nv">$hanoi</span><span class="p">(</span><span class="nv">$n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">$c</span><span class="p">,</span> <span class="nv">$b</span><span class="p">,</span> <span class="nv">$a</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">};</span>
-    <span class="p">}</span>
-<span class="p">)</span><span class="o">-&gt;</span><span class="na">__invoke</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">);</span>
-</code></pre>
-</div>
-
-
-<h3>References:</h3>
-
-<ul>
-<li><a href="http://ja.wikipedia.org/wiki/%E4%B8%8D%E5%8B%95%E7%82%B9%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8D%E3%83%BC%E3%82%BF">不動点コンビネータ - Wikipedia</a></li>
-<li><a href="http://d.hatena.ne.jp/amachang/20080124/1201199469">Y コンビネータって何？ - IT戦記</a></li>
-</ul>
-
-
-
-        <section class="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/PHP/">PHP</a></li></ul>
-        </section>
- 
-        <p class="posted">Posted by Tomohiro, at <span class="date">2011-03-31</span> &raquo; <a href="/entries/y-combinator-in-php">permalink</a></p>
     </article>
     
 </section>
