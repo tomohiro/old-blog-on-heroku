@@ -4,12 +4,86 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-04-24T18:48:02+09:00</updated>
+    <updated>2011-04-29T15:29:24+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
         <email>tomohiro.t@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Vundle で Vim プラグインを管理する</title>
+        <link href="http://log.tomohiro.me/entries/vundle"/>
+        <updated>2011-04-29T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/entries/vundle</id>
+        <content type="html">&lt;p&gt;今まで Vim のプラグイン管理には「pathogen」を使っていたが，
+「Vundle」というよりスマートなプラグインを管理するものが登場したので乗り変えてみた．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/gmarik/vundle&quot;&gt;gmarik/vundle - GitHub&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Vundle is a short cut for Vimbundle and is a Vim plugin manager.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h3&gt;Vundle をインストール&lt;/h3&gt;
+
+&lt;p&gt;Vundle をダウンロードして .vim 以下に配置する．
+今回は Vundle を &lt;code&gt;git submodule&lt;/code&gt; として扱う．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git submodule add https://github.com/gmarik/vundle.git .vim/vundle
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;次に Vundle を読み込むための設定を &lt;code&gt;.vimrc&lt;/code&gt; に書いておく．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rtp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;+=~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/.vim/&lt;/span&gt;vundle/
+&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; vundle#rc&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;プラグインをインストールする&lt;/h3&gt;
+
+&lt;p&gt;Vundle でプラグインを有効にするためには，&lt;code&gt;.vimrc&lt;/code&gt; にプラグイン名を書いておかなければならない．&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;GitHub 上のプラグイン作者のリポジトリ: &lt;code&gt;User/PluginName&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;GitHub の vim-scripts のリポジトリ: &lt;code&gt;PluginName&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;GitHub 以外のリポジトリ: &lt;code&gt;'git://example.com/PluginName.git'&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;Shougo/neocomplcache&amp;#39;&lt;/span&gt;
+Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;Shougo/unite.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;gtags.vim&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;設定を書いた後，Vim を起動してコマンドモードで &lt;code&gt;BundleInstall&lt;/code&gt; するとプラグインがインストールされる．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;BundleInstall
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;プラグインをアップデートする&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;BundleInstall&lt;/code&gt; に !(bang) をつけるとアップデートになる&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;vim&quot;&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;BundleInstall&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;References:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://shu-cream.blogspot.com/2011/04/2011vimvundle.html&quot;&gt;blog.shu-cream.net: 2011年のVimプラグインの管理はVundleで&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/gmarik/vundle&quot;&gt;gmarik/vundle - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+    </entry>
     
     <entry>
         <title>MacPorts から Homebrew へ移行</title>

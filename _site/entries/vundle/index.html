@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>log.tomohiro.me | Vundle で Vim プラグインを管理する</title>
+        <meta name="author" content="Tomohiro, TAIRA">
+        <meta name="google-site-verification" content="fVZ5SSA5Kv566sngCmPhquRWuNGa5E8YJiyMla39Ggg">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <script src="/js/google-analytics.js"></script>
+        <link rel="me" type="text/html" href="http://www.google.com/profiles/tomohiro.t">
+        <link rel="alternate" type="application/atom+xml" title="log.tomohiro.me Atom" href="http://log.tomohiro.me/atom.xml">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Inconsolata|Cuprum'>
+        <link rel="stylesheet" href="/css/default.css">
+        <link rel="stylesheet" href="/css/syntax.css">
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">log.tomohiro.me</a></h1>
+            <div id="banners">
+                <a href="http://github.com/Tomohiro">
+                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub">
+                </a>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/">Top</a></li>
+                <li><a href="/archive.html">Archive</a></li>
+                <li><a href="http://tomohiro.me">About</a></li>
+                <li><a href="/atom.xml">Feed</a></li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <article>
+    <h2><a href="/entries/vundle" id="permalink">✓ </a> Vundle で Vim プラグインを管理する</h2>
+   
+    <p>今まで Vim のプラグイン管理には「pathogen」を使っていたが，
+「Vundle」というよりスマートなプラグインを管理するものが登場したので乗り変えてみた．</p>
+
+<p><a href="https://github.com/gmarik/vundle">gmarik/vundle - GitHub</a></p>
+
+<blockquote><p>Vundle is a short cut for Vimbundle and is a Vim plugin manager.</p></blockquote>
+
+<h3>Vundle をインストール</h3>
+
+<p>Vundle をダウンロードして .vim 以下に配置する．
+今回は Vundle を <code>git submodule</code> として扱う．</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git submodule add https://github.com/gmarik/vundle.git .vim/vundle
+</code></pre>
+</div>
+
+
+<p>次に Vundle を読み込むための設定を <code>.vimrc</code> に書いておく．</p>
+
+<div class="highlight"><pre><code class="vim"><span class="k">set</span> <span class="nb">rtp</span><span class="p">+=~</span><span class="sr">/.vim/</span>vundle/
+<span class="k">call</span> vundle#rc<span class="p">()</span>
+</code></pre>
+</div>
+
+
+<h3>プラグインをインストールする</h3>
+
+<p>Vundle でプラグインを有効にするためには，<code>.vimrc</code> にプラグイン名を書いておかなければならない．</p>
+
+<ol>
+<li>GitHub 上のプラグイン作者のリポジトリ: <code>User/PluginName</code></li>
+<li>GitHub の vim-scripts のリポジトリ: <code>PluginName</code></li>
+<li>GitHub 以外のリポジトリ: <code>'git://example.com/PluginName.git'</code></li>
+</ol>
+
+
+<div class="highlight"><pre><code class="vim">Bundle <span class="s1">&#39;Shougo/neocomplcache&#39;</span>
+Bundle <span class="s1">&#39;Shougo/unite.vim&#39;</span>
+Bundle <span class="s1">&#39;gtags.vim&#39;</span>
+</code></pre>
+</div>
+
+
+<p>設定を書いた後，Vim を起動してコマンドモードで <code>BundleInstall</code> するとプラグインがインストールされる．</p>
+
+<div class="highlight"><pre><code class="vim"><span class="p">:</span>BundleInstall
+</code></pre>
+</div>
+
+
+<h3>プラグインをアップデートする</h3>
+
+<p><code>BundleInstall</code> に !(bang) をつけるとアップデートになる</p>
+
+<div class="highlight"><pre><code class="vim"><span class="p">:</span>BundleInstall<span class="p">!</span>
+</code></pre>
+</div>
+
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="http://shu-cream.blogspot.com/2011/04/2011vimvundle.html">blog.shu-cream.net: 2011年のVimプラグインの管理はVundleで</a></li>
+<li><a href="https://github.com/gmarik/vundle">gmarik/vundle - GitHub</a></li>
+</ul>
+
+
+
+    <section id="tags">
+        <h3>Tags:</h3> 
+        <ul><li><a href="/tags/Vim/">Vim</a></li></ul>
+    </section>
+   
+    <p id="posted">Posted by <a href="http://twitter.com/Tomohiro">Tomohiro</a>, at <span class="date">2011-04-29</span> &raquo; <a href="/entries/vundle">permalink</a></p>
+
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        var disqus_shortname = 'log-tomohiro-me';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+
+        </div>
+
+        <footer>
+            <p>
+                <span id="copyright">&copy; 2011 <a href="http://twitter.com/Tomohiro">@Tomohiro</a>, TAIRA</span>
+                <span id="powered">Powered by
+                    <a href="http://jekyllrb.com" title="Jekyll is a simple, blog aware, static site generator.">Jekyll</a>
+                    and Hosted by
+                    <a href="http://heroku.com" title="Heroku | Ruby Cloud Platform as a Service">Heroku</a>
+                </span>
+            </p>
+        </footer>
+    </body>
+</html>

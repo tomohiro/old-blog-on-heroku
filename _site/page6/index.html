@@ -37,6 +37,52 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/csv-export-from-postgresql" class="permalink">✓ </a> PostgreSQL から CSV ファイルをエクスポートする</h2>
+
+        <p>カンマ区切りの一般的な CSV を吐き出す場合はこのようなコマンドを実行すれば良い．</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>psql -U <span class="o">{</span>user<span class="o">}</span> <span class="o">{</span>dbname<span class="o">}</span> -c <span class="s1">&#39;SELECT * FROM example&#39;</span> -A -F, &gt; example.csv
+</code></pre>
+</div>
+
+
+<p>カラムのデータに改行コードが含まれる場合，出力する CSV を Excel などで開くと
+途中で改行されてしまい，大変残念な感じになる．
+その場合は，改行が含まれるカラムのデータを下記のように変更する必要がある．</p>
+
+<ul>
+<li>CRLF を LF に変更</li>
+<li>ダブルクォーテーションでくくる</li>
+</ul>
+
+
+<div class="highlight"><pre><code class="sql"><span class="k">SELECT</span>
+   <span class="s1">&#39;&quot;&#39;</span> <span class="o">||</span> <span class="k">REPLACE</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">description</span> <span class="s1">&#39;\r\n&#39;</span><span class="p">,</span> <span class="s1">&#39;\n&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;&quot;&#39;</span> <span class="k">AS</span> <span class="n">description</span>
+<span class="k">FROM</span>
+   <span class="n">example</span> <span class="k">AS</span> <span class="n">e</span>
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>psql -U <span class="o">{</span>user<span class="o">}</span> <span class="o">{</span>dbname<span class="o">}</span> -f export_example_to_csv.sql -A -F, &gt; example.csv
+</code></pre>
+</div>
+
+
+
+
+
+        <section class="tags">
+            <h3>Tags:</h3> 
+            <ul><li><a href="/tags/PostgreSQL/">PostgreSQL</a> and</li> <li><a href="/tags/SQL/">SQL</a></li></ul>
+        </section>
+ 
+        <p class="posted">Posted by Tomohiro, at <span class="date">2011-03-30</span> &raquo; <a href="/entries/csv-export-from-postgresql">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/add-to-jekyll-code-highlighting" class="permalink">✓ </a> Jekyll にコードハイライティングを追加</h2>
 
         <h3>設定を変更する</h3>
@@ -128,39 +174,6 @@ end
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-03-27</span> &raquo; <a href="/entries/how-to-apply-css-to-gist">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/japanese-patch-for-redmine-1.1.2-in-pdf" class="permalink">✓ </a> Redmine 1.1.2 の PDF 日本語化パッチ</h2>
-
-        <h3>Patch</h3>
-
-<script src="http://gist.github.com/882743.js?file=pdf.rb.to_japanese.patch"></script>
-
-
-<h3>Apply a patch file</h3>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span><span class="nb">cd</span> /var/lib/redmine/lib/redmine/export
-<span class="nv">$ </span>patch &lt; pdf.rb.to_japanese.patch
-</code></pre>
-</div>
-
-
-<h3>Reference:</h3>
-
-<ul>
-<li><a href="http://redmine.jp/faq/general/pdfcsv/" title="PDFおよびCSVの文字化けを回避する | Redmine.JP">PDFおよびCSVの文字化けを回避する | Redmine.JP</a></li>
-<li><a href="http://fmkt.blog65.fc2.com/blog-entry-148.html" title="徒然さめざめ 続・何回目？ Redmine pdf日本語化hack">徒然さめざめ 続・何回目？ Redmine pdf日本語化hack</a></li>
-</ul>
-
-
-
-        <section class="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/Redmine/">Redmine</a> and</li> <li><a href="/tags/Ruby/">Ruby</a></li></ul>
-        </section>
- 
-        <p class="posted">Posted by Tomohiro, at <span class="date">2011-03-26</span> &raquo; <a href="/entries/japanese-patch-for-redmine-1.1.2-in-pdf">permalink</a></p>
     </article>
     
 </section>

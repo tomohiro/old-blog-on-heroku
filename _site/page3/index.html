@@ -37,6 +37,48 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/text-formatter-setting-patch-for-redmne-1.1.2" class="permalink">✓ </a> Redmine でプロジェクト毎にテキストの書式を選択できるようにするパッチ</h2>
+
+        <p><a href="http://d.hatena.ne.jp/tmtms/20100923/redmine_formatter">プロジェクト毎のフォーマッタ - @tmtms のメモ</a></p>
+
+<p>上記のブログエントリを参考にパッチを書いた．</p>
+
+<h3>手順</h3>
+
+<ol>
+<li><p>patch を適用</p>
+
+<pre><code># curl -LO https://gist.github.com/raw/912936/application_helper.rb.choice_text_formatter.patch
+# cd /var/lib/redmine/app/helpers/
+# patch &lt; application_helper.rb.choice_text_formatter.patch
+</code></pre></li>
+<li><p>カスタムフィールドでプロジェクトに「テキストの書式」を作成</p></li>
+<li><p>プロジェクトの設定画面で「テキストの書式」を選択</p></li>
+</ol>
+
+
+<h3>Patch</h3>
+
+<script src="https://gist.github.com/912936.js?file=application_helper.rb.choice_text_formatter.patch"></script>
+
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="http://d.hatena.ne.jp/tmtms/20100923/redmine_formatter">プロジェクト毎のフォーマッタ - @tmtms のメモ</a></li>
+</ul>
+
+
+
+        <section class="tags">
+            <h3>Tags:</h3> 
+            <ul><li><a href="/tags/Redmine/">Redmine</a> and</li> <li><a href="/tags/Ruby/">Ruby</a></li></ul>
+        </section>
+ 
+        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-11</span> &raquo; <a href="/entries/text-formatter-setting-patch-for-redmne-1.1.2">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/ruby_core_class_method_monkey_patching" class="permalink">✓ </a> Ruby で組み込みクラスのメソッドを上書きする</h2>
 
         <blockquote><p>「Rubyは君を信頼する。Rubyは君を分別のあるプログラマとして扱う。Rubyはメタプログラミングのような強力な力を与える。ただし、大いなる力には、大いなる責任が伴うことを忘れてはいけない」 - まつもとゆきひろ</p></blockquote>
@@ -111,56 +153,6 @@ Also supports a lengthy translation.
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-09</span> &raquo; <a href="/entries/google-translation-ruby-script">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/bash-if-condition" class="permalink">✓ </a> Bash の if で AND 条件や OR 条件を使用する</h2>
-
-        <h3>複数コマンドの組み合わせ</h3>
-
-<p>例. Zsh がインストールされていて，環境変数 $ZSH_SPECIAL_VAR が存在する場合</p>
-
-<div class="highlight"><pre><code class="bash"><span class="k">if </span>which zsh &gt;/dev/null 2&gt;&amp;1 <span class="o">&amp;&amp;</span> <span class="nb">test</span> -z <span class="nv">$ZSH_SPECIAL_VAR</span>; <span class="k">then</span>
-    <span class="c"># do something</span>
-<span class="k">fi</span>
-</code></pre>
-</div>
-
-
-<h3>test コマンドを使う場合</h3>
-
-<p>例. AND 条件: FILE が存在し，かつ実行できる場合</p>
-
-<div class="highlight"><pre><code class="bash"><span class="k">if</span> <span class="o">[</span> -f FILE -a -x FILE <span class="o">]</span>; <span class="k">then</span>
-    <span class="c"># do something</span>
-<span class="k">fi</span>
-</code></pre>
-</div>
-
-
-<p>例. OR 条件: FILE1 か FILE2 のどちらかが存在する場合</p>
-
-<div class="highlight"><pre><code class="bash"><span class="k">if</span> <span class="o">[</span> -f FILE1 -o -x FILE1 <span class="o">]</span>; <span class="k">then</span>
-    <span class="c"># do something</span>
-<span class="k">fi</span>
-</code></pre>
-</div>
-
-
-<p>その他の例は <code>man test</code> するとだいたいわかる．<a href="http://ya.maya.st/web/RTFM.html">RTFM</a>.</p>
-
-<h3>References:</h3>
-
-<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;margin:0px 12px 1px 0px;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873112540/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/519CHDKSHWL._SL160_.jpg" alt="入門bash 第3版" style="border: none;" /></a></div><div class="amazlet-info" style="line-height:120%; margin-bottom: 10px"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873112540/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank">入門bash 第3版</a><div class="amazlet-powered-date" style="font-size:80%;margin-top:5px;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/4873112540/tomohiro-t-22/ref=nosim/" title="入門bash 第3版" target="_blank">amazlet</a> at 11.04.08</div></div><div class="amazlet-detail">Cameron Newham Bill Rosenblatt <br />オライリージャパン <br />売り上げランキング: 43317<br /></div><div class="amazlet-sub-info" style="float: left;"><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873112540/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div></div><div class="amazlet-footer" style="clear: left"></div></div>
-
-
-
-        <section class="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/Bash/">Bash</a></li></ul>
-        </section>
- 
-        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-08</span> &raquo; <a href="/entries/bash-if-condition">permalink</a></p>
     </article>
     
 </section>
