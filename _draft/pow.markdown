@@ -1,0 +1,13 @@
+curl get.pow.cx | sh
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  2722  100  2722    0     0   2437      0  0:00:01  0:00:01 --:--:--  9862
+*** Installing Pow 0.2.2...
+*** Installing local configuration files...
+/Users/Tomohiro/Library/LaunchAgents/cx.pow.powd.plist
+*** Installing system configuration files as root...
+Password:
+/etc/resolver/dev
+/Library/LaunchDaemons/cx.pow.firewall.plist
+*** Starting the Pow server...
+*** Installed
