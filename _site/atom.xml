@@ -4,12 +4,25 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-04-30T02:31:40+09:00</updated>
+    <updated>2011-05-02T15:19:19+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
         <email>tomohiro.t@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Windows でシンボリックリンクを作成する</title>
+        <link href="http://log.tomohiro.me/entries/windows-symlink"/>
+        <updated>2011-05-02T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/entries/windows-symlink</id>
+        <content type="html">&lt;p&gt;Windows でシンボリックリンクを作成する方法をいつも忘れてしまうので，メモしておく．&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;mklink&lt;/code&gt; コマンドを叩くとヘルプが見れるので，それ見ながらやる，っていうように覚えておけば良いかな．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/tomohiro/5679095592/in/photostream&quot;&gt;&lt;img src=&quot;http://farm6.static.flickr.com/5062/5679095592_8108387564.jpg&quot; title=&quot;&quot; alt=&quot;mklink&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+    </entry>
     
     <entry>
         <title>Snow Leopard で Node.js と express を動かす</title>
@@ -118,7 +131,7 @@ Express server listening on port 3000
 &lt;/div&gt;
 
 
-&lt;p&gt;&lt;img src=&quot;http://farm6.static.flickr.com/5108/5670130178_30d9c518fb.jpg&quot; alt=&quot;[express - Tomohiro, TAIRA, on Flickr](http://www.flickr.com/photos/tomohiro/5670130178/)&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/tomohiro/5670130178/&quot;&gt;&lt;img src=&quot;http://farm6.static.flickr.com/5108/5670130178_30d9c518fb.jpg&quot; alt=&quot;express - Tomohiro, TAIRA, on Flickr&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3&gt;References:&lt;/h3&gt;
 

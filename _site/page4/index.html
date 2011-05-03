@@ -37,6 +37,42 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/ruby_core_class_method_monkey_patching" class="permalink">✓ </a> Ruby で組み込みクラスのメソッドを上書きする</h2>
+
+        <blockquote><p>「Rubyは君を信頼する。Rubyは君を分別のあるプログラマとして扱う。Rubyはメタプログラミングのような強力な力を与える。ただし、大いなる力には、大いなる責任が伴うことを忘れてはいけない」 - まつもとゆきひろ</p></blockquote>
+
+<p>Ruby では下記のように，例え組み込みクラスでもメソッドを別名にしたり，オーバライドしたりと，モンキーパッチングが自由に出来る．
+ただし悪用は厳禁．</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="no">Time</span>
+  <span class="n">alias_method</span> <span class="ss">:now_original</span><span class="p">,</span> <span class="ss">:now</span>
+
+  <span class="k">def</span> <span class="nf">now</span>
+    <span class="nb">puts</span> <span class="s1">&#39;override&#39;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+<span class="nb">puts</span> <span class="no">Time</span><span class="o">.</span><span class="n">now_original</span>
+</code></pre>
+</div>
+
+
+<h3>References:</h3>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;margin:0px 12px 1px 0px;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4048687158/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51TODrMIEnL._SL160_.jpg" alt="メタプログラミングRuby" style="border: none;" /></a></div><div class="amazlet-info" style="line-height:120%; margin-bottom: 10px"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4048687158/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank">メタプログラミングRuby</a><div class="amazlet-powered-date" style="font-size:80%;margin-top:5px;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/4048687158/tomohiro-t-22/ref=nosim/" title="メタプログラミングRuby" target="_blank">amazlet</a> at 11.04.10</div></div><div class="amazlet-detail">Paolo Perrotta <br />アスキー・メディアワークス <br />売り上げランキング: 29046<br /></div><div class="amazlet-sub-info" style="float: left;"><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4048687158/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+
+
+        <section class="tags">
+            <h3>Tags:</h3> 
+            <ul><li><a href="/tags/Ruby/">Ruby</a></li></ul>
+        </section>
+ 
+        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-10</span> &raquo; <a href="/entries/ruby_core_class_method_monkey_patching">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/google-translation-ruby-script" class="permalink">✓ </a> Google 翻訳する Ruby スクリプト</h2>
 
         <p>英和と和英限定です．</p>
@@ -125,132 +161,6 @@ Also supports a lengthy translation.
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-08</span> &raquo; <a href="/entries/bash-if-condition">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/ll-list-loop-idiom" class="permalink">✓ </a> LL でリスト/配列をループ処理する時のイディオム</h2>
-
-        <h3>リスト/配列の値を順番に評価する</h3>
-
-<p>PHP (Array)</p>
-
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
-<span class="nv">$l</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">);</span>
-<span class="k">foreach</span> <span class="p">(</span><span class="nv">$l</span> <span class="k">as</span> <span class="nv">$v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="cm">/* do something */</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-
-<p>Perl (Array)</p>
-
-<div class="highlight"><pre><code class="perl"><span class="k">my</span> <span class="nv">@l</span> <span class="o">=</span> <span class="sx">qw/foo bar baz/</span><span class="p">;</span>
-<span class="k">foreach</span> <span class="k">my</span> <span class="nv">$v</span> <span class="p">(</span><span class="nv">@l</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1"># do something</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-
-<p>Ruby (Array)</p>
-
-<div class="highlight"><pre><code class="ruby"><span class="n">l</span> <span class="o">=</span> <span class="sx">%w[foo bar baz]</span>
-<span class="n">l</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span>
-  <span class="c1"># do something</span>
-<span class="k">end</span>
-</code></pre>
-</div>
-
-
-<p>Python (list)</p>
-
-<div class="highlight"><pre><code class="python"><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
-    <span class="c"># do something</span>
-</code></pre>
-</div>
-
-
-<p>JavaScript (Array)</p>
-
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">];</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">l</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="cm">/* do something */</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-
-<h3>リスト/配列のインデックスと値を順番に評価する</h3>
-
-<p>PHP (Array)</p>
-
-<div class="highlight"><pre><code class="php"><span class="cp">&lt;?php</span>
-<span class="nv">$l</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">);</span>
-<span class="k">foreach</span> <span class="p">(</span><span class="nv">$l</span> <span class="k">as</span> <span class="nv">$i</span> <span class="o">=&gt;</span> <span class="nv">$v</span><span class="p">)</span> <span class="p">{</span>
-    <span class="cm">/* do something */</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-
-<p>Perl (Array)</p>
-
-<div class="highlight"><pre><code class="perl"><span class="k">my</span> <span class="nv">@l</span> <span class="o">=</span> <span class="sx">qw/foo bar baz/</span><span class="p">;</span>
-<span class="k">foreach</span> <span class="k">my</span> <span class="nv">$i</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="nv">$#l</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1"># do something</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-
-<p>Ruby (Array)</p>
-
-<div class="highlight"><pre><code class="ruby"><span class="n">l</span> <span class="o">=</span> <span class="sx">%w[foo bar baz]</span>
-<span class="n">l</span><span class="o">.</span><span class="n">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">v</span><span class="p">,</span> <span class="n">i</span><span class="o">|</span>
-  <span class="c1"># do something</span>
-<span class="k">end</span>
-</code></pre>
-</div>
-
-
-<p>Python (list)</p>
-
-<div class="highlight"><pre><code class="python"><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
-    <span class="c"># do something</span>
-</code></pre>
-</div>
-
-
-<p>JavaScript (Array)</p>
-
-<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">];</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">l</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="cm">/* do something l[i] */</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-
-<h3>References:</h3>
-
-<ul>
-<li><a href="http://php.net/manual/ja/control-structures.foreach.php" title="PHP: foreach - Manual">PHP: foreach - Manual</a></li>
-<li><a href="http://www.ruby-lang.org/ja/man/html/Enumerable.html">Enumerable - Rubyリファレンスマニュアル</a></li>
-<li><a href="http://www.python.jp/doc/release/reference/compound_stmts.html#for">複合文 (compound statement) — Python v2.6.2 documentation</a></li>
-<li><a href="https://developer.mozilla.org/ja/JavaScript/Reference/Statements/for">for - MDC Doc Center</a></li>
-</ul>
-
-
-
-        <section class="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/JavaScript/">JavaScript</a>,</li><li><a href="/tags/PHP/">PHP</a>,</li><li><a href="/tags/Perl/">Perl</a>,</li><li><a href="/tags/Python/">Python</a>, and</li><li><a href="/tags/Ruby/">Ruby</a></li></ul>
-        </section>
- 
-        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-07</span> &raquo; <a href="/entries/ll-list-loop-idiom">permalink</a></p>
     </article>
     
 </section>
