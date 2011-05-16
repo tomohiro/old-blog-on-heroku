@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>log.tomohiro.me | Debian の Apache2 でリバースプロキシを設定する</title>
+        <meta name="author" content="Tomohiro, TAIRA">
+        <meta name="google-site-verification" content="fVZ5SSA5Kv566sngCmPhquRWuNGa5E8YJiyMla39Ggg">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <script src="/js/google-analytics.js"></script>
+        <link rel="me" type="text/html" href="http://www.google.com/profiles/tomohiro.t">
+        <link rel="alternate" type="application/atom+xml" title="log.tomohiro.me Atom" href="http://log.tomohiro.me/atom.xml">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Inconsolata|Cuprum'>
+        <link rel="stylesheet" href="/css/default.css">
+        <link rel="stylesheet" href="/css/syntax.css">
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">log.tomohiro.me</a></h1>
+            <div id="banners">
+                <a href="http://github.com/Tomohiro">
+                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub">
+                </a>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/">Top</a></li>
+                <li><a href="/archive.html">Archive</a></li>
+                <li><a href="http://tomohiro.me">About</a></li>
+                <li><a href="/atom.xml">Feed</a></li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <article>
+    <h2><a href="/entries/apache2-reverse-proxy-on-debian" id="permalink">✓ </a> Debian の Apache2 でリバースプロキシを設定する</h2>
+   
+    <p>CentOS 5.6 をネットワークインストールしようとしたところ，Debian のインストーラと違って，プロキシ超えが出来ないことがわかった．</p>
+
+<p>ローカルネットワークから見えるところにリバースプロキシを設定して，そこと通信するようにすれば良いらしい．</p>
+
+<p>今回は Debian Squeeze の Apache2 を利用した．</p>
+
+<h3>リバースプロキシの設定</h3>
+
+<h4>モジュールを有効にする</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="c"># a2enmod proxy</span>
+<span class="c"># a2enmod proxy_http</span>
+</code></pre>
+</div>
+
+
+<h4>CentOS のミラーサイトを設定</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="c"># vi /etc/apache2/httpd.conf</span>
+ProxyPass /Linux/centos http://ftp.riken.jp/Linux/centos
+ProxyPassReverse /Linux/centos http://ftp.riken.jp/Linux/centos
+
+ProxyRemote * http://proxy.example.com:8080
+</code></pre>
+</div>
+
+
+<h4>Apache を起動</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="c"># /etc/init.d/apache2 start</span>
+</code></pre>
+</div>
+
+
+<h3>CentOS セットアップ時の設定</h3>
+
+<p>以下，英語版でインストールしてる状況での説明．</p>
+
+<p>ネットワークインストールを設定すると，<code>HTTP Setup</code> という画面が出てくるので，下記のように入力して <code>OK</code> すれば，インストールが続けられる．</p>
+
+<table>
+<thead>
+<tr>
+<th>項目名           </th>
+<th> 入力内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web Site name    </td>
+<td> reverse-proxy.example.com</td>
+</tr>
+<tr>
+<td>CentOS directory </td>
+<td> Linux/centos/5.6/i386</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="http://akitosblog.seesaa.net/article/159752158.html">CentOS 5.5 x86-64 をネットワークインストール: Akito's IT技術 メモ</a></li>
+<li><a href="http://yakinikunotare.boo.jp/orebase/index.php?Apache%2F%A5%EA%A5%D0%A1%BC%A5%B9%A5%D7%A5%ED%A5%AD%A5%B7%A4%F2%BA%EE%A4%EB%A1%CADebian%20Etch%CA%D4%A1%CB">Apache/リバースプロキシを作る（Debian Etch編） - 俺の基地</a></li>
+</ul>
+
+
+
+    <section id="tags">
+        <h3>Tags:</h3> 
+        <ul><li><a href="/tags/Apache/">Apache</a> and</li> <li><a href="/tags/Debian/">Debian</a></li></ul>
+    </section>
+   
+    <p id="posted">Posted by <a href="http://twitter.com/Tomohiro">Tomohiro</a>, at <span class="date">2011-05-16</span> &raquo; <a href="/entries/apache2-reverse-proxy-on-debian">permalink</a></p>
+
+    <section id="disqus_thread"></section>
+    <script type="text/javascript">
+        var disqus_shortname = 'log-tomohiro-me';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+
+        </div>
+
+        <footer>
+            <p>
+                <span id="copyright">&copy; 2011 <a href="http://twitter.com/Tomohiro">@Tomohiro</a>, TAIRA</span>
+                <span id="powered">Powered by
+                    <a href="http://jekyllrb.com" title="Jekyll is a simple, blog aware, static site generator.">Jekyll</a>
+                    and Hosted by
+                    <a href="http://heroku.com" title="Heroku | Ruby Cloud Platform as a Service">Heroku</a>
+                </span>
+            </p>
+        </footer>
+    </body>
+</html>

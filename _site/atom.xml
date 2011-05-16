@@ -4,12 +4,87 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-05-02T15:19:19+09:00</updated>
+    <updated>2011-05-16T15:20:28+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
         <email>tomohiro.t@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Debian の Apache2 でリバースプロキシを設定する</title>
+        <link href="http://log.tomohiro.me/entries/apache2-reverse-proxy-on-debian"/>
+        <updated>2011-05-16T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/entries/apache2-reverse-proxy-on-debian</id>
+        <content type="html">&lt;p&gt;CentOS 5.6 をネットワークインストールしようとしたところ，Debian のインストーラと違って，プロキシ超えが出来ないことがわかった．&lt;/p&gt;
+
+&lt;p&gt;ローカルネットワークから見えるところにリバースプロキシを設定して，そこと通信するようにすれば良いらしい．&lt;/p&gt;
+
+&lt;p&gt;今回は Debian Squeeze の Apache2 を利用した．&lt;/p&gt;
+
+&lt;h3&gt;リバースプロキシの設定&lt;/h3&gt;
+
+&lt;h4&gt;モジュールを有効にする&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# a2enmod proxy&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# a2enmod proxy_http&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h4&gt;CentOS のミラーサイトを設定&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# vi /etc/apache2/httpd.conf&lt;/span&gt;
+ProxyPass /Linux/centos http://ftp.riken.jp/Linux/centos
+ProxyPassReverse /Linux/centos http://ftp.riken.jp/Linux/centos
+
+ProxyRemote * http://proxy.example.com:8080
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h4&gt;Apache を起動&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# /etc/init.d/apache2 start&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;CentOS セットアップ時の設定&lt;/h3&gt;
+
+&lt;p&gt;以下，英語版でインストールしてる状況での説明．&lt;/p&gt;
+
+&lt;p&gt;ネットワークインストールを設定すると，&lt;code&gt;HTTP Setup&lt;/code&gt; という画面が出てくるので，下記のように入力して &lt;code&gt;OK&lt;/code&gt; すれば，インストールが続けられる．&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;項目名           &lt;/th&gt;
+&lt;th&gt; 入力内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Web Site name    &lt;/td&gt;
+&lt;td&gt; reverse-proxy.example.com&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CentOS directory &lt;/td&gt;
+&lt;td&gt; Linux/centos/5.6/i386&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h3&gt;References:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://akitosblog.seesaa.net/article/159752158.html&quot;&gt;CentOS 5.5 x86-64 をネットワークインストール: Akito's IT技術 メモ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://yakinikunotare.boo.jp/orebase/index.php?Apache%2F%A5%EA%A5%D0%A1%BC%A5%B9%A5%D7%A5%ED%A5%AD%A5%B7%A4%F2%BA%EE%A4%EB%A1%CADebian%20Etch%CA%D4%A1%CB&quot;&gt;Apache/リバースプロキシを作る（Debian Etch編） - 俺の基地&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+    </entry>
     
     <entry>
         <title>Windows でシンボリックリンクを作成する</title>

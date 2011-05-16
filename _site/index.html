@@ -37,6 +37,86 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/apache2-reverse-proxy-on-debian" class="permalink">✓ </a> Debian の Apache2 でリバースプロキシを設定する</h2>
+
+        <p>CentOS 5.6 をネットワークインストールしようとしたところ，Debian のインストーラと違って，プロキシ超えが出来ないことがわかった．</p>
+
+<p>ローカルネットワークから見えるところにリバースプロキシを設定して，そこと通信するようにすれば良いらしい．</p>
+
+<p>今回は Debian Squeeze の Apache2 を利用した．</p>
+
+<h3>リバースプロキシの設定</h3>
+
+<h4>モジュールを有効にする</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="c"># a2enmod proxy</span>
+<span class="c"># a2enmod proxy_http</span>
+</code></pre>
+</div>
+
+
+<h4>CentOS のミラーサイトを設定</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="c"># vi /etc/apache2/httpd.conf</span>
+ProxyPass /Linux/centos http://ftp.riken.jp/Linux/centos
+ProxyPassReverse /Linux/centos http://ftp.riken.jp/Linux/centos
+
+ProxyRemote * http://proxy.example.com:8080
+</code></pre>
+</div>
+
+
+<h4>Apache を起動</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="c"># /etc/init.d/apache2 start</span>
+</code></pre>
+</div>
+
+
+<h3>CentOS セットアップ時の設定</h3>
+
+<p>以下，英語版でインストールしてる状況での説明．</p>
+
+<p>ネットワークインストールを設定すると，<code>HTTP Setup</code> という画面が出てくるので，下記のように入力して <code>OK</code> すれば，インストールが続けられる．</p>
+
+<table>
+<thead>
+<tr>
+<th>項目名           </th>
+<th> 入力内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web Site name    </td>
+<td> reverse-proxy.example.com</td>
+</tr>
+<tr>
+<td>CentOS directory </td>
+<td> Linux/centos/5.6/i386</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="http://akitosblog.seesaa.net/article/159752158.html">CentOS 5.5 x86-64 をネットワークインストール: Akito's IT技術 メモ</a></li>
+<li><a href="http://yakinikunotare.boo.jp/orebase/index.php?Apache%2F%A5%EA%A5%D0%A1%BC%A5%B9%A5%D7%A5%ED%A5%AD%A5%B7%A4%F2%BA%EE%A4%EB%A1%CADebian%20Etch%CA%D4%A1%CB">Apache/リバースプロキシを作る（Debian Etch編） - 俺の基地</a></li>
+</ul>
+
+
+
+        <section class="tags">
+            <h3>Tags:</h3> 
+            <ul><li><a href="/tags/Apache/">Apache</a> and</li> <li><a href="/tags/Debian/">Debian</a></li></ul>
+        </section>
+ 
+        <p class="posted">Posted by Tomohiro, at <span class="date">2011-05-16</span> &raquo; <a href="/entries/apache2-reverse-proxy-on-debian">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/windows-symlink" class="permalink">✓ </a> Windows でシンボリックリンクを作成する</h2>
 
         <p>Windows でシンボリックリンクを作成する方法をいつも忘れてしまうので，メモしておく．</p>
@@ -177,88 +257,6 @@ Express server listening on port 3000
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-30</span> &raquo; <a href="/entries/nodejs-and-express">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/vundle" class="permalink">✓ </a> Vundle で Vim プラグインを管理する</h2>
-
-        <p>今まで Vim のプラグイン管理には「pathogen」を使っていたが，
-「Vundle」というよりスマートなプラグインを管理するものが登場したので乗り変えてみた．</p>
-
-<p><a href="https://github.com/gmarik/vundle">gmarik/vundle - GitHub</a></p>
-
-<blockquote><p>Vundle is a short cut for Vimbundle and is a Vim plugin manager.</p></blockquote>
-
-<h3>Vundle をインストール</h3>
-
-<p>Vundle をダウンロードして .vim 以下に配置する．
-今回は Vundle を <code>git submodule</code> として扱う．</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git submodule add https://github.com/gmarik/vundle.git .vim/vundle
-</code></pre>
-</div>
-
-
-<p>次に Vundle を読み込むための設定を <code>.vimrc</code> に書いておく．</p>
-
-<div class="highlight"><pre><code class="vim"><span class="k">set</span> <span class="nb">rtp</span><span class="p">+=~</span><span class="sr">/.vim/</span>vundle/
-<span class="k">call</span> vundle#rc<span class="p">()</span>
-</code></pre>
-</div>
-
-
-<h3>プラグインをインストールする</h3>
-
-<p>Vundle でプラグインを有効にするためには，<code>.vimrc</code> にプラグイン名を書いておかなければならない．</p>
-
-<ol>
-<li>GitHub 上のプラグイン作者のリポジトリ: <code>User/PluginName</code></li>
-<li>GitHub の vim-scripts のリポジトリ: <code>PluginName</code></li>
-<li>GitHub 以外のリポジトリ: <code>'git://example.com/PluginName.git'</code></li>
-</ol>
-
-
-<div class="highlight"><pre><code class="vim">Bundle <span class="s1">&#39;Shougo/neocomplcache&#39;</span>
-Bundle <span class="s1">&#39;Shougo/unite.vim&#39;</span>
-Bundle <span class="s1">&#39;gtags.vim&#39;</span>
-</code></pre>
-</div>
-
-
-<p>設定を書いた後，Vim を起動してコマンドモードで <code>BundleInstall</code> するとプラグインがインストールされる．</p>
-
-<div class="highlight"><pre><code class="vim"><span class="p">:</span>BundleInstall
-</code></pre>
-</div>
-
-
-<h3>プラグインをアップデートする</h3>
-
-<p><code>BundleInstall</code> に !(bang) をつけるとアップデートになる</p>
-
-<div class="highlight"><pre><code class="vim"><span class="p">:</span>BundleInstall<span class="p">!</span>
-</code></pre>
-</div>
-
-
-<h3>References:</h3>
-
-<ul>
-<li><a href="http://shu-cream.blogspot.com/2011/04/2011vimvundle.html">blog.shu-cream.net: 2011年のVimプラグインの管理はVundleで</a></li>
-<li><a href="https://github.com/gmarik/vundle">gmarik/vundle - GitHub</a></li>
-</ul>
-
-
-<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;margin:0px 12px 1px 0px;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873110831/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/419SM7TDHZL._SL160_.jpg" alt="入門vi 第6版" style="border: none;" /></a></div><div class="amazlet-info" style="line-height:120%; margin-bottom: 10px"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873110831/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank">入門vi 第6版</a><div class="amazlet-powered-date" style="font-size:80%;margin-top:5px;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/4873110831/tomohiro-t-22/ref=nosim/" title="入門vi 第6版" target="_blank">amazlet</a> at 11.04.29</div></div><div class="amazlet-detail">リンダ ラム アーノルド ロビンス <br />オライリー・ジャパン <br />売り上げランキング: 14937<br /></div><div class="amazlet-sub-info" style="float: left;"><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873110831/tomohiro-t-22/ref=nosim/" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div></div><div class="amazlet-footer" style="clear: left"></div></div>
-
-
-
-        <section class="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/Vim/">Vim</a></li></ul>
-        </section>
- 
-        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-29</span> &raquo; <a href="/entries/vundle">permalink</a></p>
     </article>
     
 </section>
