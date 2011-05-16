@@ -49,7 +49,7 @@ ProxyRemote * http://proxy.example.com:8080
 項目名           | 入力内容
 ---------------- | -------------------------
 Web Site name    | reverse-proxy.example.com
-CentOS directory | Linux/centos/5.6/i386
+CentOS directory | Linux/centos/5.6/os/i386
 
 
 ### References:

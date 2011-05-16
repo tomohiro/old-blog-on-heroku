@@ -4,7 +4,7 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-05-16T15:20:28+09:00</updated>
+    <updated>2011-05-16T17:30:22+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -70,7 +70,7 @@ ProxyRemote * http://proxy.example.com:8080
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;CentOS directory &lt;/td&gt;
-&lt;td&gt; Linux/centos/5.6/i386&lt;/td&gt;
+&lt;td&gt; Linux/centos/5.6/os/i386&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
