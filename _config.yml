@@ -10,4 +10,4 @@ paginate: 3
 category_dir: tags
 category_title_prefix: Tag
 
-exclude: ['README.markdown', 'config.ru']
+exclude: ['Gemfile', 'README.markdown', 'config.ru']
