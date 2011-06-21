@@ -1,5 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'heroku'
 gem 'jekyll'
 gem 'rdiscount'
+
+gem 'heroku'
+gem 'rack'
+gem 'rack-jekyll'
