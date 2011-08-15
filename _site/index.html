@@ -37,6 +37,36 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/installing-emacs-to-osx-lion" class="permalink">✓ </a> OSX Lion に Emacs をインストール</h2>
+
+        <p>OSX Lion に Emacs をインストールした時のメモ</p>
+
+<p>Homebrew を使ってインストールするがデフォルトのレシピだとこけるので，野良レシピを使う必要がある．</p>
+
+<p><code>--lion</code> オプションをつけると Lion のフルスクリーン機能が使えるようになる．</p>
+
+<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>brew install https://raw.github.com/gist/1124161/6a265cd3b6b35b9dd550d26896063c3dfba6f4fa/emacs.rb --cocoa --lion
+</code></pre>
+</div>
+
+
+<h3>Reference:</h3>
+
+<ul>
+<li><a href="https://gist.github.com/1124161">Homebrew Emacs 23.3a for OSX Lion with native full-screen, inline patch — Gist</a></li>
+</ul>
+
+
+
+        <section class="tags">
+            <h3>Tags:</h3> 
+            <ul><li><a href="/tags/Emacs/">Emacs</a></li></ul>
+        </section>
+ 
+        <p class="posted">Posted by Tomohiro, at <span class="date">2011-08-15</span> &raquo; <a href="/entries/installing-emacs-to-osx-lion">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/apache2-reverse-proxy-on-debian" class="permalink">✓ </a> Debian の Apache2 でリバースプロキシを設定する</h2>
 
         <p>CentOS 5.6 をネットワークインストールしようとしたところ，Debian のインストーラと違って，プロキシ超えが出来ないことがわかった．</p>
@@ -132,131 +162,6 @@ ProxyRemote * http://proxy.example.com:8080
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-05-02</span> &raquo; <a href="/entries/windows-symlink">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/nodejs-and-express" class="permalink">✓ </a> Snow Leopard で Node.js と express を動かす</h2>
-
-        <p>Node.js で Web アプリ作ってみようかと思い立ったので，下記の環境を用意する．</p>
-
-<ul>
-<li>Node.js</li>
-<li>npm - パッケージマネージャ</li>
-<li>express - Web アプリケーションフレームワーク</li>
-</ul>
-
-
-<h3>Node.js のインストール</h3>
-
-<p>brew を使って入れる．</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>brew install <span class="nv">node</span>
-<span class="o">==</span>&gt; Downloading http://nodejs.org/dist/node-v0.4.7.tar.gz
-<span class="c">######################################################################## 100.0%</span>
-<span class="o">==</span>&gt; ./configure --prefix<span class="o">=</span>/usr/local/Cellar/node/0.4.7
-<span class="o">==</span>&gt; make <span class="nv">install</span>
-<span class="o">==</span>&gt; Caveats
-Please add /usr/local/lib/node to your NODE_PATH environment variable to have node libraries picked up.
-<span class="o">==</span>&gt; Summary
-/usr/local/Cellar/node/0.4.7: 72 files, 7.5M, built in 6.2 minutes
-</code></pre>
-</div>
-
-
-<p>node のパスを環境変数に指定する．</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>vi .zshrc
-<span class="nb">export </span><span class="nv">NODE_PATH</span><span class="o">=</span>/usr/local/lib/node
-</code></pre>
-</div>
-
-
-<h3>npm のインストール</h3>
-
-<p><code>brew install npm</code> とすると，別のコマンドを叩くように指示されるので，その通りに実行する．</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>brew install npm
-Error: No available formula <span class="k">for </span>npm
-npm can be installed thusly by following the instructions at
-  http://npmjs.org/
-
-  To <span class="k">do </span>it in one line, use this <span class="nb">command</span>:
-    curl http://npmjs.org/install.sh | sh
-</code></pre>
-</div>
-
-
-
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>curl http://npmjs.org/install.sh | sh
-</code></pre>
-</div>
-
-
-<h3>express のインストール</h3>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>npm install express
-</code></pre>
-</div>
-
-
-<h3>プロジェクトを作る</h3>
-
-<p>express コマンドでプロジェクトを自動生成することができる．</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>express mynodeapp
-   create : mynodeapp
-   create : mynodeapp/app.js
-   create : mynodeapp/public/stylesheets
-   create : mynodeapp/public/stylesheets/style.css
-   create : mynodeapp/public/javascripts
-   create : mynodeapp/logs
-   create : mynodeapp/pids
-   create : mynodeapp/public/images
-   create : mynodeapp/views
-   create : mynodeapp/views/layout.jade
-   create : mynodeapp/views/index.jade
-   create : mynodeapp/test
-   create : mynodeapp/test/app.test.js
-   - make sure you have installed jade: <span class="nv">$ </span>npm install jade
-</code></pre>
-</div>
-
-
-
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>npm install jade
-</code></pre>
-</div>
-
-
-<h3>起動してみる</h3>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span><span class="nb">cd</span> /mynodeapp
-<span class="nv">$ </span>node app.js
-Express server listening on port 3000
-</code></pre>
-</div>
-
-
-<p><a href="http://www.flickr.com/photos/tomohiro/5670130178/"><img src="http://farm6.static.flickr.com/5108/5670130178_30d9c518fb.jpg" alt="express - Tomohiro, TAIRA, on Flickr" /></a></p>
-
-<h3>References:</h3>
-
-<ul>
-<li><a href="http://nodejs.org/">node.js</a></li>
-<li><a href="http://npmjs.org/">npm - Node Package Manager</a></li>
-<li><a href="http://expressjs.com/guide.html#migration-guide">Express - node web framework</a></li>
-</ul>
-
-
-
-        <section class="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/JavaScript/">JavaScript</a> and</li> <li><a href="/tags/Node.js/">Node.js</a></li></ul>
-        </section>
- 
-        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-30</span> &raquo; <a href="/entries/nodejs-and-express">permalink</a></p>
     </article>
     
 </section>

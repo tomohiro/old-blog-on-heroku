@@ -37,6 +37,131 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/nodejs-and-express" class="permalink">✓ </a> Snow Leopard で Node.js と express を動かす</h2>
+
+        <p>Node.js で Web アプリ作ってみようかと思い立ったので，下記の環境を用意する．</p>
+
+<ul>
+<li>Node.js</li>
+<li>npm - パッケージマネージャ</li>
+<li>express - Web アプリケーションフレームワーク</li>
+</ul>
+
+
+<h3>Node.js のインストール</h3>
+
+<p>brew を使って入れる．</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>brew install <span class="nv">node</span>
+<span class="o">==</span>&gt; Downloading http://nodejs.org/dist/node-v0.4.7.tar.gz
+<span class="c">######################################################################## 100.0%</span>
+<span class="o">==</span>&gt; ./configure --prefix<span class="o">=</span>/usr/local/Cellar/node/0.4.7
+<span class="o">==</span>&gt; make <span class="nv">install</span>
+<span class="o">==</span>&gt; Caveats
+Please add /usr/local/lib/node to your NODE_PATH environment variable to have node libraries picked up.
+<span class="o">==</span>&gt; Summary
+/usr/local/Cellar/node/0.4.7: 72 files, 7.5M, built in 6.2 minutes
+</code></pre>
+</div>
+
+
+<p>node のパスを環境変数に指定する．</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>vi .zshrc
+<span class="nb">export </span><span class="nv">NODE_PATH</span><span class="o">=</span>/usr/local/lib/node
+</code></pre>
+</div>
+
+
+<h3>npm のインストール</h3>
+
+<p><code>brew install npm</code> とすると，別のコマンドを叩くように指示されるので，その通りに実行する．</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>brew install npm
+Error: No available formula <span class="k">for </span>npm
+npm can be installed thusly by following the instructions at
+  http://npmjs.org/
+
+  To <span class="k">do </span>it in one line, use this <span class="nb">command</span>:
+    curl http://npmjs.org/install.sh | sh
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>curl http://npmjs.org/install.sh | sh
+</code></pre>
+</div>
+
+
+<h3>express のインストール</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>npm install express
+</code></pre>
+</div>
+
+
+<h3>プロジェクトを作る</h3>
+
+<p>express コマンドでプロジェクトを自動生成することができる．</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>express mynodeapp
+   create : mynodeapp
+   create : mynodeapp/app.js
+   create : mynodeapp/public/stylesheets
+   create : mynodeapp/public/stylesheets/style.css
+   create : mynodeapp/public/javascripts
+   create : mynodeapp/logs
+   create : mynodeapp/pids
+   create : mynodeapp/public/images
+   create : mynodeapp/views
+   create : mynodeapp/views/layout.jade
+   create : mynodeapp/views/index.jade
+   create : mynodeapp/test
+   create : mynodeapp/test/app.test.js
+   - make sure you have installed jade: <span class="nv">$ </span>npm install jade
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>npm install jade
+</code></pre>
+</div>
+
+
+<h3>起動してみる</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span><span class="nb">cd</span> /mynodeapp
+<span class="nv">$ </span>node app.js
+Express server listening on port 3000
+</code></pre>
+</div>
+
+
+<p><a href="http://www.flickr.com/photos/tomohiro/5670130178/"><img src="http://farm6.static.flickr.com/5108/5670130178_30d9c518fb.jpg" alt="express - Tomohiro, TAIRA, on Flickr" /></a></p>
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="http://nodejs.org/">node.js</a></li>
+<li><a href="http://npmjs.org/">npm - Node Package Manager</a></li>
+<li><a href="http://expressjs.com/guide.html#migration-guide">Express - node web framework</a></li>
+</ul>
+
+
+
+        <section class="tags">
+            <h3>Tags:</h3> 
+            <ul><li><a href="/tags/JavaScript/">JavaScript</a> and</li> <li><a href="/tags/Node.js/">Node.js</a></li></ul>
+        </section>
+ 
+        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-30</span> &raquo; <a href="/entries/nodejs-and-express">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/vundle" class="permalink">✓ </a> Vundle で Vim プラグインを管理する</h2>
 
         <p>今まで Vim のプラグイン管理には「pathogen」を使っていたが，
@@ -235,32 +360,6 @@ Press enter to <span class="k">continue</span>
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-24</span> &raquo; <a href="/entries/macports_to_homebrew">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/symlinks-for-sshfs" class="permalink">✓ </a> sshfs でシンボリックリンクを扱う</h2>
-
-        <p><code>sshfs</code> で ssh サーバのディレクトリをローカルにマウントしている場合，シンボリックリンクがたどれなくて困っていたが，<code>-o follow_symlinks</code> というオプションを追加してマウントすると問題なくたどれるようになった．</p>
-
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sshfs username@REMOTE_HOST:REMOTE_PATH LOCAL_PATH -o follow_symlinks
-</code></pre>
-</div>
-
-
-<h3>References:</h3>
-
-<ul>
-<li><a href="http://sourceforge.net/apps/mediawiki/fuse/index.php?title=SshfsFaq#Following_symlinks_on_the_server_side">SourceForge.net: SshfsFaq - fuse</a></li>
-</ul>
-
-
-
-        <section class="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/Linux/">Linux</a></li></ul>
-        </section>
- 
-        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-21</span> &raquo; <a href="/entries/symlinks-for-sshfs">permalink</a></p>
     </article>
     
 </section>

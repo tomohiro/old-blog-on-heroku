@@ -4,12 +4,37 @@
     <title>log.tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-05-16T17:30:22+09:00</updated>
+    <updated>2011-08-15T23:47:45+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
         <email>tomohiro.t@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>OSX Lion に Emacs をインストール</title>
+        <link href="http://log.tomohiro.me/entries/installing-emacs-to-osx-lion"/>
+        <updated>2011-08-15T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/entries/installing-emacs-to-osx-lion</id>
+        <content type="html">&lt;p&gt;OSX Lion に Emacs をインストールした時のメモ&lt;/p&gt;
+
+&lt;p&gt;Homebrew を使ってインストールするがデフォルトのレシピだとこけるので，野良レシピを使う必要がある．&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;--lion&lt;/code&gt; オプションをつけると Lion のフルスクリーン機能が使えるようになる．&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew install https://raw.github.com/gist/1124161/6a265cd3b6b35b9dd550d26896063c3dfba6f4fa/emacs.rb --cocoa --lion
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;Reference:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://gist.github.com/1124161&quot;&gt;Homebrew Emacs 23.3a for OSX Lion with native full-screen, inline patch — Gist&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+    </entry>
     
     <entry>
         <title>Debian の Apache2 でリバースプロキシを設定する</title>
