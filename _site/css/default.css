@@ -1,33 +1,53 @@
 /* 未来を予測する最善の方法は、自らそれを創りだすことである。--アラン・ケイ */
 
+body {
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    font-family: 'メイリオ', Meiryo, sans-serif;
+    font-size: 100%;
+    color: #333333;
+    background: url(/images/bg.png) repeat;
+}
+
 header, footer, nav, article, section {
     display: block;
 }
 
-body {
-    margin-left: auto;
-    margin-right: auto;
-    width: 680px;
-    font-family: 'メイリオ', Meiryo, sans-serif;
-    font-size: 95%;
-    color: #333333;
+footer, nav, article {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    background: url(/images/header.png) repeat;
+    border: 1px solid #333;
+    height: 50px;
 }
 
 h1 {
-    font-family: Cuprum, Helvetica, serif;
-    font-size: 250%;
+    margin-top: 10px;
+    margin-left: 10%;
+    padding: 0;
+    font-family: Cuprum, Helvetica, sans-serif;
+    font-weight: normal;
 }
 
 h2 {
-    font-size: 110%;
+    font-size: 120%;
 }
 
 h3 {
-    font-size: 100%;
+    font-size: 110%;
 }
 
 h4 {
-    font-size: 90%;
+    font-size: 100%;
 }
 
 h1, h2, h3, h4, h5 {
@@ -70,6 +90,10 @@ code {
     font-family: Inconsolata, Consolas, monospace;
 }
 
+pre code {
+    border: none;
+}
+
 table {
     border-collapse: collapse;
 }
@@ -91,17 +115,14 @@ img {
     border: 1px solid #CCC;
 }
 
-header {
-    margin-top: 60px;
-}
+
 header h1 a {
-    color: #990000;
+    color: #FFF;
 }
 
 nav {
     margin-top: 0px;
     margin-bottom: 15px;
-    width: 100%;
     height: 15px;
 }
 nav ul {
@@ -131,11 +152,15 @@ nav#pagination span {
     margin-right: 15px;
 }
 
+#content {
+    padding-top: 40px;
+    display: block;
+}
+
 #articles article {
     display: block;
     padding-bottom: 20px;
     margin-bottom: 40px;
-    border-bottom: 1px dashed #CCC;
 }
 
 article a {
@@ -156,7 +181,6 @@ article h2 a {
 p.posted,
 p#posted {
     padding-top: 20px;
-    width: 100%;
     text-align: right;
     color: #888888;
 }

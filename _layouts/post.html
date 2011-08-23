@@ -4,14 +4,14 @@ layout: default
 
 <article>
     <h2><a href="{{ page.url }}" id="permalink">✓ </a> {{ page.title }}</h2>
-   
+
     {{ content }}
 
     <section id="tags">
         <h3>Tags:</h3> 
         <ul>{{ page.categories | category_links }}</ul>
     </section>
-   
+
     <p id="posted">Posted by <a href="http://twitter.com/Tomohiro">{{ site.author }}</a>, at <span class="date">{{ page.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ page.url }}">permalink</a></p>
 
     <section id="disqus_thread"></section>
