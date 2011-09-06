@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>log.tomohiro.me</title>
+        <title>$ log < tomohiro.me</title>
         <meta name="author" content="Tomohiro, TAIRA">
         <meta name="google-site-verification" content="fVZ5SSA5Kv566sngCmPhquRWuNGa5E8YJiyMla39Ggg">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,8 @@
     </head>
     <body>
         <header>
-            <h1><a href="/">log.tomohiro.me</a></h1>
+            <h1><a href="/">$ log < tomohiro.me</a></h1>
+            <div id="feed"><a href="/atom.xml"><img src="/images/feed.png" alt="feed" class="icon"></a></div>
         </header>
 
         <nav>
@@ -24,7 +25,6 @@
                 <li><a href="/">Top</a></li>
                 <li><a href="/archive.html">Archive</a></li>
                 <li><a href="http://tomohiro.me">About</a></li>
-                <li><a href="/atom.xml">Feed</a></li>
             </ul>
         </nav>
 
@@ -32,7 +32,7 @@
             <section id="articles">
     
     <article>
-        <h2><a href="/entries/symlinks-for-sshfs" class="permalink">✓ </a> sshfs でシンボリックリンクを扱う</h2>
+        <h2><a href="/entries/symlinks-for-sshfs" class="permalink">sshfs でシンボリックリンクを扱う</a></h2>
 
         <p><code>sshfs</code> で ssh サーバのディレクトリをローカルにマウントしている場合，シンボリックリンクがたどれなくて困っていたが，<code>-o follow_symlinks</code> というオプションを追加してマウントすると問題なくたどれるようになった．</p>
 
@@ -50,15 +50,17 @@
 
 
         <section class="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/Linux/">Linux</a></li></ul>
+            <ul>
+                <li><img src="/images/tags.png" alt="Tags" class="icon"></li>
+                <li><a href="/tags/Linux/">Linux</a></li>
+            </ul>
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-21</span> &raquo; <a href="/entries/symlinks-for-sshfs">permalink</a></p>
     </article>
     
     <article>
-        <h2><a href="/entries/ll-die-idiom" class="permalink">✓ </a> LL で異常終了処理する時のイディオム</h2>
+        <h2><a href="/entries/ll-die-idiom" class="permalink">LL で異常終了処理する時のイディオム</a></h2>
 
         <p>エラーの際に，メッセージを表示して，プログラムを終了させるという流れを LL で実装する方法を調査してみた．</p>
 
@@ -171,15 +173,17 @@ Error
 
 
         <section class="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/PHP/">PHP</a>,</li><li><a href="/tags/Perl/">Perl</a>,</li><li><a href="/tags/Python/">Python</a>, and</li><li><a href="/tags/Ruby/">Ruby</a></li></ul>
+            <ul>
+                <li><img src="/images/tags.png" alt="Tags" class="icon"></li>
+                <li><a href="/tags/PHP/">PHP</a>,</li><li><a href="/tags/Perl/">Perl</a>,</li><li><a href="/tags/Python/">Python</a>, and</li><li><a href="/tags/Ruby/">Ruby</a></li>
+            </ul>
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-20</span> &raquo; <a href="/entries/ll-die-idiom">permalink</a></p>
     </article>
     
     <article>
-        <h2><a href="/entries/rvm-ruby-on-cron" class="permalink">✓ </a> RVM でインストールした Ruby を cron で使う</h2>
+        <h2><a href="/entries/rvm-ruby-on-cron" class="permalink">RVM でインストールした Ruby を cron で使う</a></h2>
 
         <p>ユーザ環境で動く cron で RVM が管理している Ruby を動かす時のテクニック．</p>
 
@@ -213,8 +217,10 @@ Error
 
 
         <section class="tags">
-            <h3>Tags:</h3> 
-            <ul><li><a href="/tags/Ruby/">Ruby</a></li></ul>
+            <ul>
+                <li><img src="/images/tags.png" alt="Tags" class="icon"></li>
+                <li><a href="/tags/Ruby/">Ruby</a></li>
+            </ul>
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-14</span> &raquo; <a href="/entries/rvm-ruby-on-cron">permalink</a></p>

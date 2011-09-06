@@ -43,7 +43,7 @@ h2 {
 }
 
 h3 {
-    font-size: 110%;
+    font-size: 105%;
 }
 
 h4 {
@@ -115,9 +115,20 @@ img {
     border: 1px solid #CCC;
 }
 
+img.icon {
+    border: none;
+}
 
+header h1 {
+    float: left;
+}
 header h1 a {
     color: #FFF;
+}
+header div#feed {
+    float: right;
+    margin-top: 15px;
+    margin-right: 150px;
 }
 
 nav {
@@ -187,12 +198,15 @@ p#posted {
 span.date {
     color: #666666;
 }
-
+section#tags ul,
+section.tags ul {
+    padding: 0px;
+}
 section#tags li,
 section.tags li {
     float: left;
     list-style: none;
-    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 section#disqus_thread {
     margin-top: 20px;

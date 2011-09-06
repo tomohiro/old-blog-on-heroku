@@ -5,13 +5,15 @@ layout: default
 <section id="articles">
     {% for post in paginator.posts %}
     <article>
-        <h2><a href="{{ post.url }}" class="permalink">✓ </a> {{ post.title }}</h2>
+        <h2><a href="{{ post.url }}" class="permalink">{{ post.title }}</a></h2>
 
         {{ post.content }}
 
         <section class="tags">
-            <h3>Tags:</h3> 
-            <ul>{{ post.categories | category_links }}</ul>
+            <ul>
+                <li><img src="/images/tags.png" alt="Tags" class="icon"></li>
+                {{ post.categories | category_links }}
+            </ul>
         </section>
  
         <p class="posted">Posted by {{ site.author }}, at <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">permalink</a></p>

@@ -1,8 +1,8 @@
-title: log.tomohiro.me
+title: $ log < tomohiro.me
 author: Tomohiro
 
-server: true
-auto: true
+server: false
+auto: false
 markdown: rdiscount
 pygments: true
 permalink: /entries/:title
