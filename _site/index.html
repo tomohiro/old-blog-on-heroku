@@ -32,6 +32,44 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/installing-pow-via-homebrew" class="permalink">Installing Pow via Homebrew</a></h2>
+
+        <h3>Uninstalling Pow (If you have already insatlled Pow)</h3>
+
+<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>curl get.pow.cx/uninstall.sh | sh
+</code></pre>
+</div>
+
+
+<h3>Installing Pow via Homebrew</h3>
+
+<div class="highlight"><pre><code class="sh"><span class="nv">$ </span>brew install pow
+<span class="nv">$ </span>sudo pow --install-system <span class="c"># Sets up firewall rules to forward port 80 to Pow</span>
+<span class="nv">$ </span>pow --install-local <span class="c"># Installs launchd agent to start on login</span>
+</code></pre>
+</div>
+
+
+<h3>Reference:</h3>
+
+<ul>
+<li><a href="http://pow.cx/">Pow: Zero-configuration Rack server for Mac OS X</a></li>
+<li><a href="https://github.com/mxcl/homebrew/blob/master/Library/Formula/pow.rb">Library/Formula/pow.rb at master from mxcl/homebrew - GitHub</a></li>
+</ul>
+
+
+
+        <section class="tags">
+            <ul>
+                <li><img src="/images/tags.png" alt="Tags" class="icon"></li>
+                <li><a href="/tags/Ruby/">Ruby</a></li>
+            </ul>
+        </section>
+ 
+        <p class="posted">Posted by Tomohiro, at <span class="date">2011-09-20</span> &raquo; <a href="/entries/installing-pow-via-homebrew">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/installing-emacs-to-osx-lion" class="permalink">OSX Lion に Emacs をインストール</a></h2>
 
         <p>OSX Lion に Emacs をインストールした時のメモ</p>
@@ -143,26 +181,6 @@ ProxyRemote * http://proxy.example.com:8080
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-05-16</span> &raquo; <a href="/entries/apache2-reverse-proxy-on-debian">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/windows-symlink" class="permalink">Windows でシンボリックリンクを作成する</a></h2>
-
-        <p>Windows でシンボリックリンクを作成する方法をいつも忘れてしまうので，メモしておく．</p>
-
-<p><code>mklink</code> コマンドを叩くとヘルプが見れるので，それ見ながらやる，っていうように覚えておけば良いかな．</p>
-
-<p><a href="http://www.flickr.com/photos/tomohiro/5679095592/in/photostream"><img src="http://farm6.static.flickr.com/5062/5679095592_8108387564.jpg" title="" alt="mklink" /></a></p>
-
-
-        <section class="tags">
-            <ul>
-                <li><img src="/images/tags.png" alt="Tags" class="icon"></li>
-                <li><a href="/tags/Windows/">Windows</a></li>
-            </ul>
-        </section>
- 
-        <p class="posted">Posted by Tomohiro, at <span class="date">2011-05-02</span> &raquo; <a href="/entries/windows-symlink">permalink</a></p>
     </article>
     
 </section>

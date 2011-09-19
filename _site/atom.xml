@@ -4,12 +4,43 @@
     <title>$ log < tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-09-06T23:19:00+09:00</updated>
+    <updated>2011-09-20T01:30:45+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
         <email>tomohiro.t@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Installing Pow via Homebrew</title>
+        <link href="http://log.tomohiro.me/entries/installing-pow-via-homebrew"/>
+        <updated>2011-09-20T00:00:00+09:00</updated>
+        <id>http://log.tomohiro.me/entries/installing-pow-via-homebrew</id>
+        <content type="html">&lt;h3&gt;Uninstalling Pow (If you have already insatlled Pow)&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl get.pow.cx/uninstall.sh | sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;Installing Pow via Homebrew&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew install pow
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo pow --install-system &lt;span class=&quot;c&quot;&gt;# Sets up firewall rules to forward port 80 to Pow&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pow --install-local &lt;span class=&quot;c&quot;&gt;# Installs launchd agent to start on login&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h3&gt;Reference:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://pow.cx/&quot;&gt;Pow: Zero-configuration Rack server for Mac OS X&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mxcl/homebrew/blob/master/Library/Formula/pow.rb&quot;&gt;Library/Formula/pow.rb at master from mxcl/homebrew - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+    </entry>
     
     <entry>
         <title>OSX Lion に Emacs をインストール</title>

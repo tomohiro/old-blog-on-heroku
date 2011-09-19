@@ -32,6 +32,127 @@
             <section id="articles">
     
     <article>
+        <h2><a href="/entries/macports_to_homebrew" class="permalink">MacPorts から Homebrew へ移行</a></h2>
+
+        <p>Mac 上で Unix ツールを管理するマネージャを MacPorts から Homebrew へ移行した．</p>
+
+<p>少ししか触っていないが，下記の点が非常に魅力的だと感じた．</p>
+
+<ul>
+<li>MacPorts に比べて動作が軽快</li>
+<li>レシピの自作が簡単 (Fomula という名前の Ruby スクリプト)</li>
+</ul>
+
+
+<h3>MacPorts のアンインストール</h3>
+
+<h4>1. アンインストール</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo port -f uninstall installed
+<span class="nv">$ </span>sudo rm -rf <span class="se">\</span>
+    /opt/local <span class="se">\</span>
+    /Applications/DarwinPorts <span class="se">\</span>
+    /Applications/MacPorts <span class="se">\</span>
+    /Library/LaunchDaemons/org.macports.* <span class="se">\</span>
+    /Library/Receipts/DarwinPorts*.pkg <span class="se">\</span>
+    /Library/Receipts/MacPorts*.pkg <span class="se">\</span>
+    /Library/StartupItems/DarwinPortsStartup <span class="se">\</span>
+    /Library/Tcl/darwinports1.0 <span class="se">\</span>
+    /Library/Tcl/macports1.0 <span class="se">\</span>
+    ~/.macports
+</code></pre>
+</div>
+
+
+<h4>2. /opt/local/ へのパスを削除</h4>
+
+<p>環境変数 <code>$PATH</code> に MacPorts のディレクトリを指定する設定があるので削除する</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>vi ~/.profile
+</code></pre>
+</div>
+
+
+<h3>Homebrew をインストール</h3>
+
+<h4>1. Homebrew のインストール手順の指示に従い，下記のディレクトリを削除</h4>
+
+<blockquote><p>We recommend you delete <code>/usr/local/include</code> and <code>/usr/local/lib</code></p></blockquote>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo rm -rf /usr/local/lib
+</code></pre>
+</div>
+
+
+<h4>2. インストールする</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>ruby -e <span class="s2">&quot;$(curl -fsSLk https://gist.github.com/raw/323731/install_homebrew.rb)&quot;</span>
+<span class="o">==</span>&gt; This script will install:
+/usr/local/bin/brew
+/usr/local/Library/Formula/...
+/usr/local/Library/Homebrew/...
+<span class="o">==</span>&gt; The following directories will be made group writable:
+/usr/local/.
+/usr/local/bin
+<span class="o">==</span>&gt; The following directories will have their group <span class="nb">set </span>to staff:
+/usr/local/.
+/usr/local/bin
+
+Press enter to <span class="k">continue</span>
+<span class="o">==</span>&gt; /usr/bin/sudo /bin/chmod g+w /usr/local/. /usr/local/bin
+<span class="o">==</span>&gt; /usr/bin/sudo /usr/bin/chgrp staff /usr/local/. /usr/local/bin
+<span class="o">==</span>&gt; Downloading and Installing Homebrew...
+<span class="o">==</span>&gt; Installation successful!
+</code></pre>
+</div>
+
+
+<h4>3. バージョンを確認</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>rehash
+<span class="nv">$ </span>brew --version
+0.8
+</code></pre>
+</div>
+
+
+<h4>4. Zsh で brew コマンドの補完をできるようにする</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>vi .zshrc
+<span class="nv">fpath</span><span class="o">=(</span><span class="nv">$HOME</span>/.zsh/functions <span class="nv">$fpath</span><span class="o">)</span>
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo cp /usr/local/Library/Contributions/brew_zsh_completion.zsh /usr/local/share/zsh/functions/_brew
+</code></pre>
+</div>
+
+
+<h3>References:</h3>
+
+<ul>
+<li><a href="http://guide.macports.org/chunked/installing.macports.uninstalling.html">2.5. Uninstall</a></li>
+<li><a href="http://mxcl.github.com/homebrew/">Homebrew — MacPorts driving you to drink? Try Homebrew!</a></li>
+<li><a href="https://github.com/mxcl/homebrew/wiki/installation">Installation - GitHub</a></li>
+<li><a href="https://github.com/mxcl/homebrew/wiki/the-brew-command">The brew command - GitHub</a></li>
+</ul>
+
+
+
+        <section class="tags">
+            <ul>
+                <li><img src="/images/tags.png" alt="Tags" class="icon"></li>
+                <li><a href="/tags/Homebrew/">Homebrew</a> and</li> <li><a href="/tags/Mac/">Mac</a></li>
+            </ul>
+        </section>
+ 
+        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-24</span> &raquo; <a href="/entries/macports_to_homebrew">permalink</a></p>
+    </article>
+    
+    <article>
         <h2><a href="/entries/symlinks-for-sshfs" class="permalink">sshfs でシンボリックリンクを扱う</a></h2>
 
         <p><code>sshfs</code> で ssh サーバのディレクトリをローカルにマウントしている場合，シンボリックリンクがたどれなくて困っていたが，<code>-o follow_symlinks</code> というオプションを追加してマウントすると問題なくたどれるようになった．</p>
@@ -180,50 +301,6 @@ Error
         </section>
  
         <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-20</span> &raquo; <a href="/entries/ll-die-idiom">permalink</a></p>
-    </article>
-    
-    <article>
-        <h2><a href="/entries/rvm-ruby-on-cron" class="permalink">RVM でインストールした Ruby を cron で使う</a></h2>
-
-        <p>ユーザ環境で動く cron で RVM が管理している Ruby を動かす時のテクニック．</p>
-
-<p>まずこういうテクニックを見つけたので，やってみた．</p>
-
-<div class="highlight"><pre><code class="sh">* * * * * bash -c <span class="s1">&#39;. ~/.rvm/scripts/rvm &amp;&amp; command&#39;</span>
-</code></pre>
-</div>
-
-
-<p>これでも問題なく動が，記述量が多いので，crontab 設定の可読性が落ちるという難点があった．</p>
-
-<p>そこで環境変数の PATH に RVM の bin を追加したところ，いい感じになった．</p>
-
-<p>仮に RVM がインストールされない環境でこの cron 設定を動かしてもシステムの Ruby 処理系が走るだけになる．</p>
-
-<div class="highlight"><pre><code class="sh"><span class="nv">PATH</span><span class="o">=</span>/home/tomohiro/.rvm/bin:/usr/bin:/bin
-* * * * * ruby <span class="nb">command</span>
-</code></pre>
-</div>
-
-
-<p>特定の Ruby 処理系を指定することはできないが，必要であれば環境変数に追加して対応すれば良い．</p>
-
-<h3>References:</h3>
-
-<ul>
-<li><a href="https://rvm.beginrescueend.com/">RVM: Ruby Version Manager - RVM Ruby Version Manager - Documentation</a></li>
-</ul>
-
-
-
-        <section class="tags">
-            <ul>
-                <li><img src="/images/tags.png" alt="Tags" class="icon"></li>
-                <li><a href="/tags/Ruby/">Ruby</a></li>
-            </ul>
-        </section>
- 
-        <p class="posted">Posted by Tomohiro, at <span class="date">2011-04-14</span> &raquo; <a href="/entries/rvm-ruby-on-cron">permalink</a></p>
     </article>
     
 </section>
