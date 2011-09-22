@@ -4,7 +4,7 @@
     <title>$ log < tomohiro.me</title>
     <link href="http://log.tomohiro.me/atom.xml" rel="self"/>
     <link href="http://log.tomohiro.me/"/>
-    <updated>2011-09-20T01:30:45+09:00</updated>
+    <updated>2011-09-22T23:47:32+09:00</updated>
     <id>http://log.tomohiro.me/</id>
     <author>
         <name>Tomohiro, TAIRA</name>
@@ -32,7 +32,7 @@
 &lt;/div&gt;
 
 
-&lt;h3&gt;Reference:&lt;/h3&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://pow.cx/&quot;&gt;Pow: Zero-configuration Rack server for Mac OS X&lt;/a&gt;&lt;/li&gt;
@@ -58,7 +58,7 @@
 &lt;/div&gt;
 
 
-&lt;h3&gt;Reference:&lt;/h3&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://gist.github.com/1124161&quot;&gt;Homebrew Emacs 23.3a for OSX Lion with native full-screen, inline patch — Gist&lt;/a&gt;&lt;/li&gt;
@@ -132,7 +132,7 @@ ProxyRemote * http://proxy.example.com:8080
 &lt;/table&gt;
 
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://akitosblog.seesaa.net/article/159752158.html&quot;&gt;CentOS 5.5 x86-64 をネットワークインストール: Akito's IT技術 メモ&lt;/a&gt;&lt;/li&gt;
@@ -264,7 +264,7 @@ Express server listening on port 3000
 
 &lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/tomohiro/5670130178/&quot;&gt;&lt;img src=&quot;http://farm6.static.flickr.com/5108/5670130178_30d9c518fb.jpg&quot; alt=&quot;express - Tomohiro, TAIRA, on Flickr&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://nodejs.org/&quot;&gt;node.js&lt;/a&gt;&lt;/li&gt;
@@ -339,7 +339,7 @@ Bundle &lt;span class=&quot;s1&quot;&gt;&amp;#39;gtags.vim&amp;#39;&lt;/span&gt;
 &lt;/div&gt;
 
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://shu-cream.blogspot.com/2011/04/2011vimvundle.html&quot;&gt;blog.shu-cream.net: 2011年のVimプラグインの管理はVundleで&lt;/a&gt;&lt;/li&gt;
@@ -454,7 +454,7 @@ Press enter to &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
 &lt;/div&gt;
 
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://guide.macports.org/chunked/installing.macports.uninstalling.html&quot;&gt;2.5. Uninstall&lt;/a&gt;&lt;/li&gt;
@@ -478,7 +478,7 @@ Press enter to &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
 &lt;/div&gt;
 
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://sourceforge.net/apps/mediawiki/fuse/index.php?title=SshfsFaq#Following_symlinks_on_the_server_side&quot;&gt;SourceForge.net: SshfsFaq - fuse&lt;/a&gt;&lt;/li&gt;
@@ -591,7 +591,7 @@ Error
 &lt;/div&gt;
 
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.python.jp/doc/2.6/library/sys.html&quot;&gt;28.1. sys — システムパラメータと関数 — Python v2.6.2 documentation&lt;/a&gt;&lt;/li&gt;
@@ -631,7 +631,7 @@ Error
 
 &lt;p&gt;特定の Ruby 処理系を指定することはできないが，必要であれば環境変数に追加して対応すれば良い．&lt;/p&gt;
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://rvm.beginrescueend.com/&quot;&gt;RVM: Ruby Version Manager - RVM Ruby Version Manager - Documentation&lt;/a&gt;&lt;/li&gt;
@@ -823,7 +823,7 @@ Default configuration data loaded.
 
 &lt;p&gt;&lt;code&gt;http://0.0.0.0:3000&lt;/code&gt; にアクセスして &lt;code&gt;admin/admin&lt;/code&gt; でログオンを試す&lt;/p&gt;
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://rvm.beginrescueend.com/&quot;&gt;RVM: Ruby Version Manager - RVM Ruby Version Manager - Documentation&lt;/a&gt;&lt;/li&gt;
@@ -861,7 +861,7 @@ Default configuration data loaded.
 &lt;script src=&quot;https://gist.github.com/912936.js?file=application_helper.rb.choice_text_formatter.patch&quot;&gt;&lt;/script&gt;
 
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/tmtms/20100923/redmine_formatter&quot;&gt;プロジェクト毎のフォーマッタ - @tmtms のメモ&lt;/a&gt;&lt;/li&gt;
@@ -894,7 +894,7 @@ Default configuration data loaded.
 &lt;/div&gt;
 
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;div class=&quot;amazlet-box&quot; style=&quot;margin-bottom:0px;&quot;&gt;&lt;div class=&quot;amazlet-image&quot; style=&quot;float:left;margin:0px 12px 1px 0px;&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4048687158/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/51TODrMIEnL._SL160_.jpg&quot; alt=&quot;メタプログラミングRuby&quot; style=&quot;border: none;&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-info&quot; style=&quot;line-height:120%; margin-bottom: 10px&quot;&gt;&lt;div class=&quot;amazlet-name&quot; style=&quot;margin-bottom:10px;line-height:120%&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4048687158/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;メタプログラミングRuby&lt;/a&gt;&lt;div class=&quot;amazlet-powered-date&quot; style=&quot;font-size:80%;margin-top:5px;line-height:120%&quot;&gt;posted with &lt;a href=&quot;http://www.amazlet.com/browse/ASIN/4048687158/tomohiro-t-22/ref=nosim/&quot; title=&quot;メタプログラミングRuby&quot; target=&quot;_blank&quot;&gt;amazlet&lt;/a&gt; at 11.04.10&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-detail&quot;&gt;Paolo Perrotta &lt;br /&gt;アスキー・メディアワークス &lt;br /&gt;売り上げランキング: 29046&lt;br /&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-sub-info&quot; style=&quot;float: left;&quot;&gt;&lt;div class=&quot;amazlet-link&quot; style=&quot;margin-top: 5px&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4048687158/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-footer&quot; style=&quot;clear: left&quot;&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -930,7 +930,7 @@ Also supports a lengthy translation.
 &lt;script src=&quot;https://gist.github.com/551073.js?file=gt&quot;&gt;&lt;/script&gt;
 
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;div class=&quot;amazlet-box&quot; style=&quot;margin-bottom:0px;&quot;&gt;&lt;div class=&quot;amazlet-image&quot; style=&quot;float:left;margin:0px 12px 1px 0px;&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4873113679/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/41gCZhFayuL._SL160_.jpg&quot; alt=&quot;初めてのRuby&quot; style=&quot;border: none;&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-info&quot; style=&quot;line-height:120%; margin-bottom: 10px&quot;&gt;&lt;div class=&quot;amazlet-name&quot; style=&quot;margin-bottom:10px;line-height:120%&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4873113679/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;初めてのRuby&lt;/a&gt;&lt;div class=&quot;amazlet-powered-date&quot; style=&quot;font-size:80%;margin-top:5px;line-height:120%&quot;&gt;posted with &lt;a href=&quot;http://www.amazlet.com/browse/ASIN/4873113679/tomohiro-t-22/ref=nosim/&quot; title=&quot;初めてのRuby&quot; target=&quot;_blank&quot;&gt;amazlet&lt;/a&gt; at 11.04.09&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-detail&quot;&gt;Yugui &lt;br /&gt;オライリージャパン &lt;br /&gt;売り上げランキング: 20994&lt;br /&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-sub-info&quot; style=&quot;float: left;&quot;&gt;&lt;div class=&quot;amazlet-link&quot; style=&quot;margin-top: 5px&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4873113679/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-footer&quot; style=&quot;clear: left&quot;&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -975,7 +975,7 @@ Also supports a lengthy translation.
 
 &lt;p&gt;その他の例は &lt;code&gt;man test&lt;/code&gt; するとだいたいわかる．&lt;a href=&quot;http://ya.maya.st/web/RTFM.html&quot;&gt;RTFM&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;div class=&quot;amazlet-box&quot; style=&quot;margin-bottom:0px;&quot;&gt;&lt;div class=&quot;amazlet-image&quot; style=&quot;float:left;margin:0px 12px 1px 0px;&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4873112540/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://ecx.images-amazon.com/images/I/519CHDKSHWL._SL160_.jpg&quot; alt=&quot;入門bash 第3版&quot; style=&quot;border: none;&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-info&quot; style=&quot;line-height:120%; margin-bottom: 10px&quot;&gt;&lt;div class=&quot;amazlet-name&quot; style=&quot;margin-bottom:10px;line-height:120%&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4873112540/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;入門bash 第3版&lt;/a&gt;&lt;div class=&quot;amazlet-powered-date&quot; style=&quot;font-size:80%;margin-top:5px;line-height:120%&quot;&gt;posted with &lt;a href=&quot;http://www.amazlet.com/browse/ASIN/4873112540/tomohiro-t-22/ref=nosim/&quot; title=&quot;入門bash 第3版&quot; target=&quot;_blank&quot;&gt;amazlet&lt;/a&gt; at 11.04.08&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-detail&quot;&gt;Cameron Newham Bill Rosenblatt &lt;br /&gt;オライリージャパン &lt;br /&gt;売り上げランキング: 43317&lt;br /&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-sub-info&quot; style=&quot;float: left;&quot;&gt;&lt;div class=&quot;amazlet-link&quot; style=&quot;margin-top: 5px&quot;&gt;&lt;a href=&quot;http://www.amazon.co.jp/exec/obidos/ASIN/4873112540/tomohiro-t-22/ref=nosim/&quot; name=&quot;amazletlink&quot; target=&quot;_blank&quot;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;amazlet-footer&quot; style=&quot;clear: left&quot;&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -1091,7 +1091,7 @@ Also supports a lengthy translation.
 &lt;/div&gt;
 
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://php.net/manual/ja/control-structures.foreach.php&quot; title=&quot;PHP: foreach - Manual&quot;&gt;PHP: foreach - Manual&lt;/a&gt;&lt;/li&gt;
@@ -1149,7 +1149,7 @@ cpanm -Vcpanm &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;App::cpanminus&lt;sp
 &lt;/div&gt;
 
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://log.tomohiro.me/entries/installing-perlbrew-on-ubuntu10.10&quot;&gt;Ubuntu 10.10 に perlbrew をインストールする&lt;/a&gt;&lt;/li&gt;
@@ -1262,7 +1262,7 @@ Enjoy perlbrew at &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;!!
 &lt;/div&gt;
 
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://search.cpan.org/dist/App-perlbrew/lib/App/perlbrew.pm&quot;&gt;App::perlbrew - search.cpan.org&lt;/a&gt;&lt;/li&gt;
@@ -1397,7 +1397,7 @@ URL: http://bijo-linux.com/girls/kill
 &lt;/div&gt;
 
 
-&lt;h3&gt;References:&lt;/h3&gt;
+&lt;h3&gt;References&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://ja.wikipedia.org/wiki/%E4%B8%8D%E5%8B%95%E7%82%B9%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8D%E3%83%BC%E3%82%BF&quot;&gt;不動点コンビネータ - Wikipedia&lt;/a&gt;&lt;/li&gt;
@@ -1495,7 +1495,7 @@ end
 &lt;/div&gt;
 
 
-&lt;h3&gt;Reference:&lt;/h3&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/Liquid-Extensions&quot; title=&quot;Liquid Extensions - GitHub&quot;&gt;Liquid Extensions - GitHub&lt;/a&gt;&lt;/li&gt;
@@ -1522,7 +1522,7 @@ end
 &lt;/div&gt;
 
 
-&lt;h3&gt;Reference:&lt;/h3&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://valvallow.blogspot.com/2010/10/gist-blog-embed-css.html&quot;&gt;gist を blog に embed する時の見た目や色（CSS） を変える&lt;/a&gt;&lt;/li&gt;
@@ -1550,7 +1550,7 @@ end
 &lt;/div&gt;
 
 
-&lt;h3&gt;Reference:&lt;/h3&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://redmine.jp/faq/general/pdfcsv/&quot; title=&quot;PDFおよびCSVの文字化けを回避する | Redmine.JP&quot;&gt;PDFおよびCSVの文字化けを回避する | Redmine.JP&lt;/a&gt;&lt;/li&gt;
@@ -1650,7 +1650,7 @@ end
 
 &lt;p&gt;Congratulations!&lt;/p&gt;
 
-&lt;h3&gt;Reference:&lt;/h3&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki&quot; title=&quot;Home - GitHub&quot;&gt;Home - GitHub&lt;/a&gt;&lt;/li&gt;
