@@ -101,7 +101,7 @@ $ perlbrew switch perl-5.12.2
 {% endhighlight %}
 
 
-### References:
+### References
 
 - [App::perlbrew - search.cpan.org](http://search.cpan.org/dist/App-perlbrew/lib/App/perlbrew.pm)
 - [モダンな Perl の開発環境の構築方法 - TokuLog 改メ tokuhirom’s blog](http://d.hatena.ne.jp/tokuhirom/20100716/perlenv)

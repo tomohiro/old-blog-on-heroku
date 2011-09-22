@@ -150,7 +150,7 @@ $ ./script/server thin -u
 `http://0.0.0.0:3000` にアクセスして `admin/admin` でログオンを試す
 
 
-### References:
+### References
 
 - [RVM: Ruby Version Manager - RVM Ruby Version Manager - Documentation](https://rvm.beginrescueend.com/)
 - [Redmine - Download - Latest source code Development(unstable)](http://www.redmine.org/projects/redmine/wiki/Download#Development-unstable)

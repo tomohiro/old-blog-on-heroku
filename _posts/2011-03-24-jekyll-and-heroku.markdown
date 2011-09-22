@@ -80,7 +80,7 @@ Browse to http://myblog.heroku.com
 Congratulations!
 
 
-### Reference:
+### Reference
 
 - [Home - GitHub](https://github.com/mojombo/jekyll/wiki "Home - GitHub")
 - [Install - GitHub](https://github.com/mojombo/jekyll/wiki/Install "Install - GitHub")

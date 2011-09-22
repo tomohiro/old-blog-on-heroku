@@ -45,7 +45,7 @@ $ cpanm --self-upgrade
 {% endhighlight %}
 
 
-### References:
+### References
 
 - [Ubuntu 10.10 に perlbrew をインストールする](http://log.tomohiro.me/entries/installing-perlbrew-on-ubuntu10.10) 
 - [miyagawa/cpanminus - GitHub](https://github.com/miyagawa/cpanminus/)

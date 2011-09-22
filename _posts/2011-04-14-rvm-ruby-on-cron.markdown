@@ -26,6 +26,6 @@ PATH=/home/tomohiro/.rvm/bin:/usr/bin:/bin
 特定の Ruby 処理系を指定することはできないが，必要であれば環境変数に追加して対応すれば良い．
 
 
-### References:
+### References
 
 - [RVM: Ruby Version Manager - RVM Ruby Version Manager - Documentation](https://rvm.beginrescueend.com/)

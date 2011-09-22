@@ -67,7 +67,7 @@ Y(
 {% endhighlight %}
 
 
-### References:
+### References
 
 - [不動点コンビネータ - Wikipedia](http://ja.wikipedia.org/wiki/%E4%B8%8D%E5%8B%95%E7%82%B9%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8D%E3%83%BC%E3%82%BF)
 - [Y コンビネータって何？ - IT戦記](http://d.hatena.ne.jp/amachang/20080124/1201199469)

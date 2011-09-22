@@ -26,6 +26,6 @@ categories: [Ruby, Redmine]
 <script src="https://gist.github.com/912936.js?file=application_helper.rb.choice_text_formatter.patch"></script>
 
 
-### References:
+### References
 
 - [プロジェクト毎のフォーマッタ - @tmtms のメモ](http://d.hatena.ne.jp/tmtms/20100923/redmine_formatter)

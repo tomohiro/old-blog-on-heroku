@@ -52,7 +52,7 @@ Web Site name    | reverse-proxy.example.com
 CentOS directory | Linux/centos/5.6/os/i386
 
 
-### References:
+### References
 
 - [CentOS 5.5 x86-64 をネットワークインストール: Akito's IT技術 メモ](http://akitosblog.seesaa.net/article/159752158.html)
 - [Apache/リバースプロキシを作る（Debian Etch編） - 俺の基地](http://yakinikunotare.boo.jp/orebase/index.php?Apache%2F%A5%EA%A5%D0%A1%BC%A5%B9%A5%D7%A5%ED%A5%AD%A5%B7%A4%F2%BA%EE%A4%EB%A1%CADebian%20Etch%CA%D4%A1%CB)

@@ -89,7 +89,7 @@ for (var i = 0; i < l.length; i++) {
 {% endhighlight %}
 
 
-### References:
+### References
 
 - [PHP: foreach - Manual](http://php.net/manual/ja/control-structures.foreach.php "PHP: foreach - Manual")
 - [Enumerable - Rubyリファレンスマニュアル](http://www.ruby-lang.org/ja/man/html/Enumerable.html)

@@ -98,7 +98,7 @@ Express server listening on port 3000
 [![express - Tomohiro, TAIRA, on Flickr](http://farm6.static.flickr.com/5108/5670130178_30d9c518fb.jpg)](http://www.flickr.com/photos/tomohiro/5670130178/)
 
 
-### References:
+### References
 
 - [node.js](http://nodejs.org/)
 - [npm - Node Package Manager](http://npmjs.org/)

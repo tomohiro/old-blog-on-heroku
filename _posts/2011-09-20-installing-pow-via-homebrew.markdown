@@ -21,7 +21,7 @@ $ pow --install-local # Installs launchd agent to start on login
 {% endhighlight %}
 
 
-### Reference:
+### Reference
 
 - [Pow: Zero-configuration Rack server for Mac OS X](http://pow.cx/)
 - [Library/Formula/pow.rb at master from mxcl/homebrew - GitHub](https://github.com/mxcl/homebrew/blob/master/Library/Formula/pow.rb) 

@@ -91,7 +91,7 @@ $ echo $?
 {% endhighlight %}
 
 
-### References:
+### References
 
 - [28.1. sys — システムパラメータと関数 — Python v2.6.2 documentation](http://www.python.jp/doc/2.6/library/sys.html)
 - [PHP: die - Manual](http://www.php.net/manual/ja/function.die.php)

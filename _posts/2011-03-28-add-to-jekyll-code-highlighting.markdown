@@ -46,6 +46,6 @@ end
 {% endhighlight %}
 
 
-### Reference:
+### Reference
 
 - [Liquid Extensions - GitHub](https://github.com/mojombo/jekyll/wiki/Liquid-Extensions "Liquid Extensions - GitHub")

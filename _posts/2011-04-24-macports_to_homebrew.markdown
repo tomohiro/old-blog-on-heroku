@@ -94,7 +94,7 @@ $ sudo cp /usr/local/Library/Contributions/brew_zsh_completion.zsh /usr/local/sh
 {% endhighlight %}
 
 
-### References:
+### References
 
 - [2.5. Uninstall](http://guide.macports.org/chunked/installing.macports.uninstalling.html)
 - [Homebrew — MacPorts driving you to drink? Try Homebrew!](http://mxcl.github.com/homebrew/)

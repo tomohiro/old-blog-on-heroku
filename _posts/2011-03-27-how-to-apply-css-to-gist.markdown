@@ -17,7 +17,7 @@ div.gist-highlight pre .line {
 {% endhighlight %}
 
 
-### Reference:
+### Reference
 
 - [gist を blog に embed する時の見た目や色（CSS） を変える](http://valvallow.blogspot.com/2010/10/gist-blog-embed-css.html)
 - [ダイアリーに貼り付けるgistのコードの見た目をカスタマイズする](http://d.hatena.ne.jp/snaka72/20081218/1229622900)
