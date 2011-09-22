@@ -6,7 +6,7 @@ GEM
       fast-stemmer (>= 1.0.0)
     directory_watcher (1.4.1)
     fast-stemmer (1.0.0)
-    heroku (2.8.0)
+    heroku (2.8.1)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
       rubyzip
