@@ -39,6 +39,7 @@ PLATFORMS
 DEPENDENCIES
   heroku
   jekyll
+  liquid (= 2.2.2)
   rack
   rack-jekyll
   rdiscount
