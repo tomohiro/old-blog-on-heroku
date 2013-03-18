@@ -1,3 +1,4 @@
-require 'yaml'
-require 'rack/jekyll'
-run Rack::Jekyll.new
+$: << './'
+
+require 'web'
+run Sinatra::Application

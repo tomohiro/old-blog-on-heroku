@@ -1,10 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
+ruby '2.0.0'
 
-gem 'rdiscount'
-gem 'liquid', '2.2.2'
-gem 'jekyll'
-
-gem 'heroku'
-gem 'rack'
-gem 'rack-jekyll'
-
+gem 'sinatra'
